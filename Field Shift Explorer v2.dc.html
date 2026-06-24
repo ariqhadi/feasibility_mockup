@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f3f1ea; }
+  textarea, input, select { font-family: 'Space Grotesk', sans-serif; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-thumb { background: #d8d0c0; border-radius: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#f3f1ea;padding:30px 24px 96px;font-family:'Source Serif 4',Georgia,serif">
+  <div style="max-width:1180px;margin:0 auto">
+
+    <!-- controls row -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div onClick="{{ onToggleCompare }}" style="{{ btnAStyle }}">⇄ Compare subfields</div>
+      <div style="text-align:center;flex:1 1 280px;order:0">
+        <div style="font:500 11px/1 'IBM Plex Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:#9a8f80;margin-bottom:8px">A field in motion · 2003–2026</div>
+        <div style="font:600 27px/1.1 'Source Serif 4',serif;color:#2a2622;letter-spacing:-.01em">How research fields shift</div>
+      </div>
+      <div onClick="{{ onOpenModal }}" style="{{ btnBStyle }}">★ Test an abstract</div>
+    </div>
+
+    <!-- field choosers (revealed by Compare) -->
+    <sc-if value="{{ chooserOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:18px;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:16px 20px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+          <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;width:54px">Left</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ pickA }}" as="p" hint-placeholder-count="4">
+              <div onClick="{{ p.onClick }}" style="{{ p.style }}"><span style="{{ p.dot }}"></span>{{ p.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="height:1px;background:#efeadf;margin:14px 0"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+          <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;width:54px">Right</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ pickB }}" as="p" hint-placeholder-count="4">
+              <div onClick="{{ p.onClick }}" style="{{ p.style }}"><span style="{{ p.dot }}"></span>{{ p.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- lines key -->
+    <div style="display:flex;align-items:center;gap:20px;margin-top:22px;flex-wrap:wrap">
+      <div style="display:flex;gap:18px;font:500 12px/1 'IBM Plex Mono',monospace;color:#6b645b">
+        <div style="display:flex;align-items:center;gap:7px"><span style="width:18px;height:3px;background:#3f6ea5;display:inline-block;border-radius:2px"></span>PhD theses</div>
+        <div style="display:flex;align-items:center;gap:7px"><span style="width:18px;height:3px;background:#5b8a72;display:inline-block;border-radius:2px"></span>MSc theses</div>
+        <div style="display:flex;align-items:center;gap:7px"><span style="width:18px;height:3px;background:#cf6a3e;display:inline-block;border-radius:2px"></span>Grants</div>
+      </div>
+      <div style="font:400 12px/1.4 'Space Grotesk',sans-serif;color:#9a8f80;margin-left:auto">Coloured dots mark when each method enters the field. <span style="color:#b07a4a">Counts &amp; dates are illustrative.</span></div>
+    </div>
+
+    <sc-if value="{{ fieldsReady }}" hint-placeholder-val="{{ false }}">
+
+      <!-- ===================== SECTION 1: HISTORICAL ===================== -->
+      <div style="text-align:center;margin-top:30px">
+        <div style="font:600 20px/1.2 'Source Serif 4',serif;color:#2a2622">Historical Analysis</div>
+        <div style="font:400 13.5px/1.5 'Source Serif 4',serif;color:#7a7165;margin-top:5px">How the method stack turned over, year by year. <b style="color:#5b554d">Click any year</b> for that year's story — click again to return to the full range.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px" data-screen-label="Historical Analysis">
+        <sc-for list="{{ histColumns }}" as="hc" hint-placeholder-count="2">
+          <div style="background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:22px 22px 20px">
+            <div style="display:flex;align-items:baseline;gap:11px">
+              <div style="font:600 22px/1.15 'Source Serif 4',serif;color:#2a2622;letter-spacing:-.01em">{{ hc.label }}</div>
+              
+            </div>
+            
+
+            <div style="{{ hc.chartWrap }}">
+              <div>{{ hc.volEl }}</div>
+              <sc-for list="{{ hc.eraLabels }}" as="e" hint-placeholder-count="5"><div style="{{ e.style }}">{{ e.label }}</div></sc-for>
+              <sc-for list="{{ hc.methodDots }}" as="d" hint-placeholder-count="6"><div style="{{ d.style }}" title="{{ d.title }}"></div></sc-for>
+              <div style="{{ hc.selLine }}"></div>
+              <div style="{{ hc.selPhd }}"></div>
+              <div style="{{ hc.selMsc }}"></div>
+              <div style="{{ hc.selGr }}"></div>
+              <div style="{{ hc.colsWrap }}">
+                <sc-for list="{{ hc.cells }}" as="c" hint-placeholder-count="24"><div style="flex:1 1 0;cursor:pointer;height:100%" onClick="{{ c.onClick }}" title="{{ c.title }}"></div></sc-for>
+              </div>
+            </div>
+
+            
+
+            <div style="margin-top:15px;background:#f6f3ec;border-radius:8px;padding:15px 16px;height:236px;overflow:auto">
+              <sc-if value="{{ hc.isSelected }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:baseline;gap:9px">
+                  <span style="font:700 22px/1 'Space Grotesk',sans-serif;color:#2a2622">{{ hc.selYear }}</span>
+                  <span style="{{ hc.eraChip }}">{{ hc.eraName }}</span>
+                  <span style="font:500 11.5px/1 'IBM Plex Mono',monospace;color:#6b645b;margin-left:auto">{{ hc.counts }}</span>
+                </div>
+                <div style="font:400 13.5px/1.55 'Source Serif 4',serif;color:#4b463e;margin-top:10px;text-wrap:pretty">{{ hc.story }}</div>
+                <div style="display:flex;flex-direction:column;gap:7px;margin-top:13px">
+                  <sc-for list="{{ hc.reqGroups }}" as="grp" hint-placeholder-count="3">
+                    <div style="display:flex;gap:9px;align-items:flex-start">
+                      <span style="{{ grp.labelStyle }}">{{ grp.label }}</span>
+                      <div style="display:flex;flex-wrap:wrap;gap:5px">
+                        <sc-for list="{{ grp.items }}" as="it" hint-placeholder-count="3"><span style="{{ it.style }}">{{ it.name }}</span></sc-for>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div onClick="{{ hc.onClear }}" style="margin-top:14px;display:inline-block;cursor:pointer;font:500 11px/1 'IBM Plex Mono',monospace;color:#b07a4a">← back to full range</div>
+              </sc-if>
+              <sc-if value="{{ hc.isOverview }}" hint-placeholder-val="{{ true }}">
+                <div style="font:400 14px/1.55 'Source Serif 4',serif;color:#4b463e;text-wrap:pretty">{{ hc.tagline }}</div>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:13px">
+                  <sc-for list="{{ hc.eraList }}" as="er" hint-placeholder-count="5">
+                    <div style="display:flex;gap:10px;align-items:flex-start">
+                      <span style="{{ er.chipStyle }}">{{ er.range }}</span>
+                      <div>
+                        <div style="font:600 12.5px/1.2 'Space Grotesk',sans-serif;color:#2a2622">{{ er.name }}</div>
+                        <div style="font:400 12.5px/1.45 'Source Serif 4',serif;color:#6b645b;margin-top:3px;text-wrap:pretty">{{ er.note }}</div>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- ===================== SECTION 2: FEASIBILITY ===================== -->
+      <div style="text-align:center;margin-top:40px">
+        <div style="font:600 20px/1.2 'Source Serif 4',serif;color:#2a2622">Feasibility — grants vs. theses</div>
+        <div style="font:400 13.5px/1.5 'Source Serif 4',serif;color:#7a7165;margin-top:5px;max-width:760px;margin-left:auto;margin-right:auto">When a method is first <b style="color:#cf6a3e">funded</b> versus first <b style="color:#3f6ea5">attempted in a thesis</b>. The lag is the field's moving frontier of what counts as hard — funders bet on it before students take it on.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px" data-screen-label="Feasibility Historical Analysis">
+        <sc-for list="{{ feasColumns }}" as="fc" hint-placeholder-count="2">
+          <div style="background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:22px 22px 20px">
+            <div style="font:600 22px/1.15 'Source Serif 4',serif;color:#2a2622;letter-spacing:-.01em">{{ fc.label }}</div>
+
+            <div style="{{ fc.chartWrap }}">
+              <div>{{ fc.volEl }}</div>
+              <div style="{{ fc.connWrap }}">{{ fc.connEl }}</div>
+              <sc-for list="{{ fc.marks }}" as="m" hint-placeholder-count="6"><div style="{{ m.vline }}"></div></sc-for>
+              <sc-for list="{{ fc.marks }}" as="m" hint-placeholder-count="6">
+                <div style="{{ m.grantDot }}" title="{{ m.gtitle }}"></div>
+                <div style="{{ m.phdDot }}" title="{{ m.ptitle }}"></div>
+                <div style="{{ m.mscDot }}" title="{{ m.mtitle }}"></div>
+              </sc-for>
+              <div style="{{ fc.selLine }}"></div>
+              <div style="{{ fc.colsWrap }}">
+                <sc-for list="{{ fc.cells }}" as="c" hint-placeholder-count="24"><div style="flex:1 1 0;cursor:pointer;height:100%" onClick="{{ c.onClick }}" title="{{ c.title }}"></div></sc-for>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:7px 16px;margin-top:13px;align-items:center">
+              <div style="display:flex;align-items:center;gap:6px;font:500 11px/1 'Space Grotesk',sans-serif;color:#6b645b"><span style="width:11px;height:11px;border-radius:50%;background:#cf6a3e;display:inline-block"></span>First funded</div>
+              <div style="display:flex;align-items:center;gap:6px;font:500 11px/1 'Space Grotesk',sans-serif;color:#6b645b"><span style="width:11px;height:11px;border-radius:50%;background:#3f6ea5;display:inline-block"></span>First PhD thesis</div>
+              <div style="display:flex;align-items:center;gap:6px;font:500 11px/1 'Space Grotesk',sans-serif;color:#6b645b"><span style="width:11px;height:11px;border-radius:50%;background:#5b8a72;display:inline-block"></span>First MSc thesis</div>
+            </div>
+
+            <div style="margin-top:14px;background:#f6f3ec;border-radius:8px;padding:15px 16px;height:236px;overflow:auto">
+              <div style="font:400 13.5px/1.55 'Source Serif 4',serif;color:#4b463e;text-wrap:pretty">{{ fc.summary }}</div>
+              <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px;font:600 12px/1.4 'Space Grotesk',sans-serif;color:#b07a4a;background:#f5ece1;border-radius:6px;padding:9px 11px">{{ fc.selNote }}</div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column;gap:10px;margin-top:13px">
+                <sc-for list="{{ fc.bullets }}" as="b" hint-placeholder-count="6">
+                  <div style="display:flex;gap:9px;align-items:flex-start">
+                    <span style="{{ b.dot }}"></span>
+                    <div style="font:400 12.5px/1.5 'Source Serif 4',serif;color:#4b463e;text-wrap:pretty"><b style="font-family:'Space Grotesk',sans-serif;color:#2a2622">{{ b.label }}</b> — {{ b.text }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+    </sc-if>
+
+    <sc-if value="{{ fieldsLoading }}" hint-placeholder-val="{{ true }}">
+      <div style="margin-top:26px;border:1.5px dashed #d8d0c0;border-radius:8px;padding:54px;text-align:center;color:#9a8f80;font:400 15px/1.5 'Source Serif 4',serif">Loading field data…</div>
+    </sc-if>
+
+  </div>
+
+  <!-- ===================== MODAL: TEST AN ABSTRACT ===================== -->
+  <sc-if value="{{ showModal }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(30,26,22,.55);display:flex;align-items:flex-start;justify-content:center;padding:{{ modalPad }};z-index:60;overflow:auto">
+      <div style="{{ modalCardStyle }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:15px 22px;border-bottom:1px solid #eee7da;flex:none">
+          <div onClick="{{ onToggleFull }}" style="cursor:pointer;display:flex;align-items:center;gap:8px;font:600 12px/1 'IBM Plex Mono',monospace;color:#7a7165">⛶ {{ fullLabel }}</div>
+          <div style="font:600 14px/1 'Source Serif 4',serif;color:#2a2622">Test an abstract for feasibility</div>
+          <div onClick="{{ onCloseModal }}" style="cursor:pointer;font:400 24px/1 'Space Grotesk',sans-serif;color:#9a8f80;width:28px;text-align:center">×</div>
+        </div>
+
+        <div style="padding:22px 26px 30px;overflow:auto;font-family:'Space Grotesk',sans-serif">
+          <div style="max-width:860px;margin:0 auto">
+            <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;margin-bottom:8px">Abstract</div>
+            <textarea value="{{ abstract }}" onInput="{{ onAbstract }}" placeholder="Paste an abstract here…" style="width:100%;height:130px;resize:vertical;border:1px solid #ddd6c8;border-radius:6px;padding:12px 14px;font:400 14px/1.5 'Space Grotesk',sans-serif;color:#2a2622;outline:none"></textarea>
+
+            <div style="display:flex;align-items:flex-end;gap:16px;margin-top:14px;flex-wrap:wrap">
+              <div>
+                <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;margin-bottom:8px">Year</div>
+                <input value="{{ inYear }}" onInput="{{ onYear }}" inputmode="numeric" style="width:96px;border:1px solid #ddd6c8;border-radius:6px;padding:10px 12px;font:500 15px/1 'Space Grotesk',sans-serif;color:#2a2622;outline:none">
+              </div>
+              <div>
+                <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;margin-bottom:8px">Subfield</div>
+                <select value="{{ mField }}" onChange="{{ onMField }}" style="border:1px solid #ddd6c8;border-radius:6px;padding:10px 12px;font:500 14px/1 'Space Grotesk',sans-serif;color:#2a2622;outline:none;background:#fff;cursor:pointer">
+                  <sc-for list="{{ fieldOptions }}" as="o" hint-placeholder-count="4"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
+                </select>
+              </div>
+              <div onClick="{{ onAnalyze }}" style="{{ analyzeBtnStyle }}">{{ analyzeBtnLabel }}</div>
+              <div style="margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                
+                <sc-for list="{{ examples }}" as="ex" hint-placeholder-count="3">
+                  
+                </sc-for>
+              </div>
+            </div>
+
+            <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px;font:500 13px/1.4 'Space Grotesk',sans-serif;color:#b8553a;background:#faf0ec;border:1px solid #f0d8cf;border-radius:6px;padding:11px 14px">{{ errorMsg }}</div>
+            </sc-if>
+
+            <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:22px;text-align:center;padding:34px">
+                <div style="width:26px;height:26px;border:3px solid #e3ddd1;border-top-color:#3f6ea5;border-radius:50%;margin:0 auto;animation:spin .8s linear infinite"></div>
+                <div style="font:500 13.5px/1.5 'Space Grotesk',sans-serif;color:#6b645b;margin-top:14px">{{ loadingMsg }}</div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:20px;border:1.5px dashed #d8d0c0;border-radius:8px;padding:38px;text-align:center;color:#9a8f80;font:400 14px/1.5 'Source Serif 4',serif">Paste an abstract, pick a year and subfield, then test feasibility. The methods are pulled out and each one's origin year looked up — if anything postdates your year, the abstract is anachronistic.</div>
+            </sc-if>
+
+            <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:20px">
+                <div style="{{ verdictStyle }}">
+                  <div style="font:700 16px/1.2 'Space Grotesk',sans-serif">{{ verdictTitle }}</div>
+                  <div style="font:400 13px/1.5 'Source Serif 4',serif;margin-top:6px;text-wrap:pretty">{{ verdictText }}</div>
+                </div>
+
+                <div style="font:600 16px/1.2 'Source Serif 4',serif;color:#2a2622;margin-top:20px">{{ chartHeading }}</div>
+                <div style="font:400 12.5px/1.45 'Source Serif 4',serif;color:#6b645b;margin-top:4px">Bands mark each detected method's origin year against {{ mFieldLabel }}'s adoption curves. The ★ is your abstract ({{ inYear }}). Hover the plot for yearly counts.</div>
+                <div style="display:flex;gap:16px;margin-top:8px;font:500 11px/1 'IBM Plex Mono',monospace;color:#6b645b">
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:3px;background:#3f6ea5;display:inline-block;border-radius:2px"></span>PhD theses</span>
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:3px;background:#5b8a72;display:inline-block;border-radius:2px"></span>MSc theses</span>
+                  <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:3px;background:#cf6a3e;display:inline-block;border-radius:2px"></span>Grants</span>
+                </div>
+
+                <div style="{{ modalChartWrap }}">
+                  <div>{{ modalChartEl }}</div>
+                  <sc-for list="{{ originItems }}" as="o" hint-placeholder-count="5">
+                    <div style="{{ o.bandStyle }}"></div>
+                    <div style="{{ o.flagStyle }}"><span style="{{ o.flagDot }}"></span>{{ o.short }} · {{ o.yearLabel }}</div>
+                  </sc-for>
+                  <div style="{{ inputStarStyle }}">★<div style="font:600 10px/1.2 'IBM Plex Mono',monospace;margin-top:2px">Input {{ inYear }}</div></div>
+                  <div style="{{ modalTipStyle }}">{{ modalTipText }}</div>
+                  <div style="{{ modalCellsWrap }}">
+                    <sc-for list="{{ modalCells }}" as="c" hint-placeholder-count="24"><div style="flex:1 1 0;height:100%" onMouseEnter="{{ c.onEnter }}" onMouseLeave="{{ c.onLeave }}"></div></sc-for>
+                  </div>
+                </div>
+
+                <div style="margin-top:18px;padding-top:18px;border-top:1px solid #eee7da">
+                  <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;margin-bottom:12px">Detected methods · {{ methodCount }}</div>
+                  <div style="display:flex;flex-direction:column;gap:9px">
+                    <sc-for list="{{ methodList }}" as="m" hint-placeholder-count="5">
+                      <div style="display:flex;align-items:center;gap:12px;background:#f8f5ee;border-radius:6px;padding:11px 14px;flex-wrap:wrap">
+                        <span style="{{ m.dot }}"></span>
+                        <span style="font:600 14px/1.2 'Space Grotesk',sans-serif;color:#2a2622">{{ m.name }}</span>
+                        <span style="font:500 12px/1 'IBM Plex Mono',monospace;color:#8a8276">origin {{ m.yearLabel }}</span>
+                        <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:#b0a899">{{ m.source }}</span>
+                        
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:1560},&quot;leftField&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;sentiment_analysis&quot;,&quot;options&quot;:[&quot;sentiment_analysis&quot;,&quot;quantum_computing&quot;,&quot;recommender_systems&quot;,&quot;federated_learning&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;rightField&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;quantum_computing&quot;,&quot;options&quot;:[&quot;sentiment_analysis&quot;,&quot;quantum_computing&quot;,&quot;recommender_systems&quot;,&quot;federated_learning&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = {
+    fields: null, order: null, fa: null, fb: null,
+    chooserOpen: false,
+    histSel: { a: null, b: null },
+    feasSel: { a: null, b: null },
+    showModal: false, modalFull: false,
+    abstract: '', inYear: 2018, mField: null,
+    status: 'idle', methods: [], err: '', modalHover: null
+  };
+
+  componentDidMount() {
+    import('./field-data.js').then(m => {
+      const ok = (k) => k && m.FIELDS[k];
+      this.setState({
+        fields: m.FIELDS, order: m.FIELD_ORDER,
+        fa: ok(this.props.leftField) ? this.props.leftField : m.FIELD_ORDER[0],
+        fb: ok(this.props.rightField) ? this.props.rightField : m.FIELD_ORDER[1],
+        mField: ok(this.props.leftField) ? this.props.leftField : m.FIELD_ORDER[0]
+      });
+    }).catch(e => this.setState({ err: 'data load failed: ' + e }));
+  }
+
+  // ---------- shared geometry ----------
+  smooth(pts) {
+    if (!pts.length) return '';
+    let d = 'M ' + pts[0].x.toFixed(1) + ' ' + pts[0].y.toFixed(1);
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i-1]||pts[i], p1 = pts[i], p2 = pts[i+1], p3 = pts[i+2]||p2;
+      const c1x = p1.x+(p2.x-p0.x)/6, c1y = p1.y+(p2.y-p0.y)/6;
+      const c2x = p2.x-(p3.x-p1.x)/6, c2y = p2.y-(p3.y-p1.y)/6;
+      d += ' C '+c1x.toFixed(1)+' '+c1y.toFixed(1)+' '+c2x.toFixed(1)+' '+c2y.toFixed(1)+' '+p2.x.toFixed(1)+' '+p2.y.toFixed(1);
+    }
+    return d;
+  }
+  eraOf(f, yr) {
+    let last = f.eras[f.eras.length-1];
+    for (const e of f.eras) { if (yr >= e.a && yr < e.b) return e; }
+    return (yr >= last.a) ? last : f.eras[0];
+  }
+  maturityWord(m) { return m >= 0.75 ? 'Mature' : (m >= 0.5 ? 'Maturing' : 'Emerging'); }
+
+  // Split the combined thesis series into PhD vs MSc (illustrative): MSc's share
+  // of theses grows over time, so PhD leads on new/hard topics and MSc follows.
+  phdMsc(f) {
+    if (f.__pm) return f.__pm;
+    // Real per-level counts when the field provides them (sentiment_analysis,
+    // straight from the corpus). Otherwise fall back to the illustrative split
+    // used by the comparison fields: MSc's share of theses grows over time, so
+    // PhD leads on new/hard topics and MSc follows.
+    if (Array.isArray(f.phd) && Array.isArray(f.msc)) {
+      f.__pm={ phd:f.phd.slice(), msc:f.msc.slice() };
+      return f.__pm;
+    }
+    const phd=[], msc=[], th=f.volume.thesis;
+    for (let i=0;i<th.length;i++){
+      const yr=2003+i;
+      const frac=0.30 + (yr-2003)/(2026-2003)*0.32; // 0.30 -> 0.62
+      const m=Math.round(th[i]*frac);
+      msc.push(m); phd.push(Math.max(0, th[i]-m));
+    }
+    f.__pm={phd,msc};
+    return f.__pm;
+  }
+
+  buildVol(f, vMax) {
+    const W=520,H=190,mL=30,mR=12,mT=20,mB=26;
+    const plotW=W-mL-mR, plotH=H-mT-mB, Y0=2003, Y1=2026;
+    const x=(yr)=>mL+(yr-Y0)/(Y1-Y0)*plotW;
+    const y=(v)=>mT+(1-v/vMax)*plotH;
+    let s='';
+    f.eras.forEach(e=>{ s+='<rect x="'+x(e.a).toFixed(1)+'" y="'+mT+'" width="'+(x(Math.min(Y1,e.b))-x(e.a)).toFixed(1)+'" height="'+plotH+'" fill="'+e.c+'" opacity="0.07"/>'; });
+    [0, Math.round(vMax/2), Math.round(vMax)].forEach(t=>{
+      const yy=y(t).toFixed(1);
+      s+='<line x1="'+mL+'" y1="'+yy+'" x2="'+(W-mR)+'" y2="'+yy+'" stroke="#ece6d8" stroke-width="1"/>';
+      s+='<text x="'+(mL-6)+'" y="'+(y(t)+3).toFixed(1)+'" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b0a899">'+t+'</text>';
+    });
+    [2005,2010,2015,2020,2025].forEach(yr=>{
+      s+='<text x="'+x(yr).toFixed(1)+'" y="'+(H-9)+'" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#b0a899">\u2019'+String(yr).slice(2)+'</text>';
+    });
+    const pm=this.phdMsc(f);
+    const yrs=[]; for(let yr=Y0;yr<=Y1;yr++) yrs.push(yr);
+    const phdPts=yrs.map(yr=>({x:x(yr),y:y(pm.phd[yr-Y0])}));
+    const mscPts=yrs.map(yr=>({x:x(yr),y:y(pm.msc[yr-Y0])}));
+    const grPts=yrs.map(yr=>({x:x(yr),y:y(f.volume.grant[yr-Y0])}));
+    const phdLine=this.smooth(phdPts);
+    const area=phdLine+' L '+x(Y1).toFixed(1)+' '+y(0).toFixed(1)+' L '+x(Y0).toFixed(1)+' '+y(0).toFixed(1)+' Z';
+    s+='<path d="'+area+'" fill="#3f6ea5" opacity="0.07"/>';
+    s+='<path d="'+this.smooth(grPts)+'" fill="none" stroke="#cf6a3e" stroke-width="2.2"/>';
+    s+='<path d="'+this.smooth(mscPts)+'" fill="none" stroke="#5b8a72" stroke-width="2.2"/>';
+    s+='<path d="'+phdLine+'" fill="none" stroke="#3f6ea5" stroke-width="2.2"/>';
+    const html='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" style="display:block;max-width:100%">'+s+'</svg>';
+    return { el: React.createElement('div',{dangerouslySetInnerHTML:{__html:html}}), x, y, mL, mT, mR, plotW, plotH, W, H };
+  }
+
+  eraLabelsFor(f, v) {
+    const Y0=2003, Y1=2026;
+    return f.eras.map(e=>{
+      const cx=(v.x(Math.max(Y0,e.a))+v.x(Math.min(Y1,e.b)))/2;
+      return { label:e.name, style:{position:'absolute',left:cx+'px',top:'2px',transform:'translateX(-50%)',font:"600 9px/1 'IBM Plex Mono',monospace",letterSpacing:'.02em',textTransform:'uppercase',color:e.c,opacity:.8,whiteSpace:'nowrap',pointerEvents:'none'} };
+    });
+  }
+
+  reqGroupsFor(f, hy) {
+    const catStyle={
+      Data:    {c:'#3f8a78', bg:'#ecf4f1', bd:'#d6e7e1'},
+      Methods: {c:'#3f6ea5', bg:'#eaf0f6', bd:'#d4e1ee'},
+      Tools:   {c:'#5b8a72', bg:'#edf4ef', bd:'#d6e7dc'},
+      Compute: {c:'#bd842f', bg:'#f6efe2', bd:'#ead9bf'},
+      Human:   {c:'#8a5fb0', bg:'#f1ecf6', bd:'#e0d4ec'}
+    };
+    const chip=(cs)=>({font:"500 11px/1 'Space Grotesk',sans-serif",color:cs.c,background:cs.bg,border:'1px solid '+cs.bd,padding:'5px 9px',borderRadius:'14px',whiteSpace:'nowrap'});
+    const labelStyle=(cs)=>({font:"600 9px/1.4 'IBM Plex Mono',monospace",letterSpacing:'.08em',textTransform:'uppercase',color:cs.c,width:'56px',flex:'none',paddingTop:'5px'});
+
+    // Real per-year requirements (sentiment_analysis), straight from the
+    // historical-analysis summaries — one chip per extracted requirement,
+    // grouped by category.
+    const real=f.yearReqs && f.yearReqs[hy];
+    if (real && real.length) {
+      const order=['Data','Methods','Tools','Compute','Human'];
+      const byGroup={};
+      real.forEach(r=>{ (byGroup[r.group]=byGroup[r.group]||[]).push(r.name); });
+      return order.filter(g=>byGroup[g]).map(label=>{
+        const cs=catStyle[label];
+        return { label, items:byGroup[label].map(name=>({name,style:chip(cs)})), labelStyle:labelStyle(cs) };
+      });
+    }
+
+    // Fallback for the comparison fields: derive chips from the method/data/
+    // compute lifelines active in that year.
+    const grp=(label,arr)=>{
+      const cs=catStyle[label];
+      const items=arr.filter(l=>hy>=l.s && hy<=l.e).map(l=>({ name:l.label, style:chip(cs) }));
+      return { label, items, labelStyle:labelStyle(cs) };
+    };
+    return [grp('Data',f.lifelines.data),grp('Methods',f.lifelines.methods),grp('Compute',f.lifelines.compute)].filter(g=>g.items.length);
+  }
+
+  // ---------- historical column ----------
+  buildHist(slot, key, vMax) {
+    const f=this.state.fields[key];
+    const Y0=2003, Y1=2026;
+    const v=this.buildVol(f, vMax);
+    const pm=this.phdMsc(f);
+    const sel=this.state.histSel[slot];
+    const accent=f.eras[f.eras.length-1].c;
+    const mpct=Math.round(f.maturity*100);
+
+    const methodDots=f.lifelines.methods.map(l=>{
+      const yr=Math.max(Y0,Math.min(Y1,l.s));
+      const val=pm.phd[Math.round(yr)-Y0];
+      const cx=v.x(yr), cy=v.y(val);
+      return { title:l.label+' \u2014 enters \u2019'+String(Math.round(l.s)).slice(2), style:{position:'absolute',left:(cx-5)+'px',top:(cy-5)+'px',width:'10px',height:'10px',borderRadius:'50%',background:l.color,border:'2px solid #fff',boxShadow:'0 1px 2px rgba(0,0,0,.3)',pointerEvents:'none'} };
+    });
+    const legend=f.lifelines.methods.map(l=>({ label:l.label, dot:{width:'9px',height:'9px',borderRadius:'50%',background:l.color,display:'inline-block',flex:'none'} }));
+
+    const chartWrap={position:'relative',width:v.W+'px',maxWidth:'100%',height:v.H+'px',margin:'8px auto 0'};
+    const colsWrap={position:'absolute',left:v.mL+'px',top:v.mT+'px',width:v.plotW+'px',height:v.plotH+'px',display:'flex'};
+    const cells=[]; for(let yr=Y0;yr<=Y1;yr++){ const Y=yr; cells.push({ title:String(yr), onClick:()=>this.toggleSel('histSel',slot,Y) }); }
+
+    let selLine={display:'none'}, selPhd={display:'none'}, selMsc={display:'none'}, selGr={display:'none'};
+    let isSelected=false, selYear=null, story='', counts='', eraName='', eraChip={display:'none'}, reqGroups=[];
+    if (sel) {
+      isSelected=true; selYear=sel;
+      const hx=v.x(sel), phd=pm.phd[sel-Y0], msc=pm.msc[sel-Y0], gr=f.volume.grant[sel-Y0];
+      selLine={position:'absolute',left:hx+'px',top:v.mT+'px',height:v.plotH+'px',width:'0',borderLeft:'1.5px solid #b8a98f',pointerEvents:'none'};
+      const dotAt=(val,bg)=>({position:'absolute',left:(v.x(sel)-4.5)+'px',top:(v.y(val)-4.5)+'px',width:'9px',height:'9px',borderRadius:'50%',background:bg,border:'2px solid #fff',boxShadow:'0 1px 2px rgba(0,0,0,.3)',pointerEvents:'none'});
+      selPhd=dotAt(phd,'#3f6ea5'); selMsc=dotAt(msc,'#5b8a72'); selGr=dotAt(gr,'#cf6a3e');
+      const era=this.eraOf(f,sel);
+      eraName=era.name; counts=phd+' PhD \u00b7 '+msc+' MSc \u00b7 '+gr+' grants';
+      eraChip={font:"600 10px/1 'IBM Plex Mono',monospace",color:'#fff',background:era.c,padding:'4px 7px',borderRadius:'3px',whiteSpace:'nowrap'};
+      story=(f.years && f.years[sel]) ? f.years[sel] : era.note;
+      reqGroups=this.reqGroupsFor(f,sel);
+    }
+    const eraList=f.eras.map(e=>({
+      name:e.name, note:e.note,
+      range:Math.round(e.a)+(e.b>2026?'\u2013now':'\u2013'+Math.round(e.b)),
+      chipStyle:{font:"600 9.5px/1.2 'IBM Plex Mono',monospace",color:'#fff',background:e.c,padding:'4px 6px',borderRadius:'3px',whiteSpace:'nowrap',flex:'none',marginTop:'1px'}
+    }));
+
+    return {
+      label:f.label, maturityWord:this.maturityWord(f.maturity),
+      badgeStyle:{font:"600 10px/1 'IBM Plex Mono',monospace",letterSpacing:'.06em',textTransform:'uppercase',color:'#fff',background:accent,padding:'5px 9px',borderRadius:'3px'},
+      genLine: f.eras.length+' method generations \u00b7 '+mpct+'% to maturity',
+      volEl:v.el, chartWrap, colsWrap, cells, methodDots, legend,
+      eraLabels:this.eraLabelsFor(f,v),
+      selLine, selPhd, selMsc, selGr, isSelected, isOverview:!isSelected,
+      selYear, eraName, eraChip, counts, story, reqGroups,
+      onClear:()=>this.toggleSel('histSel',slot,sel),
+      tagline:f.tagline, eraList
+    };
+  }
+
+  // ---------- feasibility column ----------
+  buildFeas(slot, key, vMax) {
+    const f=this.state.fields[key];
+    const Y0=2003, Y1=2026;
+    const v=this.buildVol(f, vMax);
+    const sel=this.state.feasSel[slot];
+
+    const pm=this.phdMsc(f);
+    const marks=f.lifelines.methods.map(l=>{
+      const g=Math.max(Y0,Math.min(Y1,Math.round(l.s)));
+      const lagP=Math.max(0,Math.min(3,Math.round((l.s-2003)/6)));
+      const p=Math.min(Y1,g+lagP);
+      const lagM=Math.max(1,Math.min(3,Math.round((l.s-2003)/8)+1));
+      const ms=Math.min(Y1,p+lagM);
+      const gx=v.x(g), gy=v.y(f.volume.grant[g-Y0]);
+      const px=v.x(p), py=v.y(pm.phd[p-Y0]);
+      const mx=v.x(ms), my=v.y(pm.msc[ms-Y0]);
+      const dot=(cx,cy,bg)=>({position:'absolute',left:(cx-5)+'px',top:(cy-5)+'px',width:'10px',height:'10px',borderRadius:'50%',background:bg,border:'2px solid #fff',boxShadow:'0 1px 2px rgba(0,0,0,.3)',pointerEvents:'none'});
+      return { label:l.label, color:l.color, grantYr:g, phdYr:p, mscYr:ms, lagP, lagM, gx, gy, px, py, mx, my,
+        gtitle:l.label+' \u2014 first funded \u2019'+String(g).slice(2),
+        ptitle:l.label+' \u2014 first PhD \u2019'+String(p).slice(2),
+        mtitle:l.label+' \u2014 first MSc \u2019'+String(ms).slice(2),
+        vline:{position:'absolute',left:gx+'px',top:v.mT+'px',height:v.plotH+'px',width:'0',borderLeft:'1.5px dashed '+l.color,opacity:.28,pointerEvents:'none'},
+        grantDot:dot(gx,gy,'#cf6a3e'), phdDot:dot(px,py,'#3f6ea5'), mscDot:dot(mx,my,'#5b8a72')
+      };
+    });
+    let cs='';
+    marks.forEach(m=>{ cs+='<path d="M '+m.gx.toFixed(1)+' '+m.gy.toFixed(1)+' L '+m.px.toFixed(1)+' '+m.py.toFixed(1)+' L '+m.mx.toFixed(1)+' '+m.my.toFixed(1)+'" fill="none" stroke="#b1a690" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.55"/>'; });
+    const connEl=React.createElement('div',{dangerouslySetInnerHTML:{__html:'<svg viewBox="0 0 '+v.W+' '+v.H+'" width="'+v.W+'" height="'+v.H+'" style="display:block;max-width:100%">'+cs+'</svg>'}});
+    const connWrap={position:'absolute',left:'0',top:'0',width:v.W+'px',maxWidth:'100%',height:v.H+'px',pointerEvents:'none'};
+
+    const chartWrap={position:'relative',width:v.W+'px',maxWidth:'100%',height:v.H+'px',margin:'8px auto 0'};
+    const colsWrap={position:'absolute',left:v.mL+'px',top:v.mT+'px',width:v.plotW+'px',height:v.plotH+'px',display:'flex'};
+    const cells=[]; for(let yr=Y0;yr<=Y1;yr++){ const Y=yr; cells.push({ title:String(yr), onClick:()=>this.toggleSel('feasSel',slot,Y) }); }
+
+    let selLine={display:'none'};
+    if (sel) selLine={position:'absolute',left:v.x(sel)+'px',top:v.mT+'px',height:v.plotH+'px',width:'0',borderLeft:'1.5px solid #2a2622',opacity:.5,pointerEvents:'none'};
+
+    const sorted=[...marks].sort((a,b)=>a.grantYr-b.grantYr);
+    const two=(yr)=>"\u2019"+String(yr).slice(2);
+    const bullets=sorted.map(m=>{
+      const text = (m.grantYr===m.phdYr && m.phdYr===m.mscYr)
+        ? ('a settled tool — funded and attempted at PhD and MSc level together around '+two(m.grantYr)+'.')
+        : ('funded in grants from '+two(m.grantYr)+', reached PhD theses by '+two(m.phdYr)+', and MSc theses by '+two(m.mscYr)+' — the frontier descending into routine.');
+      return { label:m.label, text, dot:{width:'10px',height:'10px',borderRadius:'50%',background:m.color,display:'inline-block',flex:'none',marginTop:'4px'} };
+    });
+    const summary='A method is usually funded first, attempted in PhD theses next, and only later in MSc theses — the field\u2019s frontier of \u201chard\u201d descending into routine coursework.';
+    let hasSel=false, selNote='';
+    if (sel) {
+      hasSel=true;
+      const nf=marks.filter(m=>m.grantYr<=sel).length;
+      const np=marks.filter(m=>m.phdYr<=sel).length;
+      const nm=marks.filter(m=>m.mscYr<=sel).length;
+      selNote='By '+sel+': '+nf+' funded \u00b7 '+np+' in PhD theses \u00b7 '+nm+' in MSc theses.';
+    }
+
+    return { label:f.label, volEl:v.el, connEl, connWrap, chartWrap, colsWrap, cells, marks, selLine, summary, bullets, hasSel, selNote };
+  }
+
+  toggleSel(group, slot, yr) {
+    this.setState(s=>({ [group]: { ...s[group], [slot]: s[group][slot]===yr ? null : yr } }));
+  }
+
+  // ---------- modal chart ----------
+  buildModalChart(key) {
+    const f = (key && this.state.fields) ? this.state.fields[key] : null;
+    const W=720,H=320,mL=46,mR=16,mT=18,mB=32;
+    const plotW=W-mL-mR, plotH=H-mT-mB, Y0=2003, Y1=2026;
+    let fMax=44;
+    if (f) { fMax=1; f.volume.thesis.concat(f.volume.grant).forEach(v=>{ if(v>fMax) fMax=v; }); fMax=Math.ceil(fMax/10)*10; }
+    const x=(yr)=>mL+(yr-Y0)/(Y1-Y0)*plotW;
+    const y=(v)=>mT+(1-v/fMax)*plotH;
+    let s='';
+    [0,Math.round(fMax/2),fMax].forEach(t=>{
+      const yy=y(t).toFixed(1);
+      s+='<line x1="'+mL+'" y1="'+yy+'" x2="'+(W-mR)+'" y2="'+yy+'" stroke="#e7e2d6" stroke-width="1"/>';
+      s+='<text x="'+(mL-8)+'" y="'+(y(t)+3).toFixed(1)+'" text-anchor="end" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a99f8e">'+t+'</text>';
+    });
+    [2005,2010,2015,2020,2025].forEach(yr=>{
+      s+='<text x="'+x(yr).toFixed(1)+'" y="'+(H-11)+'" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#a99f8e">'+yr+'</text>';
+    });
+    if (f) {
+      f.eras.forEach(e=>{ s+='<rect x="'+x(Math.max(Y0,e.a)).toFixed(1)+'" y="'+mT+'" width="'+(x(Math.min(Y1,e.b))-x(Math.max(Y0,e.a))).toFixed(1)+'" height="'+plotH+'" fill="'+e.c+'" opacity="0.06"/>'; });
+      const yrs=[]; for(let yr=Y0;yr<=Y1;yr++) yrs.push(yr);
+      const pm=this.phdMsc(f);
+      const phdPts=yrs.map(yr=>({x:x(yr),y:y(pm.phd[yr-Y0])}));
+      const mscPts=yrs.map(yr=>({x:x(yr),y:y(pm.msc[yr-Y0])}));
+      const grPts=yrs.map(yr=>({x:x(yr),y:y(f.volume.grant[yr-Y0])}));
+      s+='<path d="'+this.smooth(grPts)+'" fill="none" stroke="#cf6a3e" stroke-width="2.2"/>';
+      s+='<path d="'+this.smooth(mscPts)+'" fill="none" stroke="#5b8a72" stroke-width="2.2"/>';
+      s+='<path d="'+this.smooth(phdPts)+'" fill="none" stroke="#3f6ea5" stroke-width="2.2"/>';
+    }
+    const html='<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" style="display:block;max-width:100%">'+s+'</svg>';
+    return { el:React.createElement('div',{dangerouslySetInnerHTML:{__html:html}}), x, y, mL, mT, mR, plotW, plotH, W, H, fMax, f, Y0, Y1 };
+  }
+
+  // ---------- analyze helpers ----------
+  localOrigins() {
+    return [
+      ['large language model',2023],['llm',2023],['gpt-4',2023],['gpt',2020],['chatgpt',2023],['llama',2023],['lora',2021],
+      ['bertopic',2020],['roberta',2019],['distilbert',2019],['bert',2018],['transformer',2017],['attention',2017],
+      ['lstm',1997],['gru',2014],['cnn',1998],['convolutional',1998],['recurrent neural',1986],['deep learning',2006],['neural network',1986],
+      ['word2vec',2013],['glove',2014],['word embedding',2013],['fasttext',2016],
+      ['vader',2014],['sentiwordnet',2006],['afinn',2011],['textblob',2013],['nrc',2010],['sentiment lexicon',2002],['wordnet',1995],
+      ['naive bayes',1960],['na\u00efve bayes',1960],['support vector',1995],['svm',1995],['logistic regression',1958],['random forest',2001],['maximum entropy',1996],['k-nearest',1951],['decision tree',1986],
+      ['latent dirichlet',2003],['lda',2003],['topic model',1999],['pagerank',1998],['label propagation',2002],['graph-based',2003],
+      ['twitter',2006],['social media',2004],['ensemble',1990],['gradient boost',2001],['xgboost',2016],
+      ['cross-lingual',2008],['multilingual',2007],['aspect-based',2010],['fine-tun',2018],['transfer learning',2010],['data augmentation',2015],
+      ['variational quantum',2014],['vqe',2014],['qaoa',2014],['surface code',1998],['error correction',1995],['error mitigation',2017],['superconducting qubit',2011],['trapped ion',2003],['shor',1994],['grover',1996],['logical qubit',2023],
+      ['matrix factorization',2006],['collaborative filtering',1994],['learning to rank',2005],['neural recommend',2016],['knowledge graph',2014],
+      ['federated averaging',2016],['fedavg',2016],['secure aggregation',2017],['differential privacy',2006],
+      ['gpu',2009],['apache spark',2014],['hadoop',2006],['active learning',1994],['crowdsourc',2006],['annotation',2002],['pos tag',1994],['n-gram',1948],['tf-idf',1972],['bag-of-words',1954]
+    ];
+  }
+  guessOrigin(name) {
+    const n=name.toLowerCase(), tbl=this.localOrigins(); let best=null;
+    for(const [k,yr] of tbl){ if(n.includes(k)){ if(best===null||k.length>best.k){ best={yr,k:k.length}; } } }
+    return best?best.yr:2010;
+  }
+  async extractMethods(text) {
+    const fallback=()=>{
+      const found=[], seen={}, n=text.toLowerCase();
+      const cands=[['Large language models','large language model'],['GPT-4','gpt-4'],['ChatGPT','chatgpt'],['LLaMA','llama'],['LoRA','lora'],['BERT','bert'],['RoBERTa','roberta'],['Transformers','transformer'],['LSTM','lstm'],['CNN','convolutional'],['Word embeddings','embedding'],['word2vec','word2vec'],['VADER','vader'],['SentiWordNet','sentiwordnet'],['Sentiment lexicons','lexicon'],['Na\u00efve Bayes','naive bayes'],['Support Vector Machines','support vector'],['SVM','svm'],['Logistic regression','logistic regression'],['Random forest','random forest'],['Maximum entropy','maximum entropy'],['Topic modeling (LDA)','lda'],['Latent Dirichlet Allocation','latent dirichlet'],['Twitter data','twitter'],['Social media data','social media'],['Ensemble learning','ensemble'],['Cross-lingual transfer','cross-lingual'],['Multilingual corpora','multilingual'],['Aspect-based sentiment','aspect'],['Fine-tuning','fine-tun'],['Transfer learning','transfer learning'],['Variational quantum (VQE/QAOA)','variational quantum'],['Error correction','error correction'],['Superconducting qubits','superconducting qubit'],['Matrix factorization','matrix factorization'],['Collaborative filtering','collaborative filtering'],['Federated averaging','federated averaging'],['Differential privacy','differential privacy'],['Apache Spark','spark'],['GPU compute','gpu'],['Manual annotation','annotation'],['n-grams','n-gram'],['TF-IDF','tf-idf']];
+      for(const [label,kw] of cands){ if(n.includes(kw)&&!seen[label]){ seen[label]=1; found.push(label); if(found.length>=7) break; } }
+      return found.length?found:['Sentiment analysis','Machine learning classifiers'];
+    };
+    if (typeof window==='undefined' || !window.claude || !window.claude.complete) return fallback();
+    try {
+      const prompt='You are extracting research methods from an abstract. List the distinct methods, models, algorithms, and data sources actually used or proposed. Return ONLY a compact JSON array of up to 7 short canonical names, most specific first. Example: ["BERT","Twitter data","Topic modeling (LDA)"]. No prose.\n\nAbstract:\n"""'+text.slice(0,2000)+'"""';
+      const r=await window.claude.complete(prompt);
+      const m=r.match(/\[[\s\S]*\]/);
+      if(!m) return fallback();
+      const arr=JSON.parse(m[0]);
+      const clean=arr.filter(s=>typeof s==='string'&&s.trim()).map(s=>s.trim()).slice(0,7);
+      return clean.length?clean:fallback();
+    } catch(e){ return fallback(); }
+  }
+  async fetchOrigin(name) {
+    const est=this.guessOrigin(name);
+    try {
+      const q=encodeURIComponent('"'+name+'"');
+      const url='https://api.semanticscholar.org/graph/v1/paper/search/bulk?query='+q+'&fields=year&fieldsOfStudy=Computer%20Science&sort=publicationDate:asc';
+      const ctrl=new AbortController(); const tid=setTimeout(()=>ctrl.abort(),7000);
+      const res=await fetch(url,{signal:ctrl.signal}); clearTimeout(tid);
+      if(!res.ok) throw new Error('http '+res.status);
+      const j=await res.json();
+      if(j.data){ for(const p of j.data){ if(p.year && p.year>=1945 && p.year<=2026){ if(p.year < est-25) return {year:est, source:'estimate'}; return {year:p.year, source:'Semantic Scholar'}; } } }
+      throw new Error('no year');
+    } catch(e){ return {year:est, source:'estimate'}; }
+  }
+  async runAnalyze() {
+    if (this.state.status==='loading') return;
+    const text=(this.state.abstract||'').trim();
+    if (text.length<20) { this.setState({status:'idle',err:'Paste an abstract (at least a sentence or two) first.'}); return; }
+    this.setState({status:'loading',err:'',methods:[]});
+    let names;
+    try { names=await this.extractMethods(text); }
+    catch(e){ this.setState({status:'idle',err:'Could not read the abstract. Try again.'}); return; }
+    const out=[];
+    for (const nm of names) { const o=await this.fetchOrigin(nm); out.push({name:nm, origin:o.year, source:o.source}); }
+    out.sort((a,b)=>a.origin-b.origin);
+    this.setState({status:'done',methods:out,err:''});
+  }
+  setExample(ab, yr) { this.setState({abstract:ab, inYear:yr, status:'idle', methods:[], err:''}); }
+
+  // ---------- render ----------
+  renderVals() {
+    const st=this.state;
+    const out={};
+
+    // buttons
+    const btnBase={cursor:'pointer',font:"600 13px/1 'Space Grotesk',sans-serif",padding:'11px 16px',borderRadius:'22px',transition:'all .15s',whiteSpace:'nowrap'};
+    out.onToggleCompare=()=>this.setState(s=>({chooserOpen:!s.chooserOpen}));
+    out.chooserOpen=st.chooserOpen;
+    out.btnAStyle=st.chooserOpen
+      ? {...btnBase,background:'#2a2622',color:'#fff',border:'1px solid #2a2622'}
+      : {...btnBase,background:'#fff',color:'#5b554d',border:'1px solid #e3ddd1'};
+    out.btnBStyle={...btnBase,background:'#2a6fdb',color:'#fff',border:'1px solid #2a6fdb'};
+
+    // ready?
+    const ready=!!(st.fields && st.fa && st.fb);
+    out.fieldsReady=ready;
+    out.fieldsLoading=!ready;
+
+    if (ready) {
+      let vMax=1;
+      [st.fa,st.fb].forEach(k=>{ const f=st.fields[k]; f.volume.thesis.concat(f.volume.grant).forEach(v=>{ if(v>vMax) vMax=v; }); });
+      vMax=Math.ceil(vMax/10)*10;
+      out.histColumns=[this.buildHist('a',st.fa,vMax), this.buildHist('b',st.fb,vMax)];
+      out.feasColumns=[this.buildFeas('a',st.fa,vMax), this.buildFeas('b',st.fb,vMax)];
+
+      const mkPick=(slot, selected)=> st.order.map(k=>{
+        const f=st.fields[k]; const accent=f.eras[f.eras.length-1].c; const on=(k===selected);
+        return { label:f.label, onClick:()=>this.setState(slot==='a'?{fa:k,histSel:{...st.histSel,a:null},feasSel:{...st.feasSel,a:null}}:{fb:k,histSel:{...st.histSel,b:null},feasSel:{...st.feasSel,b:null}}),
+          dot:{width:'9px',height:'9px',borderRadius:'50%',background:accent,display:'inline-block',marginRight:'7px',opacity:on?1:0.55},
+          style:{display:'inline-flex',alignItems:'center',cursor:'pointer',font:"600 13px/1 'Space Grotesk',sans-serif",padding:'9px 13px',borderRadius:'20px',border:'1px solid '+(on?'#2a2622':'#e3ddd1'),background:on?'#2a2622':'#f6f3ec',color:on?'#fff':'#5b554d'} };
+      });
+      out.pickA=mkPick('a',st.fa);
+      out.pickB=mkPick('b',st.fb);
+    } else {
+      out.histColumns=[]; out.feasColumns=[]; out.pickA=[]; out.pickB=[];
+    }
+
+    // ---- modal ----
+    out.showModal=st.showModal;
+    out.onOpenModal=()=>this.setState({showModal:true});
+    out.onCloseModal=()=>this.setState({showModal:false});
+    out.onToggleFull=()=>this.setState(s=>({modalFull:!s.modalFull}));
+    out.fullLabel=st.modalFull?'Exit full screen':'Full screen';
+    out.modalPad=st.modalFull?'0':'40px 20px';
+    out.modalCardStyle=st.modalFull
+      ? {width:'100%',minHeight:'100vh',maxWidth:'100%',background:'#fff',borderRadius:'0',boxShadow:'none',display:'flex',flexDirection:'column'}
+      : {width:'960px',maxWidth:'100%',background:'#fff',borderRadius:'12px',boxShadow:'0 24px 70px rgba(0,0,0,.4)',display:'flex',flexDirection:'column',maxHeight:'calc(100vh - 80px)'};
+
+    out.mField=st.mField || st.fa;
+    out.mFieldLabel=(st.fields && out.mField && st.fields[out.mField]) ? st.fields[out.mField].label : '';
+    out.fieldOptions=(st.order && st.fields) ? st.order.map(k=>({value:k,label:st.fields[k].label})) : [];
+    out.onMField=(e)=>this.setState({mField:e.target.value, status:'idle', methods:[], modalHover:null});
+
+    out.abstract=st.abstract; out.inYear=st.inYear;
+    out.onAbstract=(e)=>this.setState({abstract:e.target.value});
+    out.onYear=(e)=>this.setState({inYear:e.target.value.replace(/[^0-9]/g,'').slice(0,4)});
+    out.onAnalyze=()=>this.runAnalyze();
+    out.analyzeBtnLabel=st.status==='loading'?'Testing\u2026':'Test feasibility \u2192';
+    out.analyzeBtnStyle={padding:'11px 22px',cursor:st.status==='loading'?'default':'pointer',font:"600 14px/1 'Space Grotesk',sans-serif",color:'#fff',background:st.status==='loading'?'#9aa7b5':'#2a6fdb',borderRadius:'6px',opacity:st.status==='loading'?.8:1};
+    out.examples=[
+      {label:'BERT \u00b7 COVID tweets', ab:'This thesis fine-tunes a BERT transformer model for sentiment classification of COVID-19 vaccine discourse on Twitter. We combine the pre-trained language model with a VADER lexicon baseline and apply LDA topic modeling to uncover themes, training on GPU hardware with manually annotated tweets.', yr:2022},
+      {label:'SVM \u00b7 product reviews', ab:'We present a supervised sentiment analysis of online customer reviews using Support Vector Machines and Na\u00efve Bayes classifiers with n-gram and TF-IDF features. A sentiment lexicon derived from WordNet provides polarity scores, and manual annotation creates the labeled corpus.', yr:2011},
+      {label:'LLM \u00b7 zero-shot', ab:'This work evaluates large language models including GPT-4 and LLaMA for zero-shot and few-shot sentiment analysis. We apply LoRA fine-tuning for domain adaptation, compare against RoBERTa, and use the models themselves for automated annotation across multilingual corpora.', yr:2024}
+    ].map(e=>({label:e.label,onClick:()=>this.setExample(e.ab,e.yr)}));
+
+    out.hasError=!!st.err; out.errorMsg=st.err;
+    out.isLoading=st.status==='loading';
+    out.loadingMsg='Extracting methods, then looking up each origin year via Semantic Scholar\u2026';
+    out.isIdle=st.status==='idle' && !st.err && st.methods.length===0;
+    out.hasResults=st.status==='done' && st.methods.length>0;
+
+    if (out.hasResults) {
+      const palette=['#c0563b','#3f6ea5','#5b8a72','#8a5fb0','#c9a14a','#3f8a9a','#7a5aa0'];
+      const inY=parseInt(st.inYear,10)||2024;
+      const methods=st.methods;
+      const mc=this.buildModalChart(out.mField);
+      out.modalChartEl=mc.el;
+      out.chartHeading=mc.f ? (mc.f.label+' — distribution & method adoption') : 'Method adoption timeline';
+      out.modalChartWrap={position:'relative',width:mc.W+'px',maxWidth:'100%',height:mc.H+'px',margin:'12px auto 0'};
+      const clamp=(yr)=>Math.max(mc.Y0,Math.min(mc.Y1,yr));
+      out.originItems=methods.map((m,i)=>{
+        const col=palette[i%palette.length];
+        const lx=mc.x(clamp(m.origin)); const row=i%4;
+        return {
+          short:(m.name.length>16?m.name.slice(0,15)+'\u2026':m.name),
+          yearLabel:(m.origin<mc.Y0?('\u2039'+m.origin):String(m.origin)),
+          bandStyle:{position:'absolute',left:(lx-3)+'px',top:mc.mT+'px',width:'6px',height:mc.plotH+'px',background:col,opacity:.32,borderRadius:'2px'},
+          flagStyle:{position:'absolute',left:(lx+6)+'px',top:(mc.mT+8+row*17)+'px',display:'flex',alignItems:'center',gap:'5px',font:"600 10px/1 'IBM Plex Mono',monospace",color:col,background:'rgba(255,255,255,.88)',padding:'2px 5px',borderRadius:'3px',whiteSpace:'nowrap',pointerEvents:'none'},
+          flagDot:{width:'7px',height:'7px',borderRadius:'50%',background:col,display:'inline-block'}
+        };
+      });
+      out.inputStarStyle={position:'absolute',left:mc.x(clamp(inY))+'px',top:(mc.mT+mc.plotH-2)+'px',transform:'translateX(-50%)',textAlign:'center',color:'#2a2622',font:"700 22px/1 'Space Grotesk',sans-serif",pointerEvents:'none'};
+
+      // hover cells + tooltip
+      const cells=[]; for(let yr=mc.Y0;yr<=mc.Y1;yr++){ const Y=yr; cells.push({ onEnter:()=>this.setState({modalHover:Y}), onLeave:()=>this.setState({modalHover:null}) }); }
+      out.modalCells=cells;
+      out.modalCellsWrap={position:'absolute',left:mc.mL+'px',top:mc.mT+'px',width:mc.plotW+'px',height:mc.plotH+'px',display:'flex'};
+      const hv=st.modalHover;
+      if (hv && mc.f) {
+        const pm=this.phdMsc(mc.f); const phd=pm.phd[hv-mc.Y0], msc=pm.msc[hv-mc.Y0], gr=mc.f.volume.grant[hv-mc.Y0];
+        out.modalTipStyle={position:'absolute',left:mc.x(hv)+'px',top:(mc.mT-2)+'px',transform:'translateX(-50%)',background:'#2a2622',color:'#fff',font:"500 10.5px/1.3 'IBM Plex Mono',monospace",padding:'5px 8px',borderRadius:'4px',whiteSpace:'nowrap',pointerEvents:'none',zIndex:'5'};
+        out.modalTipText=hv+' \u00b7 '+phd+' PhD \u00b7 '+msc+' MSc \u00b7 '+gr+' grants';
+      } else {
+        out.modalTipStyle={display:'none'}; out.modalTipText='';
+      }
+
+      // verdict
+      const future=methods.filter(m=>m.origin>inY);
+      const feasible=future.length===0;
+      out.verdictTitle=feasible?('Plausible for '+inY):('Anachronistic for '+inY);
+      out.verdictStyle=feasible
+        ? {background:'#edf5ef',border:'1px solid #cfe5d6',borderRadius:'8px',padding:'14px 16px',color:'#2f6b46'}
+        : {background:'#faf0ec',border:'1px solid #f0d8cf',borderRadius:'8px',padding:'14px 16px',color:'#9c4326'};
+      out.verdictText=feasible
+        ? ('Every method detected already existed by '+inY+'. The work could plausibly have been carried out that year — its requirements were all available.')
+        : ('These methods did not exist yet in '+inY+': '+future.map(m=>m.name+' ('+m.origin+')').join(', ')+'. As written, the abstract could not have been produced that year.');
+
+      out.methodList=methods.map((m,i)=>{
+        const col=palette[i%palette.length]; const age=inY-m.origin;
+        let badge,bg; if(m.origin>inY){badge='not yet invented';bg='#9c4326';} else if(m.origin>=inY-3){badge='emerging';bg='#b8553a';} else if(age>=20){badge='foundational';bg='#5b6470';} else if(age>=8){badge='established';bg='#4f7a6b';} else {badge='maturing';bg='#3f6ea5';}
+        return {name:m.name,yearLabel:(m.origin<mc.Y0?('pre-2003 ('+m.origin+')'):String(m.origin)),source:m.source,dot:{width:'12px',height:'12px',borderRadius:'50%',background:col,display:'inline-block',flex:'none'},badge:badge,badgeStyle:{marginLeft:'auto',font:"600 10px/1 'IBM Plex Mono',monospace",color:'#fff',background:bg,padding:'4px 8px',borderRadius:'3px'}};
+      });
+      out.methodCount=methods.length;
+    } else {
+      out.originItems=[]; out.methodList=[]; out.modalCells=[]; out.modalTipStyle={display:'none'};
+    }
+
+    return out;
+  }
+}
+</script>
+</body>
+</html>

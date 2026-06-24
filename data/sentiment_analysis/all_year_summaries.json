@@ -1,0 +1,94 @@
+{
+  "narrative": "The research landscape from 2003 to 2026 reveals a persistent and evolving focus on sentiment analysis, natural language processing (NLP), and the application of machine learning to unstructured text data, particularly from social media and news sources. Across the entire period, sentiment analysis and NLP remain core methodological techniques, appearing in every year with consistent descriptions as central tools for extracting opinions, emotions, and themes from text. This continuity reflects a foundational commitment in the field to computational text analysis. However, the specific data sources, computational demands, and auxiliary methods have shifted notably over time. Social media text data, especially from Twitter, Facebook, and similar platforms, is a persistent requirement from 2006 onward, but its role deepens in the 2010s and 2020s as a primary source for studying public discourse, sentiment, and behavior. Large-scale text corpora (including news, blogs, and financial texts) also recur across most years, though the balance between social media and more traditional news sources varies, with social media dominating in many years after 2013. A major turning point occurs in 2021, when qualitative interviews and surveys first appear as a required human effort method, signaling a shift toward mixed-methods approaches that integrate computational analysis with subjective data collection. This pattern continues and strengthens in subsequent years, with 2024 and 2025 explicitly combining qualitative methods (interviews, focus groups) with quantitative NLP. Another turning point is the emergence of large language models (LLMs) and transformer-based architectures as distinct requirements. While deep learning and pre-trained models like BERT appear as early as 2017, LLMs as a named category become visible in 2023 and then recur in 2024 and 2025 as a key technique for text generation, analysis, and domain-specific adaptation. This marks a departure from earlier reliance on simpler machine learning models and custom-built NLP pipelines. The requirement for GPU compute and high-performance computing is persistent from 2017 onward, but its framing shifts: early years (2013, 2014) emphasize distributed computing (Hadoop, MapReduce) for big data, while later years (2017–2025) consistently cite GPU compute for deep learning training, reflecting the transition from large-scale data processing infrastructure to specialized hardware for neural network training. Manual annotation and expert validation of text data is a persistent human effort requirement from 2009 onward, but it appears most consistently after 2015, suggesting a growing need for labeled training data as machine learning models became more central. Several year-specific requirements stand out: in 2003, the research is split between social science (protest event data, regression analysis) and early computational linguistics (graph-based algorithms), with no sentiment analysis or NLP as a named category—this is the only year where those techniques are not explicitly listed. In 2006, the sole thesis on blogosphere coalition discovery introduces large-scale data processing as a compute requirement but does not mention sentiment analysis, marking an early, narrow focus. In 2012, lexical resources like WordNet, FrameNet, and PropBank are explicitly required for deep semantic processing, a requirement that does not reappear in later years, suggesting a shift away from symbolic lexicon-based approaches toward end-to-end neural methods. In 2026, the integration of historical press archives and corporate accounting data with LLMs for diachronic network mapping represents a unique fusion of computational history and NLP, not seen in other years. These year-specific requirements reflect the field's evolving engagement with different data sources, methods, and societal questions. Overall, the narrative is one of persistent core techniques (sentiment analysis, NLP, machine learning) that are continuously adapted to new data sources and computational paradigms, with punctuated shifts toward mixed-methods, large-scale language models, and domain-specific applications.",
+  "turning_points": [
+    {
+      "period": "2021",
+      "change": "Qualitative interviews and surveys first appear as a required method for gathering subjective data, marking a shift toward mixed-methods research that combines computational analysis with human-centered data collection.",
+      "evidence": "The 'Qualitative interviews and surveys' requirement (category: human_effort) appears in 2021 and then recurs in 2024 and 2025, while it is absent from earlier years (2003–2020)."
+    },
+    {
+      "period": "2023",
+      "change": "Large Language Models (LLMs) emerge as a distinct data and method category, moving beyond earlier mentions of pre-trained models like BERT to encompass a broader emphasis on LLMs as a foundation for AI systems, often with a focus on efficiency or adaptation.",
+      "evidence": "The 'Large Language Models (LLMs)' requirement appears in 2023 and recurs in 2024 and 2025, whereas earlier years (2017–2022) only mention specific pre-trained models (e.g., BERT) or deep learning more generally."
+    },
+    {
+      "period": "2006",
+      "change": "Social media text data becomes a primary data source for the first time, but only in the context of blogosphere analysis, not yet sentiment analysis; this marks the beginning of a persistent reliance on user-generated content that expands dramatically in later years.",
+      "evidence": "The 'Blogosphere data' requirement (category: data) in 2006 is the first appearance of social media-type data, and it is followed by 'Social media and web text data' in 2013, and then consistently by 'Social media text data' or similar from 2014 onward."
+    },
+    {
+      "period": "2017",
+      "change": "GPU compute for deep learning training becomes a consistently cited requirement, replacing earlier references to distributed computing (Hadoop, MapReduce) and large-scale data processing infrastructure, signaling a shift from big data platforms to specialized hardware for neural network training.",
+      "evidence": "The 'GPU compute for deep learning' requirement appears in 2017 and recurs in every subsequent year (2018–2025), while 'Distributed computing (Hadoop and MapReduce)' (2014) and 'Large-scale data processing infrastructure' (2013, 2015) do not appear after 2015."
+    },
+    {
+      "period": "2024",
+      "change": "Statistical and econometric analysis emerges as a required method for hypothesis testing and regression, complementing the existing machine learning and NLP techniques, and reflecting a growing integration of traditional social science methodology with computational analysis.",
+      "evidence": "The 'Statistical and econometric analysis' requirement (category: method_technique) appears in 2024 and recurs in 2025, while it is absent from earlier years except for a single mention of 'regression analysis' in 2003."
+    }
+  ],
+  "persistent_requirements": [
+    {
+      "name": "Sentiment analysis / emotion detection",
+      "note": "Present in every year from 2003 to 2026 as a core technique for extracting opinions, emotions, and polarity from text, though its specific domain and method vary."
+    },
+    {
+      "name": "Natural language processing (NLP) / text mining",
+      "note": "Appears in every year from 2003 to 2026 as a foundational method for preprocessing, feature extraction, and classification, though its scope expands with the adoption of deep learning and LLMs."
+    },
+    {
+      "name": "Social media text data",
+      "note": "Present from 2006 onward (with a gap in 2003) as a primary data source, consistently used for sentiment analysis, topic modeling, and studying public discourse, though the specific platforms (Twitter, Facebook, Instagram) vary."
+    },
+    {
+      "name": "Machine learning / deep learning",
+      "note": "Appears in every year from 2003 to 2026 as a central technique for classification, prediction, and representation learning, though the specific algorithms (from SVM to transformers) evolve."
+    },
+    {
+      "name": "Manual annotation / expert validation",
+      "note": "Present from 2009 onward as a human effort requirement for creating labeled training data and validating model outputs, reflecting a persistent need for ground truth in supervised and semi-supervised approaches."
+    }
+  ],
+  "year_specific_requirements": [
+    {
+      "name": "Spanish political protest and economic integration data",
+      "year": "2003",
+      "note": "Unique to 2003, this requirement reflects a social science thesis that uses protest event records and trade statistics, not text from social media or NLP, suggesting a period when computational analysis was still emerging."
+    },
+    {
+      "name": "Graph-based algorithms for text processing",
+      "year": "2003",
+      "note": "Appears only in 2003, where network flow and spectral analysis are applied to text categorization and retrieval, a method that does not recur in later years."
+    },
+    {
+      "name": "Google Trends and search data",
+      "year": "2013",
+      "note": "Unique to 2013, this requirement uses Google search data as a primary data source for tracking brand value and hate speech, a data type not seen in other years."
+    },
+    {
+      "name": "Lexical resources (WordNet, FrameNet, PropBank, VerbNet)",
+      "year": "2012",
+      "note": "Appears only in 2012 as a requirement for deep semantic processing and word sense disambiguation, reflecting a reliance on symbolic lexicons that later years (2017–2026) do not require."
+    },
+    {
+      "name": "Large-scale data processing infrastructure (Hadoop, MapReduce)",
+      "year": "2014",
+      "note": "Appears in 2014 as a requirement for distributed computing, but is not explicitly cited in later years, which instead require GPU compute for deep learning."
+    },
+    {
+      "name": "Digitized historical press archives (Gallica)",
+      "year": "2026",
+      "note": "Unique to 2026, this requirement uses a specific historical digital library for analyzing corporate profit narratives from 1907 to 1950, a data source not seen in any other year."
+    },
+    {
+      "name": "Corporate accounting and annual report data (Equipex DFIH)",
+      "year": "2026",
+      "note": "Appears only in 2026, linking firm-level financial data with historical discourse analysis, a combination of data types not required in other years."
+    }
+  ],
+  "unexplained_patterns": [
+    "The requirement for 'Large Language Models (LLMs)' appears in 2023, 2024, and 2025, but is absent from 2017–2022 even though pre-trained models like BERT are mentioned. It is unclear from the data whether this reflects a genuine shift in research focus or a change in how researchers describe similar techniques (i.e., 'pre-trained language models' vs. 'LLMs').",
+    "Qualitative interviews and surveys appear as a requirement in 2021 and then again in 2024 and 2025, but are absent from 2022 and 2023. The data does not explain why this mixed-methods approach is present in some years but not others; it may reflect a sampling effect or a genuine fluctuation in methodological preference.",
+    "The 'GPU compute for deep learning' requirement is consistently present from 2017 to 2025, but 'Large-scale data processing infrastructure' (Hadoop, MapReduce) appears only in 2013–2015 and then disappears. The data does not clarify whether this is a complete replacement of one paradigm by another or a coexistence that is simply not captured in the summary."
+  ]
+}
