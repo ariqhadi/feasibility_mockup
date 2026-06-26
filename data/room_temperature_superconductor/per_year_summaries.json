@@ -1,1057 +1,1105 @@
 {
-  "2017": {
-    "year": "2017",
-    "summary": "In 2017, research heavily focused on sentiment analysis applied to social media and financial text, often aiming to predict market movements or public opinion. Many theses combined natural language processing (NLP), social network analysis, and machine learning to process unstructured data from platforms like Twitter. A strong emphasis was placed on developing models that are robust to variations in time, geography, and demographics, and on creating resources for under-resourced languages. Several projects also explored the use of knowledge graphs, agent-based modeling, and complex event processing for real-time analysis and risk assessment. The work frequently required large-scale text corpora, annotation efforts, and computational resources for training deep learning models.",
+  "2023": {
+    "year": "2023",
+    "summary": "2023 research was dominated by investigations into room-temperature superconductivity, particularly following the summer 2023 reports of materials like LK-99 and lead-apatite based superconductors. Multiple theses employed solid-state synthesis, phase characterization via diffraction methods, and computational approaches to understand superconducting mechanisms and search for practical superconducting materials. Beyond superconductivity, research explored strongly correlated quantum materials, topological phases, and quantum computing platforms using both theoretical (field theory, density functional theory, Monte Carlo simulations) and experimental (spectroscopy, high-pressure techniques, cryogenic measurements) methods. The year reflects a broad effort to understand unconventional superconductivity, develop quantum technologies, and discover materials suitable for real-world applications.",
     "requirements": [
       {
-        "category": "data",
-        "name": "Social media text data (Twitter, Facebook, etc.)",
-        "description": "Used as a primary source for sentiment analysis, network analysis, and event detection across multiple theses.",
-        "search_query": "Twitter social media text data corpus sentiment analysis 2017"
-      },
-      {
-        "category": "data",
-        "name": "Financial news and reports",
-        "description": "Used for event extraction and sentiment analysis to predict market volatility and assess risk.",
-        "search_query": "financial news articles SEC filings text corpus 2017"
+        "category": "method_technique",
+        "name": "In situ and ex situ diffraction characterization",
+        "description": "Multiple theses used powder diffraction, total scattering, and in situ diffraction methods to identify phases present during synthesis and characterize crystal structures of superconducting materials.",
+        "search_query": "in situ diffraction ex situ powder X-ray diffraction total scattering phase identification"
       },
       {
         "category": "method_technique",
-        "name": "Sentiment analysis",
-        "description": "Central technique applied to text from social media, news, and reviews to extract opinions and emotions.",
-        "search_query": "sentiment analysis opinion mining NLP 2017"
+        "name": "High-pressure techniques",
+        "description": "Research employed high-pressure sample preparation and measurement to study material properties under extreme conditions, particularly for exploring superconductivity and electron correlations.",
+        "search_query": "high pressure diamond anvil cell megabar pressure superconductivity"
       },
       {
         "category": "method_technique",
-        "name": "Natural language processing (NLP)",
-        "description": "Used for text preprocessing, feature extraction, and building models for classification and information extraction.",
-        "search_query": "natural language processing text mining 2017"
+        "name": "Spectroscopic characterization",
+        "description": "Theses employed terahertz spectroscopy, X-ray absorption spectroscopy, and other spectroscopic techniques to probe electronic structure, emergent phenomena, and radiation damage in materials.",
+        "search_query": "terahertz spectroscopy X-ray absorption spectroscopy XAS electronic structure"
       },
       {
-        "category": "method_technique",
-        "name": "Machine learning (including deep learning)",
-        "description": "Applied for training classifiers, topic models, and predictive models on text and network data.",
-        "search_query": "machine learning deep learning classification 2017"
+        "category": "compute",
+        "name": "Density Functional Theory (DFT) calculations",
+        "description": "DFT was widely used to predict material properties, simulate spectroscopic signatures, model defects, and understand electronic structure of superconductors and correlated materials.",
+        "search_query": "density functional theory DFT computational materials prediction electronic structure"
       },
       {
-        "category": "method_technique",
-        "name": "Social network analysis (SNA)",
-        "description": "Used to study influence, information spread, and community structure in online social platforms.",
-        "search_query": "social network analysis graph theory 2017"
-      },
-      {
-        "category": "method_technique",
-        "name": "Bayesian modeling",
-        "description": "Employed for uncertainty quantification, model averaging, and spatial smoothing in opinion estimation and volatility prediction.",
-        "search_query": "Bayesian model averaging spatial smoothing 2017"
-      },
-      {
-        "category": "method_technique",
-        "name": "Agent-based modeling",
-        "description": "Used to simulate emotional contagion and social dynamics at the population level.",
-        "search_query": "agent-based model simulation emotional well-being 2017"
+        "category": "compute",
+        "name": "Numerical simulation methods for correlated systems",
+        "description": "Theses applied DMRG, Monte Carlo, and other non-perturbative numerical methods to study strongly correlated electrons, topological phases, and quantum many-body physics.",
+        "search_query": "DMRG Monte Carlo numerical simulation strongly correlated systems quantum many-body"
       },
       {
         "category": "tool_library",
-        "name": "Pre-trained language models (e.g., BERT)",
-        "description": "Specifically developed and used for sentiment analysis in Norwegian, and as a basis for other NLP tasks.",
-        "search_query": "BERT language model Norwegian sentiment analysis"
-      },
-      {
-        "category": "compute",
-        "name": "GPU compute for model training",
-        "description": "Required for training deep neural networks on large text corpora.",
-        "search_query": "GPU training deep learning NLP"
-      },
-      {
-        "category": "human_effort",
-        "name": "Manual annotation of text data",
-        "description": "Needed to create labeled datasets for sentiment and event extraction, especially for fine-grained analysis.",
-        "search_query": "manual annotation sentiment analysis dataset"
-      }
-    ]
-  },
-  "2018": {
-    "year": "2018",
-    "summary": "In 2018, research heavily focused on natural language processing (NLP) and sentiment analysis applied to social media and healthcare data. Many studies aimed to model, forecast, or detect patterns in human behavior, such as political polarization, financial market movements, and patient experience. There was a strong emphasis on developing and adapting machine learning methods, particularly deep neural networks and probabilistic topic models like Latent Dirichlet Allocation (LDA). The research frequently depended on large-scale text data from platforms like Twitter and online forums, requiring substantial computational resources for training complex models.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Social media text data",
-        "description": "Used across multiple theses as the primary source for sentiment analysis, topic modeling, and studying opinion dynamics, often collected via APIs (e.g., Twitter API).",
-        "search_query": "social media text data Twitter API sentiment analysis"
+        "name": "Physical Property Measurement System (PPMS)",
+        "description": "The PPMS instrument was used for measuring electrical transport, magnetic properties, thermal transport, and thermodynamic properties of materials across broad temperature and pressure ranges.",
+        "search_query": "PPMS Physical Property Measurement System electrical resistivity magnetization thermal transport"
       },
       {
         "category": "method_technique",
-        "name": "Sentiment analysis",
-        "description": "A core technique applied in numerous theses to extract emotion, opinion, and polarity from text in domains like finance, politics, and healthcare.",
-        "search_query": "sentiment analysis machine learning NLP"
+        "name": "Solid-state synthesis and sample preparation",
+        "description": "Theses required careful synthesis of polycrystalline and single crystal samples of superconductors and quantum materials, including phase-pure sample preparation and control of doping.",
+        "search_query": "solid state synthesis polycrystalline single crystal sample preparation materials synthesis"
       },
       {
         "category": "method_technique",
-        "name": "Topic modeling (Latent Dirichlet Allocation)",
-        "description": "Widely used for uncovering latent themes in text corpora, often combined with sentiment analysis or extended with spatio-temporal dynamics.",
-        "search_query": "Latent Dirichlet Allocation topic modeling NLP"
-      },
-      {
-        "category": "method_technique",
-        "name": "Deep neural networks",
-        "description": "Employed for tasks such as text classification, sentiment analysis, and representation learning across healthcare, finance, and social media analysis.",
-        "search_query": "deep neural networks NLP LSTM CNN"
+        "name": "Cryogenic measurement and characterization",
+        "description": "Research required cryogenic temperatures (down to 4K and below) for measuring superconducting properties, quantum phenomena, and performing spectroscopy on quantum materials.",
+        "search_query": "cryogenic measurements low temperature liquid helium dilution refrigerator superconductivity"
       },
       {
         "category": "tool_library",
-        "name": "Python NLP libraries",
-        "description": "Used for text processing, machine learning, and API interaction, including tools like Tweepy for Twitter data collection and scikit-learn for modeling.",
-        "search_query": "Python NLP libraries Tweepy scikit-learn sentiment analysis"
-      },
-      {
-        "category": "compute",
-        "name": "GPU compute for deep learning",
-        "description": "Required for training deep neural network models on large text datasets, especially for real-time or high-accuracy applications.",
-        "search_query": "GPU compute deep learning training NLP"
-      },
-      {
-        "category": "human_effort",
-        "name": "Manual annotation for sentiment and topics",
-        "description": "Needed to create labeled training data for supervised sentiment analysis or to validate unsupervised topic models, particularly in specialized domains like healthcare.",
-        "search_query": "manual annotation sentiment analysis training data"
-      }
-    ]
-  },
-  "2019": {
-    "year": "2019",
-    "summary": "In 2019, research heavily focused on applying natural language processing (NLP) and machine learning (ML) techniques, particularly sentiment analysis, topic modeling, and deep learning, to analyze text and social media data across diverse domains. Common applications included understanding public discourse on economic reforms, migration, and politics; detecting cyberbullying, hate speech, and disinformation; and predicting financial risk, consumer behavior, and human mobility. Many projects depended on large-scale, unstructured data sources such as news articles, social media posts, and corporate communications, often requiring cross-lingual capabilities and advanced computational methods like sequence models and word embeddings. A significant number of theses also addressed the societal and ethical implications of these technologies, particularly around fairness, bias, and the impact on vulnerable groups.",
-    "requirements": [
-      {
-        "category": "method_technique",
-        "name": "Sentiment and Emotion Analysis",
-        "description": "Used across numerous theses to classify and measure sentiment, opinions, and emotions in text from sources like social media, news, and literature, forming a core analytical method.",
-        "search_query": "sentiment analysis emotion detection opinion mining natural language processing"
-      },
-      {
-        "category": "method_technique",
-        "name": "Topic Modeling",
-        "description": "Employed to discover latent themes and track their evolution over time in large text corpora, such as news articles on economic reforms or social media discussions.",
-        "search_query": "topic modeling latent dirichlet allocation dynamic topic modeling text mining"
-      },
-      {
-        "category": "method_technique",
-        "name": "Deep Learning (including LSTM, Transformers, CNNs)",
-        "description": "Applied for sequence modeling, text classification, and predictive tasks in credit risk, mobility prediction, and conversation automation, often using state-of-the-art architectures.",
-        "search_query": "deep learning LSTM transformer neural network sequence model time series"
-      },
-      {
-        "category": "data",
-        "name": "Social Media Data (Twitter, Facebook, etc.)",
-        "description": "A primary data source for studying public sentiment, online communities, hate speech, and behavioral responses to events, often including geo-tagged and user profile information.",
-        "search_query": "Twitter data social media API sentiment analysis user generated content"
-      },
-      {
-        "category": "data",
-        "name": "News Article Corpora",
-        "description": "Used to analyze economic reform narratives, migration discourse, and media framing of political events, requiring access to large-scale, multilingual news archives.",
-        "search_query": "news article corpus newspaper archive media analysis natural language processing"
+        "name": "Quantum field theory and analytical methods",
+        "description": "Theoretical research employed quantum field theory analysis and analytical methods to understand topological phases, superconductivity mechanisms, and strongly interacting systems.",
+        "search_query": "quantum field theory topological phases unconventional superconductivity analytical theory"
       },
       {
         "category": "tool_library",
-        "name": "Python and NLP Libraries (e.g., NLTK, spaCy, scikit-learn)",
-        "description": "Frequently mentioned as the programming language and toolkits for implementing text preprocessing, feature extraction, and machine learning models.",
-        "search_query": "Python NLTK spaCy scikit-learn machine learning natural language processing"
-      },
-      {
-        "category": "compute",
-        "name": "GPU Computing for Deep Learning",
-        "description": "Required for training complex deep learning models on large datasets, particularly for sequence models and transformer architectures.",
-        "search_query": "GPU computing deep learning training high performance computing"
-      },
-      {
-        "category": "human_effort",
-        "name": "Expert Annotation for Text Classification",
-        "description": "Needed for creating training and evaluation datasets for tasks like sentiment, stance, and claim detection, often involving domain specialists (e.g., in medicine or finance).",
-        "search_query": "human annotation text classification training data expert labeling"
-      }
-    ]
-  },
-  "2020": {
-    "year": "2020",
-    "summary": "In 2020, research heavily focused on applying Natural Language Processing (NLP) and sentiment analysis to social media and textual data for understanding public discourse, bias, customer satisfaction, and migration attitudes. Many projects also explored AI-driven solutions for healthcare, legal systems, and urban management, often leveraging deep learning and cloud technologies. A recurring theme was the use of computational methods to analyze and predict human behavior, with several theses addressing the impacts of the COVID-19 pandemic. The research landscape was characterized by interdisciplinary approaches combining computational linguistics with social sciences, and a strong emphasis on developing practical tools for industry and policy-making.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Social media data (Twitter, Facebook, Reddit)",
-        "description": "Used across multiple theses for analyzing public discourse, sentiment, and behavior related to algorithms, COVID-19, migration, and customer satisfaction.",
-        "search_query": "social media data Twitter Facebook Reddit public discourse sentiment analysis"
-      },
-      {
-        "category": "data",
-        "name": "Textual corpora (archival descriptions, novels, legal cases, news)",
-        "description": "Used for bias detection, literary analysis, legal prediction, and brand safety, often requiring domain-specific annotation and digitization.",
-        "search_query": "textual corpus archival descriptions novels legal cases news articles NLP analysis"
+        "name": "Crystal structure prediction methods",
+        "description": "Computational screening used crystal structure prediction algorithms to explore composition spaces and identify candidate superconducting materials.",
+        "search_query": "crystal structure prediction ab initio materials discovery composition space exploration"
       },
       {
         "category": "method_technique",
-        "name": "Sentiment analysis",
-        "description": "Applied across diverse domains including social media, literature, finance, and healthcare to gauge public opinion, emotional arcs, and customer attitudes.",
-        "search_query": "sentiment analysis opinion mining emotion detection NLP"
+        "name": "Ion irradiation and neutron damage studies",
+        "description": "Research employed ion irradiation as a proxy for neutron damage to study radiation effects on superconductor properties, with cold-transfer cryogenic techniques.",
+        "search_query": "ion irradiation neutron damage radiation effects superconductor defects"
       },
       {
-        "category": "method_technique",
-        "name": "Topic modeling",
-        "description": "Used to identify themes in social media, archival descriptions, and literary texts, often combined with sentiment analysis for deeper insights.",
-        "search_query": "topic modeling LDA latent Dirichlet allocation text mining"
-      },
-      {
-        "category": "method_technique",
-        "name": "Deep learning (neural networks, transformers)",
-        "description": "Employed for advanced NLP tasks such as conversational intent recognition, backdoor attack detection, and multimodal product representation.",
-        "search_query": "deep learning neural networks transformers NLP text classification"
-      },
-      {
-        "category": "tool_library",
-        "name": "Natural Language Processing (NLP) libraries and APIs",
-        "description": "Used for text preprocessing, entity recognition, and sentiment analysis across multiple projects, including domain-specific adaptations.",
-        "search_query": "NLP libraries spaCy NLTK Stanford CoreNLP text mining tools"
-      },
-      {
-        "category": "compute",
-        "name": "GPU compute for training deep learning models",
-        "description": "Required for training and fine-tuning neural networks on large text corpora and for real-time inference in conversational AI systems.",
-        "search_query": "GPU compute deep learning training NLP models"
-      },
-      {
-        "category": "human_effort",
-        "name": "Manual annotation and labeling of text data",
-        "description": "Needed for creating training datasets for sentiment analysis, bias detection, and genre classification, often involving domain experts.",
-        "search_query": "manual annotation text labeling training data sentiment analysis"
-      }
-    ]
-  },
-  "2021": {
-    "year": "2021",
-    "summary": "In 2021, research heavily applied natural language processing (NLP) and sentiment analysis across domains such as finance, mental health, social media, and news media. Many theses leveraged large-scale user-generated data from platforms like Twitter, TikTok, and counseling chats to analyze behavior, predict outcomes, or detect bias. A significant subset focused on adversarial robustness and bias mitigation in AI systems, while others integrated machine learning with domain expertise (e.g., clinical psychology, geology, classroom observation). Common methodological dependencies include deep learning, topic modeling, named entity recognition, and computer vision, often requiring substantial compute resources for model training.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Social media text data",
-        "description": "Used across multiple theses for sentiment analysis, topic modeling, and user trajectory prediction (e.g., Twitter, TikTok, Kooth platform).",
-        "search_query": "social media dataset text sentiment analysis NLP"
-      },
-      {
-        "category": "data",
-        "name": "News article corpus",
-        "description": "Used for historical analysis, sentiment extraction, and cross-country comparisons in finance, globalization, and public health.",
-        "search_query": "news article dataset historical NLP sentiment"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis",
-        "description": "Core method in finance, mental health, fake news detection, and media analysis to quantify emotional tone from text.",
-        "search_query": "sentiment analysis NLP method text classification"
-      },
-      {
-        "category": "method_technique",
-        "name": "Deep learning for NLP and computer vision",
-        "description": "Used for adversarial robustness, speech translation, video segmentation, and classroom observation; requires training of neural networks.",
-        "search_query": "deep learning NLP computer vision model training"
-      },
-      {
-        "category": "compute",
-        "name": "GPU compute for deep learning training",
-        "description": "Necessary for training large neural networks in adversarial defense, speech translation, and multi-modal analysis projects.",
-        "search_query": "GPU compute deep learning training cluster"
-      },
-      {
-        "category": "human_effort",
-        "name": "Qualitative interviews and surveys",
-        "description": "Used in mental health, ethnography, and classroom observation studies to gather subjective data and validate computational findings.",
-        "search_query": "qualitative interview survey data collection human subjects"
+        "category": "other",
+        "name": "Access to user facilities and synchrotrons",
+        "description": "Theses required access to national laboratories and synchrotron facilities (e.g., Diamond Light Source) for advanced characterization experiments including X-ray spectroscopy.",
+        "search_query": "synchrotron user facility Diamond Light Source national laboratory beamline access"
       }
     ]
   },
   "2022": {
     "year": "2022",
-    "summary": "In 2022, research heavily centered on sentiment analysis and natural language processing applied to diverse domains such as social media, mental health, finance, governance, and education. Many theses employed machine learning models ranging from traditional classifiers to deep learning architectures like LSTMs and Transformers, often requiring labeled datasets and computational resources for training. A significant focus was on cross-cultural and multilingual applications, including Portuguese, Norwegian, Arabic, and Chinese contexts. Other recurring themes included misinformation detection, affect recognition, and the integration of AI into workplace and clinical tools. Several projects also relied on human annotation, validation by domain experts, and mixed-method approaches combining computational analysis with qualitative interviews.",
+    "summary": "2022 research focused on exploring quantum phenomena and advanced materials, with particular emphasis on superconductivity across multiple contexts: metallic hydrogen under extreme conditions, exciton-mediated superconductivity in transition metal dichalcogenides, and macroscopic quantum systems like superfluids and superconductors. Research employed a mix of experimental techniques including ultra-high pressure diamond anvil cells, cryogenic systems, optical spectroscopy, and first-principles computational methods. A notable trend was the integration of machine learning with materials discovery and characterization. Studies spanned fundamental quantum mechanics (lattice operators, magnetic Laplacians) to applied device development, with room-temperature superconductivity as an implicit or explicit goal across multiple projects.",
     "requirements": [
       {
-        "category": "method_technique",
-        "name": "Sentiment Analysis",
-        "description": "Used across nearly all theses for extracting opinions, emotions, and polarity from text in domains such as game reviews, mental health, finance, and social media.",
-        "search_query": "sentiment analysis NLP machine learning"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine Learning / Deep Learning Models",
-        "description": "Employed for classification, prediction, and feature extraction, including logistic regression, Naive Bayes, RNNs, LSTM, and Transformer architectures.",
-        "search_query": "machine learning deep learning classification LSTM Transformer"
-      },
-      {
-        "category": "data",
-        "name": "Public and Proprietary Datasets",
-        "description": "Required for training and evaluation, including social media data (Twitter, Instagram), survey responses, financial texts, clinical databases, and literary corpora.",
-        "search_query": "dataset social media survey financial text clinical NLP"
-      },
-      {
-        "category": "compute",
-        "name": "GPU / High-Performance Computing",
-        "description": "Needed for training deep learning models, mentioned in several theses that use large-scale neural networks.",
-        "search_query": "GPU training deep learning high performance computing"
-      },
-      {
-        "category": "human_effort",
-        "name": "Human Annotation / Expert Validation",
-        "description": "Used to create labeled training data or validate model outputs, e.g., physician validation for mental health systems, manual annotation of survey responses.",
-        "search_query": "human annotation expert validation labeled data crowdsourcing"
+        "category": "tool_library",
+        "name": "Diamond anvil cell (DAC) equipment",
+        "description": "Used for compressing molecular hydrogen to ultra-high pressures in studies of metallic hydrogen and phase transitions.",
+        "search_query": "diamond anvil cell high pressure experimental setup"
       },
       {
         "category": "tool_library",
-        "name": "NLP Libraries and Frameworks",
-        "description": "Included NLTK, spaCy, HuggingFace Transformers, and custom pipelines for text preprocessing, tokenization, and model implementation.",
-        "search_query": "NLTK spaCy Transformers NLP library text preprocessing"
-      }
-    ]
-  },
-  "2023": {
-    "year": "2023",
-    "summary": "In 2023, the research landscape is heavily focused on applying natural language processing (NLP) and machine learning to analyze large-scale text and social media data, particularly for sentiment analysis, emotion detection, and understanding public opinion. A significant number of theses rely on social media platforms (e.g., Twitter, Instagram, TikTok) as a primary data source, using methods like topic modeling, sentiment analysis, and network analysis. There is also a strong emphasis on developing computationally efficient methods that require reduced supervision, moving away from resource-intensive large language models. Many projects aim to make these analytical tools more accessible and applicable to specific domains, including engineering education, healthcare, finance, and cultural heritage. A recurring theme is the use of these techniques to capture and analyze the experiences of specific communities, such as neurodivergent individuals or patients, to inform better practices and policies.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Social Media Text Data",
-        "description": "Text data from platforms like Twitter, Instagram, TikTok, and social media in general is used as the primary source for sentiment analysis, topic modeling, and understanding community experiences.",
-        "search_query": "social media text data corpus"
-      },
-      {
-        "category": "method_technique",
-        "name": "Natural Language Processing (NLP) Techniques",
-        "description": "A broad range of NLP methods, including sentiment analysis, topic modeling (e.g., Latent Dirichlet Allocation), and word embeddings, are applied to extract insights from text.",
-        "search_query": "natural language processing sentiment analysis topic modeling"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine Learning for Efficiency and Reduced Supervision",
-        "description": "Machine learning, particularly deep learning, is used but with a focus on developing efficient methods that require fewer computational resources and less manual annotation.",
-        "search_query": "efficient machine learning reduced supervision"
-      },
-      {
-        "category": "data",
-        "name": "Large Language Models (LLMs)",
-        "description": "Large language models are used as a foundation for AI systems, but several theses aim to adapt or move away from their high computational cost by using faster, syntax-guided alternatives.",
-        "search_query": "large language model LLM"
-      },
-      {
-        "category": "data",
-        "name": "User-generated Content and Reviews",
-        "description": "User reviews from app stores and e-commerce platforms are analyzed to understand accessibility barriers, customer satisfaction, and the impact of linguistic style.",
-        "search_query": "user review analysis app store"
-      }
-    ]
-  },
-  "2024": {
-    "year": "2024",
-    "summary": "The 2024 theses reveal a strong focus on applying natural language processing (NLP) and sentiment analysis across diverse domains including finance, politics, social media, and health. Many projects leverage AI and machine learning to detect emotions, opinions, and disinformation, often from online text and voice data. There is a notable emphasis on making these technologies personalized, explainable, and efficient for broader accessibility. Several studies also integrate computational methods with traditional social science approaches, such as interviews and surveys, to analyze societal issues like migration, inequality, and democratic backsliding.",
-    "requirements": [
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis / emotion detection",
-        "description": "Used across multiple theses to analyze text, voice, and social media content for sentiment, emotion, or violent motivation in fields like finance, politics, health, and customer feedback.",
-        "search_query": "sentiment analysis emotion detection NLP"
-      },
-      {
-        "category": "method_technique",
-        "name": "Large Language Models (LLMs) / transformer-based NLP",
-        "description": "Employed for tasks such as sentiment analysis, narrative detection, and text generation in finance, disinformation detection, and graphic design automation.",
-        "search_query": "large language models LLM transformers NLP"
+        "name": "Synchrotron X-ray diffraction facilities",
+        "description": "Required for determining ground state crystal structures of materials under extreme conditions.",
+        "search_query": "synchrotron X-ray diffraction beamline access"
       },
       {
         "category": "tool_library",
-        "name": "Machine learning frameworks and libraries",
-        "description": "Required for implementing models, feature extraction, classification, and clustering across projects in finance, social media analysis, and misinformation detection.",
-        "search_query": "machine learning libraries scikit-learn TensorFlow PyTorch"
+        "name": "Cryogenic measurement systems and optical cryostats",
+        "description": "Essential for characterizing superconductivity, superfluidity, and quantum properties at temperatures near absolute zero while enabling optical measurements.",
+        "search_query": "optical cryostat millikelvin temperature measurement superconductivity"
       },
       {
-        "category": "data",
-        "name": "Social media and online text data",
-        "description": "Critical for analyzing public sentiment, identifying disinformation networks, and studying political discourse, sourced from platforms like Twitter, Facebook, Instagram, and YouTube.",
-        "search_query": "social media dataset tweets text corpus"
+        "category": "method_technique",
+        "name": "First-principles computational calculations",
+        "description": "Used to compute material properties such as band gaps and exciton binding energies for machine learning model training and materials screening.",
+        "search_query": "first-principles calculations density functional theory materials properties"
       },
       {
-        "category": "compute",
-        "name": "GPU compute for model training and inference",
-        "description": "Needed for training and deploying large neural networks, especially LLMs and deep learning models for real-time sentiment and emotion analysis.",
-        "search_query": "GPU compute GPU cluster for deep learning"
+        "category": "method_technique",
+        "name": "Machine learning for materials discovery",
+        "description": "Applied to predict promising superconductor candidates by integrating computed properties with experimental data and materials databases.",
+        "search_query": "machine learning materials discovery prediction synthesis"
       },
       {
         "category": "tool_library",
-        "name": "Text mining and NLP libraries (e.g., NLTK, spaCy, Gensim)",
-        "description": "Used for preprocessing, tokenization, named entity recognition, and topic modeling across multiple theses.",
-        "search_query": "NLTK spaCy Gensim text mining NLP"
+        "name": "Materials databases (Materials Project)",
+        "description": "Integrated with machine learning models to enhance predictions of material properties and superconductor candidates.",
+        "search_query": "Materials Project database computational materials data"
       },
       {
         "category": "method_technique",
-        "name": "Qualitative methods (interviews, focus groups, discourse analysis)",
-        "description": "Applied in social science theses to gather in-depth perspectives on migration, educational inequality, and political narratives, often combined with computational analysis.",
-        "search_query": "semi-structured interviews focus groups qualitative analysis"
-      },
-      {
-        "category": "human_effort",
-        "name": "Manual annotation / labeling of data",
-        "description": "Required for training and validating sentiment and emotion classifiers, as well as for qualitative coding in mixed-methods studies.",
-        "search_query": "manual annotation data labeling crowd sourcing"
-      },
-      {
-        "category": "data",
-        "name": "Financial and economic datasets",
-        "description": "Used in finance-focused theses for portfolio construction, asset pricing, and sentiment analysis, including stock prices, news, and mutual fund prospectuses.",
-        "search_query": "financial dataset stock market news corpus"
-      },
-      {
-        "category": "method_technique",
-        "name": "Statistical and econometric analysis",
-        "description": "Employed for hypothesis testing, regression, and panel data analysis in studies on corporate debt, CSR impact, and market return predictability.",
-        "search_query": "regression analysis econometrics panel data"
-      }
-    ]
-  },
-  "2025": {
-    "year": "2025",
-    "summary": "In 2025, research heavily focused on applying AI and natural language processing (NLP) to analyze public opinion, sentiment, and discourse across domains like politics, finance, health, and tourism. Many projects used large language models (LLMs) and BERT-based models for sentiment analysis, topic modeling, and text classification, often combined with social media or user-generated content. A recurring theme was the integration of AI with traditional social science methods (surveys, interviews, experiments) to study complex socio-technical systems, including bot influence, political discontent, and trust in institutions. Several theses also developed or applied novel econometric and statistical methods for handling AI-generated data, functional time series, and multi-perspective reasoning. Overall, the year was characterized by a strong emphasis on computational social science, with researchers leveraging advanced machine learning and large-scale text data to address societal challenges.",
-    "requirements": [
-      {
-        "category": "method_technique",
-        "name": "Natural Language Processing (NLP) for sentiment analysis",
-        "description": "Used across multiple theses to analyze sentiment in social media posts, financial texts, reviews, and policy documents.",
-        "search_query": "NLP sentiment analysis social media financial text"
-      },
-      {
-        "category": "method_technique",
-        "name": "Large Language Models (LLMs) for text generation and analysis",
-        "description": "Employed for simulating human responses, generating personas, and performing nuanced text analysis in several studies.",
-        "search_query": "large language models LLM text generation analysis"
-      },
-      {
-        "category": "method_technique",
-        "name": "Topic modeling",
-        "description": "Applied to identify themes in large text corpora, such as social media posts, policy documents, and hedge fund letters.",
-        "search_query": "topic modeling text analysis"
+        "name": "Optical spectroscopy and reflectance measurements",
+        "description": "Used to study superconducting properties including reflectance as a function of temperature and wavelength, and detection of spectral gaps.",
+        "search_query": "reflectance spectroscopy infrared optical superconductivity characterization"
       },
       {
         "category": "tool_library",
-        "name": "BERT-based models (e.g., FinBERT, EconBERT)",
-        "description": "Used for domain-specific sentiment analysis and text classification in finance and economics research.",
-        "search_query": "FinBERT EconBERT financial sentiment analysis"
-      },
-      {
-        "category": "data",
-        "name": "Social media data (Twitter, Facebook, Instagram, Tripadvisor)",
-        "description": "Collected and analyzed across multiple theses to study public opinion, tourism patterns, and political discourse.",
-        "search_query": "social media data Twitter Facebook Instagram Tripadvisor"
+        "name": "Single NV center diamond magnetometry",
+        "description": "Employed for high-sensitivity magnetic field sensing and detection of individual electronic and nuclear spins at cryogenic temperatures.",
+        "search_query": "nitrogen vacancy diamond NV center magnetometry quantum sensing"
       },
       {
         "category": "method_technique",
-        "name": "Mixed-methods (qualitative and quantitative)",
-        "description": "Combined surveys, interviews, and experiments with computational analysis in several studies on policy, health, and tourism.",
-        "search_query": "mixed methods qualitative quantitative surveys interviews"
+        "name": "Transport and thermal measurements in confined geometries",
+        "description": "Applied to study surface-bound fermions and heat flow in thin surface layers of quantum fluids.",
+        "search_query": "transport measurements surface layer nanometer scale thermal conductivity"
       },
       {
         "category": "method_technique",
-        "name": "Causal inference and quasi-experimental designs",
-        "description": "Applied to assess policy impacts, deterrence strategies, and the effects of regional policies on political discontent.",
-        "search_query": "causal inference quasi-experimental design policy evaluation"
-      },
-      {
-        "category": "compute",
-        "name": "GPU compute for training deep learning models",
-        "description": "Required for training and fine-tuning large language models and deep learning architectures used in sentiment and time series analysis.",
-        "search_query": "GPU compute deep learning training"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine learning for prediction and trend detection",
-        "description": "Used to forecast financial market movements, tourism trends, and public health outcomes across multiple theses.",
-        "search_query": "machine learning prediction trend detection"
-      },
-      {
-        "category": "data",
-        "name": "Financial and economic datasets (e.g., hedge fund letters, proxy voting records, options data)",
-        "description": "Analyzed to study investor behavior, variance risk premium, and ESG commitments in finance-related theses.",
-        "search_query": "financial datasets hedge fund letters proxy voting options"
-      }
-    ]
-  },
-  "2013": {
-    "year": "2013",
-    "summary": "In 2013, theses heavily focused on sentiment analysis and opinion mining across diverse text types, particularly from social media (Twitter, Facebook) and web sources (news, blogs, Google data). Many projects aimed at developing multilingual and cross-media platforms capable of integrating sentiment with spatiotemporal and network analysis. Researchers commonly depended on large-scale text corpora, machine learning algorithms, and custom NLP tools, often requiring significant computational resources for data processing. There was also notable interest in leveraging Google Trends and search data for applications ranging from brand valuation to tracking hate speech and financial contagion. Additionally, linguistic annotation infrastructure and text classification methods were advanced to support these analyses.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Social media and web text data",
-        "description": "Large volumes of user-generated content from platforms like Twitter, Facebook, and web sources (news, blogs, forums) were used for sentiment, topic, and network analysis.",
-        "search_query": "social media sentiment analysis Twitter Facebook web text big data"
-      },
-      {
-        "category": "data",
-        "name": "Google Trends and search data",
-        "description": "Google Search, Trends, and Insights for Search were used as data sources to measure brand value, track hate speech spread, and complement sentiment analysis.",
-        "search_query": "Google Trends search data sentiment analysis brand tracking"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis and opinion mining",
-        "description": "Sentiment analysis was the predominant technique, applied to text, speech, and social media to extract positive/negative attitudes, stance, and emotions.",
-        "search_query": "sentiment analysis opinion mining text classification machine learning"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine learning and natural language processing",
-        "description": "Machine learning algorithms (supervised, unsupervised) and NLP methods were widely used for text classification, topic modeling, entity recognition, and knowledge extraction.",
-        "search_query": "machine learning natural language processing text classification topic modeling"
-      },
-      {
-        "category": "tool_library",
-        "name": "Multilingual text analysis platforms and lexical resources",
-        "description": "Custom platforms and lexical resources (e.g., SALDO, Korp) were developed or used to handle multilingual text, sentiment lexicons, and linguistic annotations.",
-        "search_query": "multilingual NLP platform lexical resources sentiment lexicon annotation"
-      },
-      {
-        "category": "compute",
-        "name": "Large-scale data processing infrastructure",
-        "description": "Processing millions of tweets, web pages, or multilingual media required scalable computing resources for data ingestion, analysis, and storage.",
-        "search_query": "large scale data processing big data Hadoop cloud computing NLP"
-      }
-    ]
-  },
-  "2003": {
-    "year": "2003",
-    "summary": "Research in 2003 spans social science and computational linguistics. One thesis examines European integration's impact on nationalist movements in Spain using protest event data from newspapers and statistical analysis. Another thesis develops graph-based algorithms for text processing tasks such as sentiment categorization and document retrieval. Both projects rely on quantitative data analysis but in different domains.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Spanish political protest and economic integration data",
-        "description": "Protest event records from Spanish newspapers and trade, legislative, and litigative statistics from regional Spanish agencies and the European Union were used to analyze nationalist movements.",
-        "search_query": "Spanish newspaper protest events 1977-2000 EU trade statistics"
-      },
-      {
-        "category": "data",
-        "name": "Text corpora for sentiment and document retrieval",
-        "description": "Datasets of natural language text for sentiment-based categorization and document retrieval were used to develop graph-based processing algorithms.",
-        "search_query": "sentiment analysis document retrieval text corpora"
-      },
-      {
-        "category": "method_technique",
-        "name": "Graph-based algorithms for text processing",
-        "description": "Network flow and spectral analysis methods were applied to text categorization and document retrieval tasks.",
-        "search_query": "network flow spectral analysis text processing"
-      },
-      {
-        "category": "method_technique",
-        "name": "Statistical regression analysis",
-        "description": "Regression analyses were conducted on protest event and economic data to examine the effects of European integration on regional autonomy demands.",
-        "search_query": "regression analysis nationalism European integration"
-      }
-    ]
-  },
-  "2010": {
-    "year": "2010",
-    "summary": "The 2010 theses covered a diverse range of research, from historical archival analysis of Newfoundland's Commission government to computational sentiment analysis of news articles and financial analyst reports. Several projects focused on developing and applying machine learning and natural language processing techniques for opinion mining and trend detection, often leveraging large-scale text corpora from news, blogs, or social media. Social science research examined public attitudes toward Latinos using survey data linked to county-level demographic and economic statistics. The research landscape was characterized by a mix of traditional archival and survey-based methods alongside emerging computational approaches to extract insights from unstructured text.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "News and blog text corpora",
-        "description": "Several theses required access to large-scale news and blog text streams for sentiment analysis and trend monitoring.",
-        "search_query": "news blog text corpus sentiment analysis"
-      },
-      {
-        "category": "data",
-        "name": "Survey and census demographic data",
-        "description": "Two theses linked national survey data on attitudes toward Latinos to county-level crime, economic, and demographic data from the census.",
-        "search_query": "survey data county-level census demographic data Latino attitudes"
-      },
-      {
-        "category": "data",
-        "name": "Historical archival records",
-        "description": "One thesis relied on Commission of Government archives and Dominions Office records in Newfoundland and London for historical analysis.",
-        "search_query": "archival records Commission of Government Newfoundland Dominions Office"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis / opinion mining",
-        "description": "Multiple theses employed or improved sentiment analysis methods, including naive Bayesian classifiers and entity-level sentiment detection, on text data.",
-        "search_query": "sentiment analysis opinion mining naive Bayesian machine learning"
-      },
-      {
-        "category": "method_technique",
-        "name": "Natural language and statistical analysis for trend detection",
-        "description": "Theses used natural language processing and statistical analysis to identify spatial and temporal trends in news sources and to extract opinions.",
-        "search_query": "natural language processing statistical analysis trend detection news"
-      },
-      {
-        "category": "compute",
-        "name": "Cloud computing infrastructure",
-        "description": "One thesis required transferring a news analysis system to a modern cloud computing environment for scalability and reliability.",
-        "search_query": "cloud computing infrastructure news analysis scalable"
-      },
-      {
-        "category": "tool_library",
-        "name": "Corpus analysis software",
-        "description": "One thesis aimed to build an integrated software application for creating and analyzing electronic text corpora for humanities research.",
-        "search_query": "corpus analysis software humanities research automated text collection"
-      }
-    ]
-  },
-  "2007": {
-    "year": "2007",
-    "summary": "In 2007, theses spanned diverse fields including political science, literature, cultural studies, and computational linguistics. Research in law and social science examined historical attacks on the federal judiciary using large-N datasets and case studies. Humanities projects explored representations of slavery and African-American women's sexuality through archival sources, close reading, and ethnographic methods. A business-oriented project developed software to aggregate internet chatter and correlate it with sales metrics using statistical analysis. Computational linguistic research applied sentiment analysis to Chinese and English media texts. Overall, the year relied heavily on archival and textual data, qualitative methods, and the nascent application of statistical and NLP tools.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Archival and textual primary sources",
-        "description": "Multiple theses used archival documents, government records, and literary texts as primary sources for historical and cultural analysis.",
-        "search_query": "archival primary sources textual documents humanities"
-      },
-      {
-        "category": "data",
-        "name": "Internet and media text data",
-        "description": "Two theses collected and analyzed internet chatter and media texts for sentiment and correlation analysis.",
-        "search_query": "internet chatter media text data sentiment analysis"
-      },
-      {
-        "category": "method_technique",
-        "name": "Qualitative research methods",
-        "description": "Several theses employed case study analysis, ethnographic observation, interviews, and close reading.",
-        "search_query": "qualitative methods case study ethnography interviews"
-      },
-      {
-        "category": "method_technique",
-        "name": "Statistical and computational analysis",
-        "description": "Statistical correlation and sentiment analysis methods were used to identify trends and patterns in text data.",
-        "search_query": "statistical analysis sentiment correlation"
-      },
-      {
-        "category": "tool_library",
-        "name": "Web scraping and NLP tools",
-        "description": "Web scraping tools and natural language processing software were used to collect and process text data.",
-        "search_query": "web scraping natural language processing tools"
-      },
-      {
-        "category": "compute",
-        "name": "Data processing computational resources",
-        "description": "Computational resources were required for aggregating large datasets and performing text processing and analysis.",
-        "search_query": "computing resources data processing large scale"
-      }
-    ]
-  },
-  "2014": {
-    "year": "2014",
-    "summary": "In 2014, the research landscape is dominated by the analysis of large volumes of unstructured text data, particularly from social media and web sources, to extract sentiment, opinions, and public reactions. Many projects focus on developing and applying natural language processing (NLP) and machine learning techniques for tasks like sentiment analysis, text summarization, and topic modeling, often requiring scalable computational frameworks. A recurring theme is the use of social media data (e.g., Twitter) to study public reactions to events, consumer behavior, and cultural engagement, with significant investment in building automated analysis tools and prototypes. The research draws heavily on existing social media platforms, NLP methods, and distributed computing systems like Hadoop and MapReduce.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Social media text data",
-        "description": "Large-scale datasets from platforms like Twitter, Facebook, and online forums are used across multiple theses to study public sentiment, reactions, and cultural engagement.",
-        "search_query": "social media text data Twitter Facebook sentiment analysis"
-      },
-      {
-        "category": "method_technique",
-        "name": "Natural language processing (NLP) for sentiment analysis",
-        "description": "NLP techniques, including sentiment analysis, opinion mining, and text classification, are widely applied to automate the extraction of sentiment and opinions from unstructured text.",
-        "search_query": "natural language processing sentiment analysis opinion mining text classification"
-      },
-      {
-        "category": "tool_library",
-        "name": "Machine learning and statistical modeling tools",
-        "description": "Many projects rely on machine learning algorithms (e.g., deep learning, ensemble methods) and statistical models for tasks like prediction, classification, and pattern discovery in text data.",
-        "search_query": "machine learning deep learning ensemble classifiers statistical modeling text"
-      },
-      {
-        "category": "compute",
-        "name": "Distributed computing (Hadoop and MapReduce)",
-        "description": "Several theses employ distributed computing frameworks such as Hadoop and MapReduce to process large-scale, unstructured datasets efficiently.",
-        "search_query": "Hadoop MapReduce distributed computing big data"
-      },
-      {
-        "category": "data",
-        "name": "User-generated content from web platforms",
-        "description": "Data from web sources like news articles, blogs, and product reviews are used to study consumer behavior, public opinion, and cultural trends, often requiring automated collection and analysis.",
-        "search_query": "user-generated content web reviews blogs consumer behavior"
-      },
-      {
-        "category": "method_technique",
-        "name": "Automated text summarization and topic modeling",
-        "description": "Techniques for multi-document summarization and topic modeling are developed to condense large volumes of text and identify key themes or trends.",
-        "search_query": "text summarization topic modeling multi-document summarization"
-      }
-    ]
-  },
-  "2015": {
-    "year": "2015",
-    "summary": "In 2015, research strongly focused on developing and applying sentiment analysis, opinion mining, and predictive analytics across diverse domains such as finance, social media, health, supply chains, and media. Many theses involved building large-scale systems that integrate and process unstructured data from multiple sources, including news articles, social media streams, and corporate disclosures. Common methodological dependencies included natural language processing (NLP), machine learning, deep learning, text summarization, and graph theory. A significant number of projects required substantial computational resources for big data processing and model training, as well as human effort for annotation, evaluation, and domain expertise. The year also saw a notable emphasis on multilingual and cross-lingual capabilities, with several projects translating and analyzing content in languages beyond English.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "News articles",
-        "description": "Used as primary data source for sentiment analysis, topic extraction, and predictive modeling in financial, political, and supply chain contexts.",
-        "search_query": "news articles textual data sentiment analysis NLP financial supply chain"
-      },
-      {
-        "category": "data",
-        "name": "Social media data (Twitter, Facebook, StockTwits, blogs)",
-        "description": "Collected and analyzed for sentiment, opinion mining, and user behavior in finance, health, and media recommendation systems.",
-        "search_query": "social media Twitter Facebook StockTwits blogs sentiment analysis opinion mining health finance"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis / opinion mining",
-        "description": "Core technique applied across nearly all theses to quantify polarity, emotion, or sentiment from text in various domains and languages.",
-        "search_query": "sentiment analysis opinion mining polarity detection NLP text mining"
-      },
-      {
-        "category": "method_technique",
-        "name": "Natural language processing (NLP)",
-        "description": "Fundamental for text preprocessing, tokenization, POS tagging, summarization, and feature extraction in multilingual contexts.",
-        "search_query": "natural language processing NLP text preprocessing tokenization POS tagging summarization"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine learning / deep learning",
-        "description": "Used for classification, regression, recommendation, and predictive modeling, including neural networks and word embeddings.",
-        "search_query": "machine learning deep learning neural networks word embeddings classification regression recommendation"
-      },
-      {
-        "category": "tool_library",
-        "name": "Textual analysis / sentiment lexicon tools",
-        "description": "Employed for generating tone measures, sentiment scores, and semantic features from large text corpora (e.g., for press coverage analysis).",
-        "search_query": "textual analysis software sentiment lexicon tone measure semantic analysis"
-      },
-      {
-        "category": "compute",
-        "name": "Large-scale data processing infrastructure",
-        "description": "Required for handling high-volume, high-velocity data from multiple sources in real-time analytics and big data fusion systems.",
-        "search_query": "big data processing cluster Hadoop Spark real-time analytics high volume"
-      },
-      {
-        "category": "human_effort",
-        "name": "Human annotation / evaluation (crowdsourcing, expert review)",
-        "description": "Needed for training and validating sentiment models, translation quality, and risk labeling, often via crowdsourcing platforms.",
-        "search_query": "human annotation crowdsourcing expert evaluation sentiment model training translation quality"
-      }
-    ]
-  },
-  "2009": {
-    "year": "2009",
-    "summary": "Research in 2009 was heavily focused on sentiment and subjectivity analysis, with multiple theses aiming to extract opinions from informal online sources like blogs and news. Work drew on natural language processing techniques including machine learning, statistical analysis, and symbolic parsing, and relied on manually or automatically constructed lexicons. A recurring theme was the need to handle ambiguity and compositional meaning beyond simple word-level polarity counting. Several projects also pursued cross-domain knowledge transfer using matrix decompositions and aimed to commercialize trend analysis tools by scaling to large text corpora via cloud computing. Multilingual subjectivity analysis and word-sense disambiguation emerged as important challenges.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Online text corpora (blogs, news, reviews)",
-        "description": "Multiple theses used large collections of informal online texts, such as blogs, news articles, and reviews, for training and evaluating sentiment and opinion analysis systems.",
-        "search_query": "blog corpus opinion sentiment analysis dataset 2009"
-      },
-      {
-        "category": "data",
-        "name": "Subjectivity and sentiment lexicons",
-        "description": "Several theses relied on manually or automatically constructed lexicons of subjective words and their polarities, often needing to handle multiple senses and languages.",
-        "search_query": "subjectivity sentiment lexicon word sense polarity 2009"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine learning for sentiment classification",
-        "description": "Supervised and unsupervised machine learning methods, including matrix decomposition for cross-domain knowledge transfer, were used to classify opinions and sentiments from text.",
-        "search_query": "machine learning sentiment classification opinion mining 2009"
-      },
-      {
-        "category": "method_technique",
-        "name": "Statistical and symbolic NLP",
-        "description": "A dual strategy combining statistical language processing with full parsing and linguistically motivated heuristics was employed for deeper analysis of subjective language.",
-        "search_query": "statistical NLP symbolic parsing sentiment analysis 2009"
-      },
-      {
-        "category": "compute",
-        "name": "Cloud computing infrastructure",
-        "description": "At least one project required transferring algorithms from academic computing to a cloud infrastructure to scale analysis to vastly larger text corpora for commercial applications.",
-        "search_query": "cloud computing infrastructure large-scale text mining sentiment 2009"
-      },
-      {
-        "category": "human_effort",
-        "name": "Manual annotation of linguistic data",
-        "description": "Creation of annotated lexical resources and annotation schemes for subjectivity and compositional semantics required labor-intensive manual work, noted as a bottleneck.",
-        "search_query": "manual annotation subjectivity sentiment corpus creation 2009"
-      }
-    ]
-  },
-  "2016": {
-    "year": "2016",
-    "summary": "In 2016, research theses heavily focused on extracting and analyzing opinions, sentiments, and argumentation from text and social media, often to understand public attitudes, political dynamics, or consumer behavior. Many projects leveraged large-scale, often multilingual, datasets from online sources, social networks, or news archives, and applied methods like sentiment analysis, text mining, topic modeling, and deep learning to uncover patterns. There was a strong emphasis on handling unstructured data, integrating qualitative and quantitative approaches, and developing tools for real-time or scalable analysis, with dependencies on automated NLP techniques and machine learning for classification and prediction.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Large-scale text corpora from social media and news",
-        "description": "Used across multiple theses as primary source material for training and analyzing sentiment, opinions, and discourse patterns.",
-        "search_query": "large scale text corpus social media news"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis and opinion mining",
-        "description": "Core technique for extracting attitudes, emotions, and implicit affective states from text, applied in consumer, political, and health domains.",
-        "search_query": "sentiment analysis opinion mining"
-      },
-      {
-        "category": "method_technique",
-        "name": "Natural language processing (NLP) and text mining",
-        "description": "Foundational for processing unstructured text, including entity extraction, topic modeling, and language-agnostic analysis across multilingual datasets.",
-        "search_query": "natural language processing text mining"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine learning and deep learning",
-        "description": "Applied for classification, prediction, and representation learning in tasks such as theme detection, argument mining, and sentiment classification.",
-        "search_query": "machine learning deep learning"
-      },
-      {
-        "category": "method_technique",
-        "name": "Statistical and econometric modeling",
-        "description": "Used to analyze relationships between sentiment, social factors, and economic outcomes, including panel data and multifactor models.",
-        "search_query": "statistical econometric modeling"
-      },
-      {
-        "category": "other",
-        "name": "Multilingual and cross-lingual capabilities",
-        "description": "Required for handling diverse language sources in media monitoring, digital history, and sentiment analysis projects.",
-        "search_query": "multilingual cross-lingual"
-      },
-      {
-        "category": "tool_library",
-        "name": "Visualization and data presentation tools",
-        "description": "Needed to display complex results, trends, and network structures from large-scale analyses to support digital humanities and media monitoring.",
-        "search_query": "data visualization tools"
+        "name": "Thermochemical synthesis for nanoparticles",
+        "description": "Used to synthesize transition metal dichalcogenide nanoparticles for testing as excitonic superconductor candidates.",
+        "search_query": "thermochemical synthesis TMD nanoparticles carbon coating"
       }
     ]
   },
   "2012": {
     "year": "2012",
-    "summary": "In 2012, research heavily focused on sentiment analysis, opinion mining, and the intersection of social network analysis with natural language processing. Many projects aimed to leverage existing lexical resources (WordNet, FrameNet, PropBank, VerbNet) and large-scale text corpora, often from social media, to perform deeper semantic understanding and coreference resolution. There was a strong emphasis on developing unsupervised or weakly-supervised methods to reduce reliance on expensive hand-annotated data, while several projects required substantial computational infrastructure for processing large datasets. The year also saw work on multilingual and cross-domain challenges, particularly in sentiment analysis and named entity recognition, as well as attempts to formalize and visualize online political polarization and opinion influence.",
+    "summary": "Research in 2012 focused primarily on experimental and theoretical investigation of superconductivity, particularly heavy-fermion and iron-based superconductors, as well as unconventional quantum phase transitions. The work drew heavily on NMR and spectroscopic techniques, single-crystal growth and characterization methods, and computational simulations to understand carrier dynamics and material properties. A significant portion of research employed advanced magnetic field equipment, including superconducting magnets and field effect transistor geometries with ionic liquids. Theoretical work complemented experimental studies through computational modeling of quantum critical phenomena and disorder effects.",
     "requirements": [
       {
-        "category": "data",
-        "name": "Social media text datasets",
-        "description": "Used as primary data source for training and testing sentiment analysis, opinion mining, and polarization detection models across multiple theses.",
-        "search_query": "social media text dataset for sentiment analysis opinion mining"
-      },
-      {
-        "category": "data",
-        "name": "Lexical resources (WordNet, FrameNet, PropBank, VerbNet)",
-        "description": "Used for deep semantic processing, word sense disambiguation, semantic role labeling, and creating aligned interoperable resources for NLP.",
-        "search_query": "WordNet FrameNet PropBank VerbNet lexical resource alignment"
-      },
-      {
-        "category": "data",
-        "name": "Large-scale annotated corpora for NLP",
-        "description": "Required for training and evaluating parser induction, coreference resolution, and semantic analysis systems, often supplemented by weakly-supervised methods.",
-        "search_query": "large annotated corpus natural language processing parsing coreference"
-      },
-      {
-        "category": "data",
-        "name": "Multilingual text resources for sentiment and named entity recognition",
-        "description": "Needed to extend sentiment analysis and named entity recognition across multiple languages (Spanish, French, German, Dutch, Italian, English) and compare opinions across cultures.",
-        "search_query": "multilingual sentiment analysis named entity recognition lexicon corpus"
+        "category": "tool_library",
+        "name": "NMR spectroscopy",
+        "description": "Multiple theses employed NMR and NQR techniques to study superconducting materials, including high-resolution solid-state NMR at high magnetic fields.",
+        "search_query": "NMR NQR spectroscopy superconductivity"
       },
       {
         "category": "method_technique",
-        "name": "Unsupervised or weakly-supervised machine learning for grammar and semantics",
-        "description": "Used to induce grammar from unlabeled data, jointly learn parts-of-speech and dependency relations, and acquire coreference resolvers without expensive manual annotation.",
-        "search_query": "unsupervised grammar induction weakly supervised coreference resolution"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis and opinion influence modeling",
-        "description": "Applied to detect sentiment polarity, model opinion formation and change in social networks, and identify influential individuals for business intelligence.",
-        "search_query": "sentiment analysis opinion influence modeling social network"
-      },
-      {
-        "category": "compute",
-        "name": "High-performance computing infrastructure for large-scale text processing",
-        "description": "Required for processing very large text corpora (e.g., social media data, web archives) and running complex machine learning algorithms across multiple projects.",
-        "search_query": "large-scale text processing infrastructure GPU cluster"
-      },
-      {
-        "category": "human_effort",
-        "name": "Expert annotation and gold standard creation for semantic roles and frames",
-        "description": "Human annotators created gold-standard data for evaluating mapping algorithms, building FrameNet, and refining cross-resource links for deep semantic analysis.",
-        "search_query": "semantic role annotation gold standard FrameNet corpus creation"
+        "name": "Single crystal growth and characterization",
+        "description": "Theses required synthesis and experimental characterization of superconducting single crystals through spectroscopic and transport measurements.",
+        "search_query": "single crystal growth characterization superconductor"
       },
       {
         "category": "tool_library",
-        "name": "API-based data collection and visualization tools for social media",
-        "description": "Used to collect, aggregate, and visualize social media posts (e.g., Facebook, Twitter) for studying online discourse, polarization, and sentiment over time.",
-        "search_query": "social media API data collection visualization polarization sentiment"
+        "name": "High magnetic field equipment",
+        "description": "Research utilized superconducting magnets and hybrid magnets to achieve high field stability and improved NMR resolution and sensitivity.",
+        "search_query": "superconducting magnet high magnetic field NMR"
+      },
+      {
+        "category": "method_technique",
+        "name": "Electrostatic doping via ionic liquid field effect transistors",
+        "description": "Theses employed electronic double layer transistor techniques with ionic liquids as gate dielectrics to reversibly control carrier concentrations in oxide superconductors.",
+        "search_query": "ionic liquid field effect transistor electrostatic doping EDLT"
+      },
+      {
+        "category": "compute",
+        "name": "Computational simulation and analytical techniques",
+        "description": "Research employed computer simulation and analytical methods to model quantum phase transitions, disorder effects, and transport properties in superconducting systems.",
+        "search_query": "computational simulation quantum phase transitions Monte Carlo"
+      },
+      {
+        "category": "method_technique",
+        "name": "X-ray scattering and transport measurements",
+        "description": "Theses utilized X-ray scattering, electrical transport, and magneto-transport measurements to characterize electronic properties of superconductors.",
+        "search_query": "X-ray scattering electrical transport magneto-transport superconductor"
       }
     ]
   },
-  "2011": {
-    "year": "2011",
-    "summary": "Research in 2011 focused heavily on sentiment analysis and opinion mining in online content, particularly for tourism and knowledge worker applications. Theses employed mixed methods, combining semantic analysis, structural equation modeling, and qualitative frameworks. Studies drew on social psychology, media effects, and linguistic theory, and required significant human effort for manual coding, survey design, and testing. The work also relied on software tools for semantic role labeling, text classification, and aggregation, as well as compute for statistical modeling and content processing.",
+  "2017": {
+    "year": "2017",
+    "summary": "2017 research focused on quantum materials and their exotic physical properties, with efforts divided between experimental synthesis and computational modeling. Experimental work centered on discovering and characterizing novel nitride-based compounds through materials synthesis and single crystal growth, while theoretical work applied advanced computational methods to understand driven quantum systems. Both research tracks aimed ultimately at room-temperature superconductivity and control of many-body quantum phenomena through external driving or material engineering.",
     "requirements": [
       {
         "category": "method_technique",
-        "name": "Sentiment analysis and opinion mining",
-        "description": "Used across multiple theses to extract and interpret evaluative expressions from online text and social media.",
-        "search_query": "sentiment analysis opinion mining social media 2011"
+        "name": "Materials synthesis and single crystal growth",
+        "description": "Used in experimental research to create and characterize novel quantum materials, particularly nitride-based compounds, with immediate feedback loops for material improvement.",
+        "search_query": "materials synthesis single crystal growth quantum materials"
       },
       {
         "category": "method_technique",
-        "name": "Mixed methods research design",
-        "description": "Combined qualitative content analysis with quantitative surveys and structural equation modeling for empirical validation.",
-        "search_query": "mixed methods structural equation modeling sentiment analysis 2011"
+        "name": "Physical properties measurement",
+        "description": "Applied to characterize fundamental physical properties of synthesized materials and assess their quantum behavior.",
+        "search_query": "physical properties measurement characterization quantum materials"
       },
       {
-        "category": "data",
-        "name": "Online text and social media content",
-        "description": "Collected and analyzed from tourism forums, news, and web coverage to study opinions and reputation.",
-        "search_query": "online text social media tourism web corpus 2011"
+        "category": "method_technique",
+        "name": "Tensor network and variational Monte Carlo computation",
+        "description": "Used to model dynamical behavior of driven strongly-correlated quantum systems and compute emergence of novel correlations like superconductivity.",
+        "search_query": "tensor network variational Monte Carlo quantum systems"
       },
       {
         "category": "tool_library",
-        "name": "Semantic role labeling and text analysis tools",
-        "description": "Applied for extracting object-attribute-evaluation tuples and processing content in sentiment and knowledge work systems.",
-        "search_query": "semantic role labeling sentiment analysis tool 2011"
+        "name": "Software package for tensor network methods",
+        "description": "Developed to handle multiple variational wave function variants in a unified framework with extensions to time-dependent dynamics.",
+        "search_query": "tensor network software package time-dependent variational principle"
       },
       {
-        "category": "human_effort",
-        "name": "Manual content coding and survey administration",
-        "description": "Required for building and refining frameworks, conducting quasi-experiments, and supplementing automated analysis.",
-        "search_query": "manual content analysis survey design sentiment 2011"
-      },
-      {
-        "category": "compute",
-        "name": "Statistical modeling and classification compute",
-        "description": "Needed for structural equation modeling, semantic role labeling, and aggregating sentiment results.",
-        "search_query": "statistical computing structural equation modeling classification 2011"
+        "category": "method_technique",
+        "name": "THz frequency spectroscopy and mode-selective driving",
+        "description": "Applied to interrogate and dynamically drive quantum materials through high-field coherent optical methods targeting optical phonons and superconductor gaps.",
+        "search_query": "THz spectroscopy frequency driving quantum materials"
       }
     ]
   },
   "2008": {
     "year": "2008",
-    "summary": "In 2008, research focused on sentiment and subjectivity analysis, opinion retrieval, and financial data mining. Theses explored word sense disambiguation for subjectivity, handling negation and temporal aspects in opinion retrieval, and building scalable systems for financial market analysis. They relied on manually or automatically constructed lexicons, parallel algorithms for correlation and clustering, and machine learning techniques for community and sentiment mining. The work aimed to improve search engine technology, risk management, and personalized media recommendations.",
+    "summary": "2008 research spanned three distinct experimental domains: ultrafast laser-based studies of organic superconductors under dynamic pressure, extreme high-pressure and high-temperature physics of hydrogen using pulsed laser heating, and nanofabrication techniques for single-electron devices and superconducting circuits. The theses collectively relied on specialized equipment and techniques for studying materials under extreme or transient conditions, including femtosecond lasers, high-pressure cells, and advanced planarization tools. A common thread was the investigation of superconducting and quantum phenomena in materials pushed beyond conventional equilibrium states.",
     "requirements": [
       {
-        "category": "data",
-        "name": "Subjectivity and sentiment lexicons",
-        "description": "Manually or automatically constructed lexicons of words or word senses were used for subjectivity and sentiment analysis.",
-        "search_query": "subjectivity sentiment lexicon word sense"
-      },
-      {
-        "category": "data",
-        "name": "Financial market data",
-        "description": "Real-time and historical stock market data were used for correlation, clustering, and dynamic modeling in financial analytics.",
-        "search_query": "financial market stock data real-time historical"
-      },
-      {
-        "category": "data",
-        "name": "Online media and community data",
-        "description": "Natural language text and Internet link graphs from self-published discussions were used to model communities and predict preferences.",
-        "search_query": "online community media preference text link graph"
-      },
-      {
-        "category": "method_technique",
-        "name": "Word sense disambiguation for subjectivity",
-        "description": "Methods were developed to assign subjectivity labels to word senses and perform contextual subjectivity disambiguation.",
-        "search_query": "word sense disambiguation subjectivity labeling"
-      },
-      {
-        "category": "method_technique",
-        "name": "Negation handling in opinion retrieval",
-        "description": "Techniques were investigated to determine whether negation words flip the sentiment polarity of opinionated words or phrases.",
-        "search_query": "negation handling sentiment polarity opinion retrieval"
-      },
-      {
-        "category": "method_technique",
-        "name": "Temporal sentiment analysis",
-        "description": "Methods were explored to examine how opinions about a topic change over time and identify significant time points and characterizing words.",
-        "search_query": "temporal sentiment change opinion retrieval time series"
-      },
-      {
-        "category": "method_technique",
-        "name": "Parallel algorithms for correlation and clustering",
-        "description": "State-of-the-art parallel algorithms were used for covariance/correlation and clustering to build scalable financial analytics engines.",
-        "search_query": "parallel algorithm correlation clustering financial analytics"
-      },
-      {
-        "category": "method_technique",
-        "name": "Machine learning for community and sentiment mining",
-        "description": "Data mining and machine learning techniques were applied to text and link graphs to model communities and predict sentiment and preferences.",
-        "search_query": "machine learning community sentiment mining text link graph"
-      },
-      {
-        "category": "compute",
-        "name": "High-performance computing clusters",
-        "description": "Computing clusters and multicore architectures were leveraged for real-time analysis of high-frequency financial data.",
-        "search_query": "high-performance computing cluster multicore financial data"
-      }
-    ]
-  },
-  "2026": {
-    "year": "2026",
-    "summary": "In 2026, research focused on applying advanced NLP, particularly large language models, to historical discourse analysis within an interdisciplinary framework combining computer science, history, economics, and management. One thesis leveraged LLMs and digitized press archives from Gallica to study narratives about corporate profit from 1907 to 1950, employing methods such as sentiment analysis, multimodal content analysis, and diachronic network mapping. It also integrated corporate accounting data from Equipex DFIH and annual reports to link discourse with firm-level behavior. Another major activity was the organization of the NLDB 2026 conference, which gathered researchers to discuss topics like large language models, bias, and transparency, though this is not a research project itself. Overall, the year’s research landscape is defined by the use of historical datasets and computationally intensive NLP methods to address societal questions.",
-    "requirements": [
-      {
-        "category": "data",
-        "name": "Digitized historical press archives",
-        "description": "Used from the Gallica Digital Library to analyze narratives about corporate profit from 1907 to 1950.",
-        "search_query": "Gallica Digital Library historical press archives 1907 1950"
-      },
-      {
-        "category": "data",
-        "name": "Corporate accounting and annual report data",
-        "description": "Sourced from Equipex DFIH and annual company reports to link discourse analysis with firm-level economic behavior.",
-        "search_query": "Equipex DFIH corporate accounting data annual reports Paris Stock Exchange"
-      },
-      {
-        "category": "method_technique",
-        "name": "Large Language Model tailored for historical discourse",
-        "description": "A custom LLM applied to historical texts to uncover narrative structures and evolution over time.",
-        "search_query": "large language model historical discourse analysis NLP"
-      },
-      {
-        "category": "method_technique",
-        "name": "Multimodal content analysis and diachronic network mapping",
-        "description": "Used to identify key actors, concepts, and their relational changes across the studied period.",
-        "search_query": "multimodal content analysis diachronic network mapping historical narratives"
-      },
-      {
-        "category": "method_technique",
-        "name": "Sentiment analysis",
-        "description": "Applied to trace emotional tone and public perception shifts in historical discourse on corporate profit.",
-        "search_query": "sentiment analysis historical text corporate profit discourse"
+        "category": "tool_library",
+        "name": "Femtosecond laser systems",
+        "description": "Used for generating picosecond pressure transients in organic superconductor studies and for pulsed laser heating of hydrogen at extreme pressures.",
+        "search_query": "femtosecond laser ultrafast pump-probe spectroscopy"
       },
       {
         "category": "tool_library",
-        "name": "User-friendly visualization tools",
-        "description": "Developed to present results of network mapping and sentiment analysis in an accessible format.",
-        "search_query": "user-friendly visualization tools network mapping sentiment analysis"
-      }
-    ]
-  },
-  "2006": {
-    "year": "2006",
-    "summary": "The single thesis from 2006 focuses on developing algorithms and software tools to discover coalitions and identify leaders in the blogosphere. It aims to track the formation and evolution of social groups within the large and dynamic online communication space. The research highlights the challenge of analyzing massive amounts of data and the difficulty of characterizing nuanced opinions. This work is part of an early effort to computationally analyze social networks in the blogosphere.",
-    "requirements": [
+        "name": "High-pressure apparatus and diamond anvil cells",
+        "description": "Essential infrastructure for studying materials at ultra-high pressures, including pressure cells designed to contain hydrogen and organic compounds under extreme conditions.",
+        "search_query": "diamond anvil cell high pressure apparatus megabar"
+      },
       {
-        "category": "data",
-        "name": "Blogosphere data",
-        "description": "The thesis required access to blogosphere data including web-logs, chatrooms, and e-mail messaging to analyze social interactions.",
-        "search_query": "blogosphere dataset social network analysis"
+        "category": "tool_library",
+        "name": "Chemical mechanical planarization (CMP) equipment",
+        "description": "Advanced automated tool used for nanodamascene process development to fabricate single-electron devices and superconducting circuits with precise control.",
+        "search_query": "chemical mechanical planarization CMP nanofabrication"
       },
       {
         "category": "method_technique",
-        "name": "Coalition discovery algorithms",
-        "description": "The thesis developed algorithms for discovering coalitions and tracking their evolution in the blogosphere.",
-        "search_query": "coalition discovery algorithms blogosphere social network"
+        "name": "Time-domain spectroscopy and ultrafast dynamics measurement",
+        "description": "Used to observe direct real-time formation of superconducting phases and transient material responses following laser excitation.",
+        "search_query": "time-resolved spectroscopy femtosecond pump-probe dynamics"
+      },
+      {
+        "category": "human_effort",
+        "name": "Multidisciplinary team research",
+        "description": "All three theses involved coordination of graduate students, postdoctoral researchers, and multiple faculty investigators across physics and engineering specialties.",
+        "search_query": "collaborative research team graduate student postdoctoral"
+      }
+    ]
+  },
+  "2024": {
+    "year": "2024",
+    "summary": "The 2024 theses focused on understanding exotic quantum materials and their properties through complementary theoretical and experimental approaches. One thesis employed theoretical methods including holographic principles and random resistor network modeling to explain strange metal behavior in cuprate superconductors. The other thesis developed and applied advanced experimental techniques—specifically neutron diffraction at extreme pressures—to directly determine atomic structures in hydrogen-rich systems and superconductors. Both research directions aimed ultimately at discovering or understanding room-temperature superconductors with transformative technological applications.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Holographic principles and quantum transport theory",
+        "description": "Used to model electron transport in strange metals through hydrodynamic and Boltzmann approaches, connecting theoretical frameworks for understanding non-Fermi liquid behavior.",
+        "search_query": "holographic principles electron transport strange metals"
+      },
+      {
+        "category": "method_technique",
+        "name": "Random resistor network modeling",
+        "description": "Applied to discretize materials into meshes of resistors representing structural elements, extended with aperiodic geometries to explain linear resistivity phenomena.",
+        "search_query": "random resistor network model linear resistivity"
+      },
+      {
+        "category": "tool_library",
+        "name": "Neutron diffraction instrumentation at megabar pressures",
+        "description": "High-pressure neutron diffraction techniques using diamond anvil cells and SNAP instrument at Spallation Neutron Source to directly measure hydrogen atom positions in crystal structures up to million atmosphere pressures.",
+        "search_query": "neutron diffraction megabar high pressure diamond anvil cell SNAP"
+      },
+      {
+        "category": "other",
+        "name": "Superconductor materials and extreme pressure systems",
+        "description": "Research focused on cuprate superconductors, hydrogen-based systems, and hydrogen sulfide compounds at extreme pressures to understand mechanisms for room-temperature superconductivity.",
+        "search_query": "superconductor high pressure hydrogen cuprate extreme conditions"
+      }
+    ]
+  },
+  "2016": {
+    "year": "2016",
+    "summary": "2016 research focused heavily on theoretical and experimental studies of unconventional superconductors, particularly cuprates, iron-based materials, and newly discovered chalcogenides. A significant portion of work involved materials discovery and characterization through advanced crystal growth techniques and spectroscopic probes. Research also explored topological states of matter and their potential connections to superconductivity. The year was marked by attempts to understand mechanisms underlying high-temperature superconductivity and to discover room-temperature superconductors through both theoretical modeling and materials engineering approaches.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Thin film growth and synthesis",
+        "description": "Multiple theses employed thin film growth techniques, chemical vapor transport, hydrothermal/solvothermal growth, and high-temperature high-pressure processing to create and characterize novel superconducting materials.",
+        "search_query": "thin film growth synthesis crystal growth superconductor materials"
+      },
+      {
+        "category": "method_technique",
+        "name": "Angle-resolved photoelectron spectroscopy (ARPES)",
+        "description": "ARPES was used across projects to probe electronic structure, surface states, and topological properties with high momentum and surface sensitivity.",
+        "search_query": "ARPES angle-resolved photoelectron spectroscopy electronic structure"
+      },
+      {
+        "category": "method_technique",
+        "name": "Theoretical modeling and many-body theory",
+        "description": "Multiple projects employed DFT calculations, gap equations, and many-body theoretical frameworks to understand superconducting mechanisms and electronic correlations.",
+        "search_query": "DFT density functional theory many-body theory superconductivity"
+      },
+      {
+        "category": "method_technique",
+        "name": "Light scattering and Raman spectroscopy",
+        "description": "Inelastic light scattering and Raman spectroscopy were used to probe collective electronic behavior and electronic correlations in superconductors.",
+        "search_query": "Raman spectroscopy inelastic light scattering collective behavior"
+      },
+      {
+        "category": "tool_library",
+        "name": "Synchrotron-based experimental facilities",
+        "description": "Access to synchrotron radiation sources and specialized facilities like BALTAZAR laser-based ARPES was essential for probing electronic and topological properties.",
+        "search_query": "synchrotron radiation ARPES facilities beamline"
+      },
+      {
+        "category": "human_effort",
+        "name": "Experimental collaboration and sample characterization",
+        "description": "Extensive collaboration between theoretical and experimental groups was required for validating theories, interpreting experimental signatures, and characterizing synthesized materials.",
+        "search_query": "experimental collaboration characterization sample preparation"
+      }
+    ]
+  },
+  "2009": {
+    "year": "2009",
+    "summary": "2009 research centered on theoretical and experimental investigations of superconductivity and quantum phase transitions in novel materials and systems. Theses explored high-temperature cuprate superconductors, iron-based superconductors, strongly-correlated atomic gases, and superfluid helium transitions, seeking to understand unconventional pairing mechanisms and exotic quantum states. Research combined microscopic theoretical modeling with experimental probes including ARPES data analysis, Monte Carlo simulations, and novel low-temperature measurement techniques. The work aimed to develop fundamental understanding of correlated electron systems and quantum critical phenomena with potential applications to room-temperature superconductivity and energy efficiency.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Monte Carlo calculations",
+        "description": "Used to verify analytic results for quantum fluctuations in superconducting systems.",
+        "search_query": "Monte Carlo simulations quantum fluctuations superconductivity"
+      },
+      {
+        "category": "method_technique",
+        "name": "ARPES data analysis and inversion",
+        "description": "Employed to deduce pairing spectra and test theoretical predictions in cuprate superconductors.",
+        "search_query": "ARPES angle-resolved photoemission spectroscopy cuprates pairing"
+      },
+      {
+        "category": "method_technique",
+        "name": "Low-temperature experimental techniques",
+        "description": "Required across multiple theses for studying superfluid helium, cryogenic liquids, and quantum phase transitions.",
+        "search_query": "low-temperature cryogenic techniques superfluid helium measurement"
+      },
+      {
+        "category": "method_technique",
+        "name": "Nanomaterial fabrication and characterization",
+        "description": "Applied to create and study carbon nanotubes with adsorbed superfluid helium films.",
+        "search_query": "carbon nanotubes nanomaterial fabrication characterization"
+      },
+      {
+        "category": "method_technique",
+        "name": "Optical and laser techniques",
+        "description": "Used for probing superfluid properties via temperature waves and generating cavitation bubbles in cryogenic liquids.",
+        "search_query": "laser optical techniques temperature wave cryogenic liquids"
+      },
+      {
+        "category": "other",
+        "name": "Theoretical modeling of strongly-correlated systems",
+        "description": "Fundamental approach across theses for understanding unconventional superconductors, pseudogap phases, and quantum critical phenomena.",
+        "search_query": "microscopic theory strongly-correlated electrons superconductivity"
+      }
+    ]
+  },
+  "2013": {
+    "year": "2013",
+    "summary": "Research in 2013 focused on experimental condensed matter physics, specifically attempting to synthesize and characterize metallic hydrogen under extreme conditions. The work relied on high-pressure experimental techniques using diamond anvil cells combined with laser heating to reach pressures in the megabar range and temperatures of thousands of Kelvin. The research aimed to produce and verify phase transitions in hydrogen samples, with potential applications including room-temperature superconductivity and advanced propellant development. The project involved training of postdoctoral fellows, graduate students, and undergraduate students in experimental methods.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Diamond anvil cells",
+        "description": "Used to generate and contain ultra-high pressures in the megabar range for hydrogen sample compression and phase transition studies.",
+        "search_query": "diamond anvil cell high pressure experimental apparatus"
+      },
+      {
+        "category": "method_technique",
+        "name": "Pulsed laser heating",
+        "description": "Applied to heat hydrogen samples to temperatures of thousands of Kelvin within diamond anvil cells to induce and study phase transitions.",
+        "search_query": "pulsed laser heating ultra-high pressure samples"
+      },
+      {
+        "category": "method_technique",
+        "name": "Optical measurement techniques",
+        "description": "Employed to characterize and detect phase transitions and metallic properties in pressurized hydrogen samples.",
+        "search_query": "optical spectroscopy characterization high pressure condensed matter"
+      },
+      {
+        "category": "human_effort",
+        "name": "Multi-level research team",
+        "description": "Postdoctoral fellows, graduate students, and undergraduate students conducted experiments and received educational training in high-pressure experimental physics.",
+        "search_query": "experimental physics education postdoctoral graduate undergraduate training"
+      }
+    ]
+  },
+  "1994": {
+    "year": "1994",
+    "summary": "Research in 1994 spanned experimental physics across cryogenic systems and condensed matter studies. One thesis focused on developing specialized instrumentation—a small helium liquefier—to enable low-temperature experiments on quantum systems like spin-polarized hydrogen and high-pressure studies of molecular hydrogen. The other thesis employed neutron diffraction techniques to investigate structural phase transitions and phonon behavior in high-temperature superconductors. Both projects depended heavily on precision measurement equipment and specialized experimental facilities to probe fundamental physical phenomena at extreme conditions.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Neutron diffraction equipment",
+        "description": "Used for characterizing structural phase transitions and phonon dispersion in high-temperature superconductor materials through single-crystal measurements.",
+        "search_query": "neutron diffraction structural characterization superconductors"
+      },
+      {
+        "category": "tool_library",
+        "name": "Cryogenic refrigeration systems (dilution refrigerators, 3He refrigerators, pumped 4He cryostats)",
+        "description": "Required to maintain sub-kelvin and low temperatures for experiments on quantum systems and high-pressure studies of molecular hydrogen.",
+        "search_query": "cryogenic refrigeration dilution refrigerator low temperature experiments"
+      },
+      {
+        "category": "tool_library",
+        "name": "High-pressure diamond anvil cells",
+        "description": "Employed to achieve megabar pressures in combination with cryogenic techniques for studying phase transitions in molecular hydrogen and metallic hydrogen formation.",
+        "search_query": "diamond anvil cell high pressure physics"
+      },
+      {
+        "category": "method_technique",
+        "name": "Computer-controlled instrumentation and monitoring",
+        "description": "Applied to automate helium liquefier operation, purification system switching, and experimental data collection across both theses.",
+        "search_query": "computer control automated instrumentation laboratory"
+      },
+      {
+        "category": "data",
+        "name": "Single crystal specimens",
+        "description": "Required for both neutron diffraction studies of superconductor lattice instability and high-pressure experiments on molecular hydrogen systems.",
+        "search_query": "single crystal growth experimental materials"
+      }
+    ]
+  },
+  "2021": {
+    "year": "2021",
+    "summary": "2021 research focused heavily on superconductivity across multiple material systems and approaches, including theoretical modeling of strongly correlated electron systems, experimental synthesis of novel superconducting materials, and light-induced superconductivity. Studies ranged from understanding high-temperature superconductors through exactly solvable models and numerical calculations to developing new material platforms like ordered polyacetylene chains and metal-base transistors in III-N semiconductors. The research collectively aimed at either achieving room-temperature superconductivity or advancing fundamental understanding of superconducting mechanisms through pressure, doping, light excitation, and material engineering.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Theoretical modeling and exactly solvable models",
+        "description": "Multiple theses employed exactly solvable models, renormalization techniques, and theoretical frameworks to understand superconductivity in strongly correlated systems and light-driven materials.",
+        "search_query": "exactly solvable models theoretical superconductivity"
+      },
+      {
+        "category": "method_technique",
+        "name": "Numerical simulations and phase diagram calculations",
+        "description": "Numerical calculations were used to determine phase diagrams, study dilute electron gases, and model electronic behavior in various material systems.",
+        "search_query": "numerical calculations phase diagram simulations superconductivity"
+      },
+      {
+        "category": "method_technique",
+        "name": "Molecular beam epitaxy (MBE) synthesis",
+        "description": "MBE was employed for growing novel thin films and heterostructures, including niobium nitride layers and III-N semiconductor structures.",
+        "search_query": "molecular beam epitaxy MBE thin films growth"
+      },
+      {
+        "category": "method_technique",
+        "name": "In-situ photochemical synthesis in host crystals",
+        "description": "Light-induced polymerization and in-situ synthesis within crystalline host structures was used to create ordered polymer chains and novel materials.",
+        "search_query": "photochemical synthesis inclusion crystals in-situ"
+      },
+      {
+        "category": "method_technique",
+        "name": "Optical-pump terahertz-probe spectroscopy",
+        "description": "Time-resolved optical spectroscopy techniques were used to study light-driven electronic responses and non-equilibrium superconducting states.",
+        "search_query": "optical pump terahertz probe spectroscopy light-induced"
+      },
+      {
+        "category": "method_technique",
+        "name": "High-resolution structural characterization",
+        "description": "X-ray diffraction, Raman spectroscopy, inelastic neutron scattering, and transmission electron microscopy were employed to characterize material structures and interfaces.",
+        "search_query": "X-ray diffraction Raman spectroscopy TEM characterization"
+      },
+      {
+        "category": "method_technique",
+        "name": "Electrical transport and conductivity measurements",
+        "description": "DC conductivity measurements, conductive atomic force microscopy, and transport property studies were used to probe superconducting behavior in synthesized materials.",
+        "search_query": "conductivity measurements DC transport electrical properties"
+      },
+      {
+        "category": "tool_library",
+        "name": "Transmission electron microscopy (TEM)",
+        "description": "TEM was used across multiple theses for ultimate control and characterization of heterostructure interfaces and thin film quality.",
+        "search_query": "transmission electron microscopy TEM interface characterization"
       },
       {
         "category": "compute",
-        "name": "Large-scale data processing compute",
-        "description": "The thesis required computational resources to process the immense amount of blogosphere data.",
-        "search_query": "large scale data processing blogosphere analysis"
+        "name": "Computational materials modeling",
+        "description": "Computational resources were required for theoretical calculations of electronic structure, phase diagrams, and modeling of strongly correlated systems.",
+        "search_query": "computational modeling electronic structure calculations"
+      },
+      {
+        "category": "human_effort",
+        "name": "Graduate student training and mentorship",
+        "description": "Training of PhD students in theoretical and experimental physics was an integral component across multiple research projects.",
+        "search_query": "graduate student training PhD education research"
+      }
+    ]
+  },
+  "2020": {
+    "year": "2020",
+    "summary": "2020 research focused on experimental condensed matter physics, particularly quantum materials and their electronic properties. The work spanned superconductivity, topological insulators, and exotic quantum states in materials like graphene and bismuth. Research heavily relied on specialized instrumentation for low-temperature and high-pressure measurements, as well as advanced spectroscopic and imaging techniques. Theoretical predictions about topological protection, flat bands, and exotic pairing states guided experimental investigations into whether these phenomena could be observed and exploited.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Dilution refrigerators and cryogenic measurement systems",
+        "description": "Multiple theses required ultra-low temperature capability (below 10K and down to 1.5K) for studying quantum devices, superconductors, and topological materials.",
+        "search_query": "dilution refrigerator cryogenic measurement system low temperature"
+      },
+      {
+        "category": "tool_library",
+        "name": "High-pressure apparatus and diamond anvil cells",
+        "description": "Research on metallic hydrogen isotopes and superconductor properties under extreme pressure required equipment capable of reaching and maintaining pressures above 200-500 GPa.",
+        "search_query": "high pressure apparatus diamond anvil cell ultrahigh pressure"
+      },
+      {
+        "category": "tool_library",
+        "name": "Spectroscopic and microscopic measurement techniques",
+        "description": "Theses employed microwave imaging, tunnel spectroscopy, high-frequency spectroscopy, magnetometry, and proximity effect measurements to characterize material properties and topological states.",
+        "search_query": "tunnel spectroscopy microwave imaging high frequency spectroscopy magnetometer"
+      },
+      {
+        "category": "tool_library",
+        "name": "Superconducting circuits and proximity effect devices",
+        "description": "Superconducting elements were used both as materials of study and as probes to investigate topological properties and excitations in other materials.",
+        "search_query": "superconducting proximity effect hybrid superconductor device"
+      },
+      {
+        "category": "tool_library",
+        "name": "2D material fabrication and characterization",
+        "description": "Research on graphene, twisted bilayer graphene, and topological insulators required ability to produce, manipulate, and measure nanoscale devices.",
+        "search_query": "2D material graphene nanowire fabrication characterization"
+      },
+      {
+        "category": "method_technique",
+        "name": "X-ray diffraction and structural analysis",
+        "description": "Ground state characterization of materials under high pressure and extreme conditions was performed using x-ray analysis.",
+        "search_query": "x-ray diffraction structural analysis high pressure"
+      },
+      {
+        "category": "human_effort",
+        "name": "Materials collaboration and synthesis",
+        "description": "Multiple theses depended on collaborations with materials growers and research groups specializing in synthesis of exotic quantum materials.",
+        "search_query": "materials synthesis collaboration crystal growth"
+      }
+    ]
+  },
+  "2003": {
+    "year": "2003",
+    "summary": "Research in 2003 focused on experimental condensed matter physics, particularly studying extreme states of matter through advanced imaging and high-pressure techniques. One thesis developed quantitative image-analysis algorithms to characterize superconductor properties, while another pursued ultrahigh-pressure experiments to induce phase transitions in hydrogen. Both projects relied on sophisticated experimental apparatus and measurement techniques to probe fundamental physics phenomena, with an emphasis on pushing technological boundaries to reach previously unattainable experimental conditions or data processing capabilities.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Ultrahigh-pressure diamond anvil cell techniques",
+        "description": "Used to achieve extreme pressures (600 GPa or higher) on materials to induce phase transitions and study material properties under conditions approaching those at Earth's center.",
+        "search_query": "diamond anvil cell ultrahigh pressure techniques"
+      },
+      {
+        "category": "method_technique",
+        "name": "Optical reflectivity measurements",
+        "description": "Employed to detect phase transitions and changes in electronic properties of materials under extreme conditions.",
+        "search_query": "optical reflectivity measurements phase transitions"
+      },
+      {
+        "category": "method_technique",
+        "name": "Quantitative image-analysis algorithms",
+        "description": "Developed to transform qualitative imaging techniques into quantitative tools capable of extracting detailed physical parameters from experimental data.",
+        "search_query": "quantitative image analysis algorithms superconductor imaging"
+      },
+      {
+        "category": "method_technique",
+        "name": "Meissner effect measurements",
+        "description": "Used to detect superconducting states in materials under high-pressure conditions.",
+        "search_query": "Meissner effect measurements superconductivity detection"
+      },
+      {
+        "category": "human_effort",
+        "name": "Training of post-doctoral associates in cutting-edge techniques",
+        "description": "Multiple theses emphasized preparation of postdoctoral researchers in novel experimental methodologies for careers in academia, industry, and government.",
+        "search_query": "postdoctoral training experimental techniques condensed matter"
+      }
+    ]
+  },
+  "1990": {
+    "year": "1990",
+    "summary": "Research in 1990 focused on characterizing high-temperature superconductor materials through advanced optical and acoustic measurement techniques. Both theses employed sophisticated instrumentation to probe the fundamental properties of newly discovered high-Tc superconducting systems, particularly YBaCuO and BiSrCaCuO films. The work was driven by the need to understand material properties for emerging applications in infrared detection and thermal radiation management. These studies required precision measurement equipment and low-temperature laboratory facilities to obtain baseline data on superconducting materials.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "High-precision grating spectrometer for infrared reflectance measurement",
+        "description": "Specialized optical apparatus designed for measuring monochromatic normal reflectance of superconducting films across infrared wavelengths from 0.5 to 30 micrometers without reference mirror.",
+        "search_query": "infrared reflectance spectrometer high-Tc superconductor measurement"
+      },
+      {
+        "category": "method_technique",
+        "name": "Laser-based noncontacting ultrasonics for material characterization",
+        "description": "Nonintrusive measurement technique using laser-based ultrasonics to characterize electronic, vibrational, and optical properties of high-Tc superconducting materials without physical contact.",
+        "search_query": "photoacoustic laser ultrasonics superconductor characterization"
+      },
+      {
+        "category": "data",
+        "name": "High-quality high-Tc superconducting films (YBaCuO, BiSrCaCuO)",
+        "description": "Pseudocrystalline films with strong c-axis orientation fabricated by leading research institutions, required as test samples for optical and acoustic property measurements.",
+        "search_query": "YBaCuO BiSrCaCuO superconducting films samples"
+      },
+      {
+        "category": "human_effort",
+        "name": "Low-temperature laboratory operation and sample management",
+        "description": "Sustained laboratory effort required to maintain cryogenic conditions between 6 K and room temperature and manage multiple identical samples throughout measurement campaigns.",
+        "search_query": "cryogenic laboratory low-temperature measurement facility"
+      }
+    ]
+  },
+  "1988": {
+    "year": "1988",
+    "summary": "Research in 1988 focused on experimental materials science, specifically investigating the physical properties of newly discovered superconducting and magnetic materials. The work centered on measuring specific heat across wide temperature ranges (50K to 700K) to understand phase transitions and material behavior. Studies examined both high-temperature oxide superconductors like YBa2Cu3Ox and amorphous rare earth-transition metal alloys, with particular interest in superconducting transitions, resistive anomalies, and polymorphic behavior in amorphous phases.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Low-temperature cryogenic measurement apparatus",
+        "description": "Specialized equipment capable of measuring specific heat of thin film samples across the cryogenic to high-temperature range of 50K to 700K.",
+        "search_query": "cryogenic specific heat measurement apparatus 50K 700K"
+      },
+      {
+        "category": "method_technique",
+        "name": "Thin film sample preparation and characterization",
+        "description": "Techniques for preparing thin films of superconducting and magnetic materials, including oxide superconductors and amorphous rare earth-transition metal alloys, suitable for thermal measurements.",
+        "search_query": "thin film preparation superconducting magnetic materials YBa2Cu3Ox"
+      },
+      {
+        "category": "method_technique",
+        "name": "Thermal analysis across phase transitions",
+        "description": "Methods for analyzing specific heat behavior through critical transitions including superconducting transitions near 95K and Curie points in magnetic materials.",
+        "search_query": "specific heat measurement superconducting transition Curie point"
+      }
+    ]
+  },
+  "2011": {
+    "year": "2011",
+    "summary": "2011 research focused on advancing superconductor science and engineering, spanning fundamental physics of metallic hydrogen and unconventional superconductors to applied engineering of superconducting machines. Research efforts required access to extreme experimental conditions including high-pressure equipment (up to 440 GPa), cryogenic temperatures (milliKelvin to tens of Kelvin range), and specialized magnetic measurement facilities. A significant portion of work involved characterizing material properties at cryogenic temperatures and optimizing magnetic circuit designs for practical superconducting device applications. The research depended heavily on advanced measurement techniques, theoretical predictions, and understanding of material behavior under extreme conditions.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "High-pressure compression equipment",
+        "description": "Multiple theses required diamond anvil cells and compression apparatus capable of generating pressures up to 440 GPa for studying hydrogen metallization and material phase transitions.",
+        "search_query": "high pressure compression equipment diamond anvil cell GPa"
+      },
+      {
+        "category": "tool_library",
+        "name": "Cryogenic measurement systems",
+        "description": "Research required cryogenic cooling systems and measurement capability at milliKelvin to tens of Kelvin temperatures for studying superconductor properties and magnetic material behavior.",
+        "search_query": "cryogenic temperature measurement system milliKelvin liquid helium"
+      },
+      {
+        "category": "tool_library",
+        "name": "Magnetic field measurement and generation equipment",
+        "description": "Theses required equipment for generating and measuring magnetic fields above the upper critical field, including SQUID systems and facilities for extreme field conditions.",
+        "search_query": "SQUID magnetometer upper critical field measurement superconductor"
+      },
+      {
+        "category": "method_technique",
+        "name": "Transport property measurements",
+        "description": "Research employed transport experiments including electrical conductivity, resistivity, and phase-sensitive Josephson tunneling to characterize superconductor behavior.",
+        "search_query": "transport measurements electrical conductivity resistivity superconductor"
+      },
+      {
+        "category": "data",
+        "name": "Magnetic material properties at cryogenic temperatures",
+        "description": "Research required characterization data for magnetic steels and materials including Curie point, saturation flux density, permeability, and loss densities at cryogenic temperatures, which was noted as limited in availability.",
+        "search_query": "magnetic material properties cryogenic temperature Curie point saturation"
+      },
+      {
+        "category": "method_technique",
+        "name": "High-pressure and strain application techniques",
+        "description": "Research utilized hydrostatic pressure and mechanical strain techniques to modify superconductor properties and study phase behavior.",
+        "search_query": "hydrostatic pressure strain application superconductor measurement"
+      },
+      {
+        "category": "human_effort",
+        "name": "Specialized research personnel training",
+        "description": "Multiple projects supported postdoctoral fellow training in advanced physics, materials science, and specialized measurement techniques for superconductor research.",
+        "search_query": "postdoctoral training superconductor physics materials science"
+      }
+    ]
+  },
+  "2014": {
+    "year": "2014",
+    "summary": "Research in 2014 focused on advancing cryogenic sensor systems and superconducting materials through novel hardware integration and material synthesis techniques. Both theses centered on pushing the boundaries of low-temperature physics applications, with one emphasizing system-level integration of superconducting sensors with ultra-low-power silicon electronics, and the other exploring interfacial superconductivity in thin films. The work required specialized equipment for materials growth and characterization, as well as expertise in cryogenic circuit design and superconducting device physics. Applications ranged from imaging systems to fundamental physics exploration, underscoring the practical importance of advancing cryogenic technology.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Molecular Beam Epitaxy (MBE) system",
+        "description": "Used for atomic layer-by-layer growth of oxide materials and superconducting thin films to enable study of interfacial superconductivity.",
+        "search_query": "Molecular Beam Epitaxy MBE oxide growth thin films"
+      },
+      {
+        "category": "method_technique",
+        "name": "Cryogenic circuit design and integration",
+        "description": "Required for developing ultra-low-power cryogenic electronics and achieving heterogeneous integration of superconductor and semiconductor circuits at 4 K operating temperatures.",
+        "search_query": "cryogenic circuit design ultra-low-power electronics superconductor semiconductor integration"
+      },
+      {
+        "category": "method_technique",
+        "name": "Low-noise superconducting device characterization",
+        "description": "Used to characterize crystal structures, physical properties, and performance of superconducting nanowire detectors and sensor arrays through on-wafer noise measurement techniques.",
+        "search_query": "superconducting device characterization noise measurement nanowire detector"
+      },
+      {
+        "category": "tool_library",
+        "name": "Cryogenic sensor systems and focal plane arrays",
+        "description": "Both theses relied on or aimed to develop superconducting sensor platforms including terahertz mixer arrays and superconducting nanowire single photon detector cameras.",
+        "search_query": "superconducting sensor array focal plane cryogenic detector camera"
+      },
+      {
+        "category": "human_effort",
+        "name": "Specialized expertise in low-temperature physics and cryogenic electronics",
+        "description": "Training and development of new experts in cryogenic electronics and superconducting systems was emphasized as critical for advancing the field.",
+        "search_query": "low-temperature physics cryogenic electronics expertise training"
+      }
+    ]
+  },
+  "1997": {
+    "year": "1997",
+    "summary": "Research in 1997 focused on developing advanced photon detection systems by integrating semiconductor and superconducting technologies. The work centered on creating hybrid detector architectures that combined silicon visible light photon counters with superconducting timing electronics to achieve unprecedented performance in time-resolved single photon detection. The research aimed to miniaturize and integrate complex cryogenic systems to eliminate traditional room-temperature electronics bottlenecks. Applications targeted included particle physics detectors, fluorescence lifetime measurement systems, and military instrumentation.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Superconducting Time-to-Digital Converter (TDC)",
+        "description": "Superconducting TDC circuits with 200 ps time resolution were integrated with photon detection systems to digitize signal timing from visible light photon counters.",
+        "search_query": "superconducting time-to-digital converter TDC photon detection"
+      },
+      {
+        "category": "tool_library",
+        "name": "SQUID Amplifier",
+        "description": "Low-noise superconducting quantum interference device (SQUID) amplifiers were integrated on-chip with digitizers to amplify weak VLPC output signals within cryogenic environments.",
+        "search_query": "SQUID amplifier superconducting cryogenic photon detector"
+      },
+      {
+        "category": "tool_library",
+        "name": "Visible Light Photon Counters (VLPC)",
+        "description": "Silicon-based visible light photon counters operating at 6-10K were integrated with superconducting electronics to achieve single photon detection capability.",
+        "search_query": "visible light photon counter VLPC silicon detector"
+      },
+      {
+        "category": "other",
+        "name": "Cryogenic Integration and Packaging",
+        "description": "Semiconductor-superconductor hybrid systems required cryogenic packaging to integrate amplification and digitization electronics directly with photon detectors at 6-10K to eliminate external signal transmission losses.",
+        "search_query": "cryogenic packaging integration superconductor semiconductor detector"
+      }
+    ]
+  },
+  "1995": {
+    "year": "1995",
+    "summary": "Research in 1995 focused on advancing superconductor technology through two complementary approaches: thin-film growth and processing optimization for high-temperature superconductors, and computational modeling of superconducting digital devices. Both research efforts aimed to overcome practical barriers to commercialization and device integration. The work drew heavily on materials science techniques and numerical simulation methods to understand and optimize superconducting properties and device behavior.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Scanning and transmission electron microscopy",
+        "description": "Used to establish relationships between deposition conditions and thin-film growth mechanisms in superconductor research.",
+        "search_query": "electron microscopy characterization thin films"
+      },
+      {
+        "category": "method_technique",
+        "name": "Ion-beam assisted deposition",
+        "description": "Employed as a primary fabrication technique for depositing biaxially aligned buffer layers and high-temperature superconductor thin films on various substrates.",
+        "search_query": "ion beam assisted deposition IBAD thin films"
+      },
+      {
+        "category": "method_technique",
+        "name": "Graphoepitaxial growth",
+        "description": "Used as an alternative method to produce biaxially aligned superconductor films on metallic substrates.",
+        "search_query": "graphoepitaxial growth superconductor"
+      },
+      {
+        "category": "compute",
+        "name": "Numerical simulation and modeling",
+        "description": "Extensive computational modeling was required to simulate multilayer Josephson junction behavior, flux quantum circuitry, and device performance optimization.",
+        "search_query": "numerical simulation computational modeling superconducting devices"
+      }
+    ]
+  },
+  "2001": {
+    "year": "2001",
+    "summary": "Research in 2001 focused on experimental physics at the mesoscopic scale, specifically examining electron transport and superconductivity in nanoscale metallic structures. The work relied heavily on advanced microfabrication techniques to create and study samples with submicron dimensions. Key research areas included dephasing phenomena in small metallic wires, spin-polarized transport in hybrid systems, and superconductor-normal metal interfaces. The research combined experimental design with low-temperature measurements and device physics, training students in both semiconductor fabrication tools and quantum mechanical principles applied to nanoscale systems.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Microfabrication tools and techniques",
+        "description": "Microfabrication capabilities were essential across all research topics to create mesoscopic metallic wire samples and hybrid metal structures at submicron length scales.",
+        "search_query": "microfabrication tools nanofabrication semiconductor fabrication techniques mesoscopic samples"
+      },
+      {
+        "category": "method_technique",
+        "name": "Low-temperature electron transport measurements",
+        "description": "Low-temperature experimental measurements below 1K were required to study dephasing, energy exchange, and quantum transport phenomena in mesoscopic metal structures.",
+        "search_query": "low temperature transport measurements cryogenic electron transport sub-Kelvin"
+      },
+      {
+        "category": "other",
+        "name": "Hybrid metal structures and device fabrication",
+        "description": "Creation and characterization of superconductor-normal metal interfaces, magnetic-nonmagnetic heterostructures, and self-assembled nanowires required specialized sample preparation and growth techniques.",
+        "search_query": "superconductor normal metal hybrid structures magnetic nonmagnetic heterostructures rare-earth silicide nanowires"
+      }
+    ]
+  },
+  "2004": {
+    "year": "2004",
+    "summary": "Research in 2004 focused on experimental condensed matter physics, specifically the study of mesoscopic metallic systems with submicron dimensions. The work explored quantum coherence effects and electrical transport properties in hybrid samples containing superconductors, ferromagnets, and normal metals. A key theme was testing theoretical predictions about superconducting correlations in ferromagnet-superconductor interfaces and understanding transport in highly disordered metals. The research emphasized hands-on graduate student training in nanofabrication and sample processing techniques derived from semiconductor industry practices.",
+    "requirements": [
+      {
+        "category": "method_technique",
+        "name": "Nanofabrication and submicron sample fabrication",
+        "description": "Modern nanofabrication techniques were essential for creating mesoscopic metallic samples with micrometer and submicron dimensions used throughout the experimental research.",
+        "search_query": "nanofabrication submicron sample fabrication mesoscopic metallic"
+      },
+      {
+        "category": "method_technique",
+        "name": "Electrical transport measurement and characterization",
+        "description": "Experimental measurements of electrical transport properties across superconductor-ferromagnet and superconductor-normal metal interfaces, including room temperature and low-temperature measurements, were central to testing theoretical predictions.",
+        "search_query": "electrical transport measurement superconductor ferromagnet interface"
+      },
+      {
+        "category": "other",
+        "name": "Low-temperature operation and cryogenic equipment",
+        "description": "Low-temperature experiments were required to observe quantum-mechanical phase coherence effects and reveal properties of mesoscopic samples not evident at room temperature.",
+        "search_query": "low temperature cryogenic quantum coherence mesoscopic"
+      },
+      {
+        "category": "human_effort",
+        "name": "Graduate student training in experimental techniques",
+        "description": "Graduate students acquired expertise in modern nanofabrication, sample processing, and experimental methods through hands-on involvement in mesoscopic physics research projects.",
+        "search_query": "graduate student training nanofabrication experimental expertise"
+      }
+    ]
+  },
+  "1993": {
+    "year": "1993",
+    "summary": "Research in 1993 focused on experimental studies of organic charge transfer salts, investigating how low-dimensional systems exhibit complex competing phases under varying conditions. The work employed multiple complementary experimental measurement techniques to characterize electronic, magnetic, and structural properties across different temperature, pressure, and magnetic field regimes. A key emphasis was understanding phase transitions and exotic quantum phenomena in highly anisotropic organic conductors, particularly the competition between metallic, insulating, magnetic, and superconducting states. Access to extreme experimental conditions, particularly very high magnetic fields, was essential for exploring field-induced transitions and quantum oscillations in these materials.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "High magnetic field apparatus",
+        "description": "Multiple theses required access to high magnetic field equipment, with fields up to 65 Tesla, for studying field-dependent phase transitions and quantum oscillations in low-dimensional organic conductors.",
+        "search_query": "high magnetic field apparatus Tesla experimental measurement"
+      },
+      {
+        "category": "method_technique",
+        "name": "Multi-modal experimental characterization",
+        "description": "Theses employed magnetic, thermal, elastic, and structural measurement techniques to comprehensively characterize material properties across different phases and conditions.",
+        "search_query": "magnetic thermal elastic structural measurements characterization"
+      },
+      {
+        "category": "data",
+        "name": "Organic charge transfer salt samples",
+        "description": "Research required access to quasi-one and quasi-two dimensional organic charge transfer salt materials, particularly Bechgaard salts, with high crystal quality and anisotropy.",
+        "search_query": "Bechgaard salt organic charge transfer materials samples"
+      },
+      {
+        "category": "method_technique",
+        "name": "Low temperature cryogenic measurement",
+        "description": "Experiments required cooling materials to liquid helium temperatures to observe phase transitions and exotic quantum phenomena.",
+        "search_query": "liquid helium cryogenic temperature low temperature measurement"
+      }
+    ]
+  },
+  "2000": {
+    "year": "2000",
+    "summary": "In 2000, research focused on experimental condensed matter physics investigating the properties of solid hydrogen under extreme pressure conditions. The work aimed to detect predicted phase transitions, particularly the Wigner-Huntington transition to metallic hydrogen and potential high-temperature superconductivity. Research relied heavily on specialized equipment and advanced spectroscopic techniques to probe material properties at multi-megabar pressures. The study represented an attempt to resolve a decades-old theoretical prediction through careful experimental design and measurement.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Diamond Anvil Cells (DACs)",
+        "description": "Specially designed high-pressure devices with synthetic diamonds were used to generate pressures up to 400 GPa to compress hydrogen and its isotopes.",
+        "search_query": "diamond anvil cell high pressure apparatus"
+      },
+      {
+        "category": "method_technique",
+        "name": "Spectroscopic techniques and optical spectroscopy",
+        "description": "Spectroscopic methods including optical spectroscopy characterized by Drude free-electron spectrum were employed to search for new phase lines and explore conductive properties.",
+        "search_query": "optical spectroscopy Drude spectrum high pressure"
+      },
+      {
+        "category": "method_technique",
+        "name": "DC electrical conductivity measurements",
+        "description": "DC conductivity measurements as a function of temperature and pressure were used to determine metallicity and band gap properties of hydrogen phases.",
+        "search_query": "DC electrical conductivity measurement temperature pressure"
+      },
+      {
+        "category": "human_effort",
+        "name": "Graduate student and postdoctoral researcher participation",
+        "description": "Graduate students and postdoctoral research associates conducted hands-on experimental work and developed specialized skills in high-pressure condensed matter physics techniques.",
+        "search_query": "graduate student postdoctoral researcher training high pressure physics"
+      }
+    ]
+  },
+  "2010": {
+    "year": "2010",
+    "summary": "Research in 2010 focused on understanding high-temperature superconductors and related quantum materials through experimental and computational approaches. Experimental work relied heavily on specialized instrumentation such as cryogenic nuclear magnetic resonance probes and infrared spectroscopy to characterize superconducting materials at low temperatures. Computational research employed first-principles electronic structure calculations, evolutionary algorithms for structure prediction, and theoretical methods like functional renormalization group approaches to model superconductivity mechanisms and predict novel materials. The research drew on ab initio calculations, experimental characterization of powder and single-crystal samples, and collaborative efforts between theory and experiment to elucidate the properties of iron-based oxypnictides, topological insulators, and hydrogen-rich materials under pressure.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Ab initio electronic structure calculations",
+        "description": "Used across multiple theses to calculate electronic properties, density of states, energy gaps, and to support interpretation of experimental NMR and infrared data on superconductors.",
+        "search_query": "ab initio first-principles electronic structure calculations DFT"
+      },
+      {
+        "category": "method_technique",
+        "name": "Cryogenic nuclear magnetic resonance (NMR) spectroscopy",
+        "description": "Employed for detailed characterization of local structure and dynamics in superconductors at temperatures below 70 K, including both static and magic-angle spinning configurations.",
+        "search_query": "cryogenic NMR magic-angle spinning low temperature superconductors"
+      },
+      {
+        "category": "method_technique",
+        "name": "Infrared spectroscopy",
+        "description": "Used to study the electrodynamics and superconducting properties of iron-based pnictide superconductors, providing information on energy gaps and superfluid density.",
+        "search_query": "infrared spectroscopy high-Tc superconductors pnictides electrodynamics"
+      },
+      {
+        "category": "tool_library",
+        "name": "Evolutionary algorithm for structure prediction",
+        "description": "Applied to predict stable crystal structures of hydrogen-rich polyhydrides and other materials under pressure, interfaced with first-principles electronic structure programs.",
+        "search_query": "evolutionary algorithm structure prediction XtalOpt hydrides"
+      },
+      {
+        "category": "compute",
+        "name": "High-field NMR instrumentation",
+        "description": "Specialized cryogenic magic-angle spinning NMR probes operating at 14 T and below 70 K were critical infrastructure for characterizing superconductor samples.",
+        "search_query": "14 T cryoMAS NMR probe cryogenic high-field"
+      },
+      {
+        "category": "data",
+        "name": "Well-characterized single crystal and powder samples",
+        "description": "High-quality superconductor samples including iron-based pnictides, MgB2, osmates, and alkali fullerides were essential for both experimental NMR/infrared studies and computational validation.",
+        "search_query": "single crystal powder superconductor samples iron pnictide MgB2"
+      },
+      {
+        "category": "method_technique",
+        "name": "Theoretical many-body methods for strongly correlated systems",
+        "description": "Functional renormalization group, Gutzwiller-projected wavefunctions, and other techniques were used to understand pairing mechanisms and collective phenomena in superconductors and topological materials.",
+        "search_query": "functional renormalization group strongly correlated electrons superconductivity"
+      }
+    ]
+  },
+  "2018": {
+    "year": "2018",
+    "summary": "Research in 2018 focused on advanced experimental and theoretical investigation of topological materials and novel magnetic phenomena for quantum information processing. One thesis pursued precision magneto-optic imaging and low-temperature characterization of chiral edge states in topological materials, while the other developed theoretical device concepts inspired by superfluidity in magnetic systems operating at room temperature. Both efforts aimed to enable robust, energy-efficient quantum computing and information processing by leveraging intrinsic physical properties of complex materials. The research combined cutting-edge experimental techniques with computational modeling and required sophisticated instrumentation and theoretical frameworks.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Magneto-optic imaging apparatus (mK-Sagnac interferometer-microscope)",
+        "description": "Specialized experimental instrument used for ultrasensitive imaging and characterization of topological phases and chiral edge states at cryogenic temperatures.",
+        "search_query": "magneto-optic imaging Sagnac interferometer cryogenic topological materials"
+      },
+      {
+        "category": "method_technique",
+        "name": "Low-temperature transport and magnetometry measurements",
+        "description": "Multi-modal characterization techniques including torque magnetometry and transport measurements performed simultaneously at millikelvin temperatures to distinguish bulk and surface contributions in topological materials.",
+        "search_query": "low temperature transport magnetometry topological materials cryogenic"
+      },
+      {
+        "category": "method_technique",
+        "name": "Magnetic device modeling and simulation",
+        "description": "Theoretical framework and numerical evaluation of superfluid-inspired magnetic device concepts including circuit theory development for magnetic Josephson junctions.",
+        "search_query": "magnetic device simulation Josephson junction modeling superfluid"
+      },
+      {
+        "category": "other",
+        "name": "Room-temperature magnetic materials characterization",
+        "description": "Investigation of magnetic phenomena and device functionality at ambient temperatures using spin-orbit and thermomagnonic effects as alternatives to cryogenic systems.",
+        "search_query": "room temperature magnetic materials spin-orbit torque energy-efficient"
+      }
+    ]
+  },
+  "1996": {
+    "year": "1996",
+    "summary": "This year's research consisted of experimental studies on organic charge transfer salts, specifically Bechgaard salts, to understand their electronic properties and states of matter. The work focused on investigating quantum Hall effects in bulk three-dimensional systems, superconductivity, flux pinning dynamics, and magnetic field effects in low-dimensional strongly interacting systems. Research examined how frustration from applied fields and low-dimensional interactions produce various ground states ranging from charge/spin density wave insulators to metals and superconductors. The investigation required extensive experimental techniques to probe unusual phenomena including angular-dependent resonances and magnetoresistance effects that could not be explained by existing band structure theory.",
+    "requirements": [
+      {
+        "category": "data",
+        "name": "Organic charge transfer salt samples",
+        "description": "Bechgaard salt specimens were the primary experimental material studied across this research to investigate their electronic and superconducting properties.",
+        "search_query": "Bechgaard salts organic conductors charge transfer materials"
+      },
+      {
+        "category": "method_technique",
+        "name": "Magnetic field measurements and magnetoresistance experiments",
+        "description": "Experimental techniques involving applied magnetic fields were used to probe normal metal phases, field-induced spin density wave states, and flux pinning dynamics in organic conductors.",
+        "search_query": "magnetoresistance magnetic field effects transport measurements condensed matter"
+      },
+      {
+        "category": "method_technique",
+        "name": "Low-temperature transport characterization",
+        "description": "Experimental studies required measuring conductivity and transport properties at low temperatures to characterize phase transitions and superconducting states.",
+        "search_query": "low temperature transport measurements superconductivity conductivity"
+      }
+    ]
+  },
+  "2005": {
+    "year": "2005",
+    "summary": "This year's research focused on experimental condensed matter physics investigating quantum phase transitions in model systems. The work examined metal-insulator transitions in hydrogenated thin films and magnetic quantum critical points in elemental chromium. Research relied heavily on specialized experimental techniques and facilities to probe fundamental quantum phenomena at extreme conditions. The research program emphasized integration of research with educational training and outreach initiatives.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "High-pressure diamond anvil cell",
+        "description": "Used for high-pressure experimental studies to depress magnetic transitions and study quantum critical points in chromium.",
+        "search_query": "diamond anvil cell high pressure experiments"
+      },
+      {
+        "category": "method_technique",
+        "name": "X-ray diffraction and scattering techniques",
+        "description": "Applied to characterize structural and magnetic properties in quantum phase transition systems.",
+        "search_query": "X-ray techniques condensed matter characterization"
+      },
+      {
+        "category": "method_technique",
+        "name": "Transport measurements",
+        "description": "Used to probe electrical and thermal properties during metal-insulator and magnetic transitions.",
+        "search_query": "transport measurements electrical conductivity"
+      },
+      {
+        "category": "data",
+        "name": "Thin film samples (yttrium and lanthanum hydrides, chromium single crystals)",
+        "description": "Model material systems synthesized and studied as primary experimental subjects for quantum phase transition research.",
+        "search_query": "hydrogenated yttrium lanthanum thin films chromium single crystals"
+      },
+      {
+        "category": "human_effort",
+        "name": "Ph.D. student training across multiple experimental techniques and facilities",
+        "description": "Integrated research and education component emphasizing broad skill development in experimental condensed matter physics.",
+        "search_query": "graduate student training experimental physics facilities"
+      }
+    ]
+  },
+  "2015": {
+    "year": "2015",
+    "summary": "Research in 2015 focused on quantum technologies and hybrid quantum systems that bridge atomic and solid-state platforms. Both theses involved developing or studying quantum-enhanced devices and sensors that operate at ultra-low temperatures. The work drew heavily on cryogenic infrastructure, nanofabrication techniques, and coupling mechanisms between different quantum systems. Key applications included magnetic field sensing, quantum computing, and fundamental quantum physics experiments. The research depended on specialized cooling equipment, advanced material engineering, and theoretical modeling of quantum phenomena.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Dilution refrigeration systems (cryogen-free)",
+        "description": "Ultra-low temperature environments required for isolating quantum systems from thermal noise and enabling quantum-enhanced behavior in both sensor development and hybrid quantum experiments.",
+        "search_query": "cryofree dilution refrigerator ultra-low temperature quantum"
+      },
+      {
+        "category": "method_technique",
+        "name": "Nanofabrication and material engineering",
+        "description": "Techniques for creating hybrid semiconductor/superconductor devices, graphene structures, and engineered surfaces used across both quantum sensor and atom-chip coupling experiments.",
+        "search_query": "nanofabrication hybrid superconductor semiconductor graphene quantum devices"
+      },
+      {
+        "category": "method_technique",
+        "name": "Atom chip coupling and surface engineering",
+        "description": "Experimental platforms and interface designs for coupling atomic systems (cold ions, cold atoms, nitrogen vacancy centers) to engineered solid-state surfaces and electron circuits.",
+        "search_query": "atom chip surface coupling ions atoms nitrogen vacancy centers"
+      },
+      {
+        "category": "method_technique",
+        "name": "Quantum state control and measurement",
+        "description": "Methods for manipulating and measuring multi-particle quantum states in atomic and solid-state systems to achieve coherent quantum coupling.",
+        "search_query": "quantum state control measurement atomic cold ions atoms superconducting"
+      },
+      {
+        "category": "human_effort",
+        "name": "Industrial-academic collaboration",
+        "description": "Partnership between commercial manufacturers and research institutions required for developing prototype quantum technologies and translating lab research to commercial products.",
+        "search_query": "industrial partner academic collaboration quantum technology product development"
+      }
+    ]
+  },
+  "2007": {
+    "year": "2007",
+    "summary": "This year's research focused on nanoscale characterization and manipulation of individual dopants in semiconductor and superconductor materials using advanced scanning probe microscopy. The work aimed to understand how dopants transform insulating materials into conducting or magnetic systems through atomic-scale measurements and controlled manipulation. The research combined high-resolution spectroscopic techniques with nanoscale sample manipulation to probe single dopant electronic structure and dopant-dopant interactions. A key goal was understanding the mechanisms by which magnetic dopants induce ferromagnetism in semiconductors like GaAs, with potential applications in spintronics and room-temperature magnetic devices.",
+    "requirements": [
+      {
+        "category": "tool_library",
+        "name": "Scanning Tunneling Microscope (STM)",
+        "description": "STM was used as the primary instrument for nanoscale imaging, spectroscopic measurements, and atom-by-atom manipulation of individual dopants in semiconductor samples.",
+        "search_query": "scanning tunneling microscope STM dopant characterization"
+      },
+      {
+        "category": "method_technique",
+        "name": "STM Spectroscopic Techniques and Atom-by-Atom Substitution",
+        "description": "Various STM-based spectroscopic methods and a novel atom-by-atom substitution technique were employed to probe single dopants, measure orbital states, and characterize dopant-dopant interactions.",
+        "search_query": "STM spectroscopy atom-by-atom substitution dopant manipulation"
+      },
+      {
+        "category": "data",
+        "name": "Nanoscale Electronic Structure and Magnetic Properties Data",
+        "description": "High-resolution measurements of local electronic structure, orbital states as functions of magnetic field, and magnetic dopant interactions were collected to understand dopant-induced phenomena in semiconductors and superconductors.",
+        "search_query": "nanoscale electronic structure dopant magnetic properties spectroscopy"
+      },
+      {
+        "category": "human_effort",
+        "name": "Training in Advanced Scanning Probe Microscopy",
+        "description": "Significant educational effort was invested in training the next generation of physicists in materials physics and advanced STM techniques, including undergraduate involvement and development of instructional materials.",
+        "search_query": "scanning probe microscopy training education undergraduate research"
       }
     ]
   }
