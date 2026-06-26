@@ -87,6 +87,43 @@ def read_counts(csv_path):
     return arr(phd), arr(msc), arr(grant)
 
 
+def read_rows(csv_path):
+    """All in-span rows with a usable year, level and searchable text.
+    Used to find, per method, the first year it appears at each level."""
+    rows = []
+    with open(csv_path, encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f, delimiter=";"):
+            yr = (row.get("Published Year") or "").strip()
+            if not yr.isdigit():
+                continue
+            y = int(yr)
+            if not (SPAN[0] <= y <= SPAN[1]):
+                continue
+            level = (row.get("Academic Level") or "").strip().lower()
+            if level not in ("grant", "phd", "ma"):
+                continue
+            text = " ".join((row.get(c) or "") for c in ("title", "Abstract", "Keywords")).lower()
+            rows.append({"y": y, "level": level, "text": text})
+    return rows
+
+
+def method_first_years(rows, family_key):
+    """First year `family_key` appears in a document's text, per academic level.
+    A method is 'present' when every significant word of its family key occurs
+    in the title+abstract+keywords. This is the real first *mention* in the
+    corpus — measured, not modelled. Missing levels stay None."""
+    words = [w for w in family_key.split() if w]
+    first = {"grant": None, "phd": None, "ma": None}
+    if not words:
+        return first
+    for r in rows:
+        if all(w in r["text"] for w in words):
+            cur = first[r["level"]]
+            if cur is None or r["y"] < cur:
+                first[r["level"]] = r["y"]
+    return first
+
+
 def read_per_year(path):
     """(stories{year->text}, year_reqs{year->[{name,group}]}, reqs_by_cat)."""
     with open(path, encoding="utf-8") as f:
@@ -203,33 +240,42 @@ def build_eras(tps, narrative):
     return eras
 
 
-def _pick_families(reqs_by_cat, cat, colors, top_n):
+def _pick_families(reqs_by_cat, cat, colors, top_n, rows=None):
     """Top requirement families in a category -> lifeline entries, ranked by
-    recurrence (distinct years seen) then earliest appearance."""
+    recurrence (distinct years seen) then earliest appearance.
+
+    When `rows` is given, each entry also carries `feas` = the real first year
+    that family appears in the corpus at each level (grant / phd / ma), used by
+    the feasibility chart. No level is invented: absent levels stay null."""
     fams = reqs_by_cat.get(cat, {})
     ranked = sorted(
-        fams.values(),
-        key=lambda d: (-len(d["years"]), d["first"], d["label"] or ""),
+        fams.items(),
+        key=lambda kv: (-len(kv[1]["years"]), kv[1]["first"], kv[1]["label"] or ""),
     )[:top_n]
     # stable, readable order on the chart: by first-appearance year
-    ranked.sort(key=lambda d: d["first"])
+    ranked.sort(key=lambda kv: kv[1]["first"])
     out = []
-    for i, fam in enumerate(ranked):
+    for i, (key, fam) in enumerate(ranked):
         last = max(fam["years"])
         end = SPAN[1] if last >= SPAN[1] - 2 else last
-        out.append({
+        entry = {
             "label": fam["label"],
             "s": fam["first"],
             "e": end,
             "color": colors[i % len(colors)],
             "op": 0.85,
-        })
+        }
+        if rows is not None:
+            entry["feas"] = method_first_years(rows, key)
+        out.append(entry)
     return out
 
 
-def build_lifelines(reqs_by_cat):
+def build_lifelines(reqs_by_cat, rows):
     return {
-        "methods": _pick_families(reqs_by_cat, "method_technique", METHOD_COLORS, 6),
+        # only methods drive the feasibility chart, so only they get per-level
+        # first-year data (feas); data/compute lifelines stay as-is.
+        "methods": _pick_families(reqs_by_cat, "method_technique", METHOD_COLORS, 6, rows=rows),
         "data": _pick_families(reqs_by_cat, "data", DATA_COLORS, 5),
         "compute": _pick_families(reqs_by_cat, "compute", COMPUTE_COLORS, 3),
     }
@@ -249,13 +295,15 @@ def derive_maturity(eras, thesis, grant):
 
 def build_field(folder):
     base = os.path.join(DATA_DIR, folder)
-    phd, msc, grant = read_counts(os.path.join(base, "raw_data.csv"))
+    csv_path = os.path.join(base, "raw_data.csv")
+    phd, msc, grant = read_counts(csv_path)
+    rows = read_rows(csv_path)
     thesis = [phd[i] + msc[i] for i in range(len(YEARS))]
     stories, year_reqs, reqs_by_cat = read_per_year(os.path.join(base, "per_year_summaries.json"))
     tps, narrative = read_turning_points(os.path.join(base, "all_year_summaries.json"))
 
     eras = build_eras(tps, narrative)
-    lifelines = build_lifelines(reqs_by_cat)
+    lifelines = build_lifelines(reqs_by_cat, rows)
     maturity = derive_maturity(eras, thesis, grant)
     label = folder.replace("_", " ").title()
     last_era = eras[-1]["name"] if eras else "the current stack"

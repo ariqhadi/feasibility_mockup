@@ -197,42 +197,72 @@ export const FIELDS = {
                     "s": 2008,
                     "e": 2026,
                     "color": "#4f7a6b",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2008,
+                        "phd": 2007,
+                        "ma": 2009
+                    }
                 },
                 {
                     "label": "Sentiment analysis",
                     "s": 2010,
                     "e": 2026,
                     "color": "#3f6ea5",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2003,
+                        "phd": 2007,
+                        "ma": 2008
+                    }
                 },
                 {
                     "label": "Natural language processing",
                     "s": 2010,
                     "e": 2026,
                     "color": "#7a5aa0",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2003,
+                        "phd": 2012,
+                        "ma": 2008
+                    }
                 },
                 {
                     "label": "Topic modeling",
                     "s": 2018,
                     "e": 2026,
                     "color": "#b8553a",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2007,
+                        "phd": 2018,
+                        "ma": 2012
+                    }
                 },
                 {
                     "label": "Deep Learning",
                     "s": 2019,
                     "e": 2021,
                     "color": "#b08a3e",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2009,
+                        "phd": 2014,
+                        "ma": 2016
+                    }
                 },
                 {
                     "label": "Large Language Models / trans…",
                     "s": 2024,
                     "e": 2026,
                     "color": "#9aa0a6",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2009,
+                        "phd": 2010,
+                        "ma": 2012
+                    }
                 }
             ],
             "data": [
@@ -985,71 +1015,115 @@ export const FIELDS = {
     {
         "label": "Room Temperature Superconductor",
         "maturity": 0.88,
-        "tagline": "6 method generations across 2003–2026 — now centred on Statistical and econometric.",
+        "tagline": "10 method generations across 2003–2026 — now centred on Neutron diffraction at.",
         "eras": [
             {
                 "name": "Foundational",
                 "a": 2003,
-                "b": 2006,
+                "b": 2009,
                 "c": "#c9a14a",
                 "note": "The field's run-up — before the first major shift in its method stack."
             },
             {
-                "name": "Social media text",
-                "a": 2006,
-                "b": 2017,
+                "name": "Computational methods transition",
+                "a": 2009,
+                "b": 2010,
                 "c": "#5b8a72",
-                "note": "Social media text data becomes a primary data source for the first time, but only in the context of blogosphere analysis, not yet sentiment analysis; this marks the beginning of a persistent reliance on user-generated content that expands dramatically in later years."
+                "note": "Computational methods (Monte Carlo, DFT, many-body theory) transition from auxiliary to central research requirements"
             },
             {
-                "name": "GPU compute",
-                "a": 2017,
-                "b": 2021,
+                "name": "First-principles and evolutionary",
+                "a": 2010,
+                "b": 2014,
                 "c": "#4a78c2",
-                "note": "GPU compute for deep learning training becomes a consistently cited requirement, replacing earlier references to distributed computing (Hadoop, MapReduce) and large-scale data processing infrastructure, signaling a shift from big data platforms to specialized hardware for neural network training."
+                "note": "First-principles and evolutionary algorithms for materials discovery enter as routine requirements"
             },
             {
-                "name": "Qualitative interviews",
-                "a": 2021,
-                "b": 2023,
+                "name": "Cryogenic circuit design",
+                "a": 2014,
+                "b": 2015,
                 "c": "#8a5fb0",
-                "note": "Qualitative interviews and surveys first appear as a required method for gathering subjective data, marking a shift toward mixed-methods research that combines computational analysis with human-centered data collection."
+                "note": "Cryogenic circuit design and integration of superconductor-semiconductor systems becomes explicit requirement"
             },
             {
-                "name": "LLMs",
+                "name": "Quantum technologies",
+                "a": 2015,
+                "b": 2017,
+                "c": "#3f8a9a",
+                "note": "Quantum technologies and hybrid quantum systems emerge as explicit research focus with associated infrastructure"
+            },
+            {
+                "name": "THz spectroscopy",
+                "a": 2017,
+                "b": 2018,
+                "c": "#b08a3e",
+                "note": "THz spectroscopy and mode-selective driving enter as primary characterization method"
+            },
+            {
+                "name": "Topological materials research",
+                "a": 2018,
+                "b": 2022,
+                "c": "#c9a14a",
+                "note": "Topological materials research and magneto-optic imaging become explicit focus areas"
+            },
+            {
+                "name": "Machine learning",
+                "a": 2022,
+                "b": 2023,
+                "c": "#5b8a72",
+                "note": "Machine learning and materials databases enter as integrated components of materials discovery pipeline"
+            },
+            {
+                "name": "Ion irradiation",
                 "a": 2023,
                 "b": 2024,
-                "c": "#3f8a9a",
-                "note": "Large Language Models (LLMs) emerge as a distinct data and method category, moving beyond earlier mentions of pre-trained models like BERT to encompass a broader emphasis on LLMs as a foundation for AI systems, often with a focus on efficiency or adaptation."
+                "c": "#4a78c2",
+                "note": "Ion irradiation and neutron damage studies appear as explicit requirements; synchrotron access becomes routine"
             },
             {
-                "name": "Statistical and econometric",
+                "name": "Neutron diffraction at",
                 "a": 2024,
                 "b": 2026.2,
                 "c": "#cf5b3e",
-                "note": "Statistical and econometric analysis emerges as a required method for hypothesis testing and regression, complementing the existing machine learning and NLP techniques, and reflecting a growing integration of traditional social science methodology with computational analysis."
+                "note": "Neutron diffraction at extreme pressures (megabar) emerges as specialized technique for hydrogen-based systems"
             }
         ],
         "turningPoints": [
             {
-                "y": 2006,
-                "t": "Social media text"
+                "y": 2009,
+                "t": "Computational methods transition"
+            },
+            {
+                "y": 2010,
+                "t": "First-principles and evolutionary"
+            },
+            {
+                "y": 2014,
+                "t": "Cryogenic circuit design"
+            },
+            {
+                "y": 2015,
+                "t": "Quantum technologies"
             },
             {
                 "y": 2017,
-                "t": "GPU compute"
+                "t": "THz spectroscopy"
             },
             {
-                "y": 2021,
-                "t": "Qualitative interviews"
+                "y": 2018,
+                "t": "Topological materials research"
+            },
+            {
+                "y": 2022,
+                "t": "Machine learning"
             },
             {
                 "y": 2023,
-                "t": "LLMs"
+                "t": "Ion irradiation"
             },
             {
                 "y": 2024,
-                "t": "Statistical and econometric"
+                "t": "Neutron diffraction at"
             }
         ],
         "volume": {
@@ -1161,104 +1235,127 @@ export const FIELDS = {
         "lifelines": {
             "methods": [
                 {
-                    "label": "Machine learning",
-                    "s": 2008,
-                    "e": 2026,
+                    "label": "Meissner effect measurements",
+                    "s": 2003,
+                    "e": 2003,
                     "color": "#4f7a6b",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2003,
+                        "phd": 2016,
+                        "ma": null
+                    }
                 },
                 {
-                    "label": "Sentiment analysis",
-                    "s": 2010,
-                    "e": 2026,
-                    "color": "#3f6ea5",
-                    "op": 0.85
-                },
-                {
-                    "label": "Natural language processing",
-                    "s": 2010,
-                    "e": 2026,
-                    "color": "#7a5aa0",
-                    "op": 0.85
-                },
-                {
-                    "label": "Topic modeling",
-                    "s": 2018,
-                    "e": 2026,
-                    "color": "#b8553a",
-                    "op": 0.85
-                },
-                {
-                    "label": "Deep Learning",
-                    "s": 2019,
+                    "label": "Electrical transport and cond…",
+                    "s": 2004,
                     "e": 2021,
-                    "color": "#b08a3e",
-                    "op": 0.85
+                    "color": "#3f6ea5",
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2004,
+                        "phd": 2003,
+                        "ma": null
+                    }
                 },
                 {
-                    "label": "Large Language Models / trans…",
-                    "s": 2024,
-                    "e": 2026,
+                    "label": "X-ray scattering and transpor…",
+                    "s": 2005,
+                    "e": 2020,
+                    "color": "#7a5aa0",
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2005,
+                        "phd": 2004,
+                        "ma": 2008
+                    }
+                },
+                {
+                    "label": "Low-temperature experimental…",
+                    "s": 2009,
+                    "e": 2018,
+                    "color": "#b8553a",
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2003,
+                        "phd": 2003,
+                        "ma": 2004
+                    }
+                },
+                {
+                    "label": "High-pressure techniques",
+                    "s": 2011,
+                    "e": 2023,
+                    "color": "#b08a3e",
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2003,
+                        "phd": 2014,
+                        "ma": 2010
+                    }
+                },
+                {
+                    "label": "Theoretical modeling and many…",
+                    "s": 2016,
+                    "e": 2021,
                     "color": "#9aa0a6",
-                    "op": 0.85
+                    "op": 0.85,
+                    "feas": {
+                        "grant": 2021,
+                        "phd": 2013,
+                        "ma": null
+                    }
                 }
             ],
             "data": [
                 {
-                    "label": "Subjectivity and sentiment le…",
-                    "s": 2008,
-                    "e": 2009,
+                    "label": "Thin film samples",
+                    "s": 2005,
+                    "e": 2005,
                     "color": "#5a8a7a",
                     "op": 0.85
                 },
                 {
-                    "label": "Online text corpora",
-                    "s": 2009,
-                    "e": 2011,
+                    "label": "Nanoscale Electronic Structur…",
+                    "s": 2007,
+                    "e": 2007,
                     "color": "#3f9a84",
                     "op": 0.85
                 },
                 {
-                    "label": "Social Media Data",
-                    "s": 2012,
-                    "e": 2026,
+                    "label": "Well-characterized single cry…",
+                    "s": 2010,
+                    "e": 2010,
                     "color": "#3f8a9a",
                     "op": 0.85
                 },
                 {
-                    "label": "Large-scale text corpora from…",
-                    "s": 2012,
-                    "e": 2016,
+                    "label": "Magnetic material properties…",
+                    "s": 2011,
+                    "e": 2011,
                     "color": "#5f9aa8",
-                    "op": 0.85
-                },
-                {
-                    "label": "User-generated Content and Re…",
-                    "s": 2014,
-                    "e": 2023,
-                    "color": "#7aa0b0",
                     "op": 0.85
                 }
             ],
             "compute": [
                 {
-                    "label": "Large-scale data processing i…",
-                    "s": 2006,
-                    "e": 2015,
+                    "label": "High-field NMR instrumentation",
+                    "s": 2010,
+                    "e": 2010,
                     "color": "#c7a14a",
                     "op": 0.85
                 },
                 {
-                    "label": "High-performance computing in…",
-                    "s": 2008,
+                    "label": "Computational simulation and…",
+                    "s": 2012,
                     "e": 2012,
                     "color": "#b8862f",
                     "op": 0.85
                 },
                 {
-                    "label": "GPU compute for deep learning",
-                    "s": 2017,
-                    "e": 2026,
+                    "label": "Computational materials model…",
+                    "s": 2021,
+                    "e": 2021,
                     "color": "#cf8a3e",
                     "op": 0.85
                 }
@@ -1266,683 +1363,529 @@ export const FIELDS = {
         },
         "constants": [],
         "years": {
-            "2003": "Research in 2003 spans social science and computational linguistics. One thesis examines European integration's impact on nationalist movements in Spain using protest event data from newspapers and statistical analysis. Another thesis develops graph-based algorithms for text processing tasks such as sentiment categorization and document retrieval. Both projects rely on quantitative data analysis but in different domains.",
-            "2006": "The single thesis from 2006 focuses on developing algorithms and software tools to discover coalitions and identify leaders in the blogosphere. It aims to track the formation and evolution of social groups within the large and dynamic online communication space. The research highlights the challenge of analyzing massive amounts of data and the difficulty of characterizing nuanced opinions. This work is part of an early effort to computationally analyze social networks in the blogosphere.",
-            "2007": "In 2007, theses spanned diverse fields including political science, literature, cultural studies, and computational linguistics. Research in law and social science examined historical attacks on the federal judiciary using large-N datasets and case studies. Humanities projects explored representations of slavery and African-American women's sexuality through archival sources, close reading, and ethnographic methods. A business-oriented project developed software to aggregate internet chatter and correlate it with sales metrics using statistical analysis. Computational linguistic research applied sentiment analysis to Chinese and English media texts. Overall, the year relied heavily on archival and textual data, qualitative methods, and the nascent application of statistical and NLP tools.",
-            "2008": "In 2008, research focused on sentiment and subjectivity analysis, opinion retrieval, and financial data mining. Theses explored word sense disambiguation for subjectivity, handling negation and temporal aspects in opinion retrieval, and building scalable systems for financial market analysis. They relied on manually or automatically constructed lexicons, parallel algorithms for correlation and clustering, and machine learning techniques for community and sentiment mining. The work aimed to improve search engine technology, risk management, and personalized media recommendations.",
-            "2009": "Research in 2009 was heavily focused on sentiment and subjectivity analysis, with multiple theses aiming to extract opinions from informal online sources like blogs and news. Work drew on natural language processing techniques including machine learning, statistical analysis, and symbolic parsing, and relied on manually or automatically constructed lexicons. A recurring theme was the need to handle ambiguity and compositional meaning beyond simple word-level polarity counting. Several projects also pursued cross-domain knowledge transfer using matrix decompositions and aimed to commercialize trend analysis tools by scaling to large text corpora via cloud computing. Multilingual subjectivity analysis and word-sense disambiguation emerged as important challenges.",
-            "2010": "The 2010 theses covered a diverse range of research, from historical archival analysis of Newfoundland's Commission government to computational sentiment analysis of news articles and financial analyst reports. Several projects focused on developing and applying machine learning and natural language processing techniques for opinion mining and trend detection, often leveraging large-scale text corpora from news, blogs, or social media. Social science research examined public attitudes toward Latinos using survey data linked to county-level demographic and economic statistics. The research landscape was characterized by a mix of traditional archival and survey-based methods alongside emerging computational approaches to extract insights from unstructured text.",
-            "2011": "Research in 2011 focused heavily on sentiment analysis and opinion mining in online content, particularly for tourism and knowledge worker applications. Theses employed mixed methods, combining semantic analysis, structural equation modeling, and qualitative frameworks. Studies drew on social psychology, media effects, and linguistic theory, and required significant human effort for manual coding, survey design, and testing. The work also relied on software tools for semantic role labeling, text classification, and aggregation, as well as compute for statistical modeling and content processing.",
-            "2012": "In 2012, research heavily focused on sentiment analysis, opinion mining, and the intersection of social network analysis with natural language processing. Many projects aimed to leverage existing lexical resources (WordNet, FrameNet, PropBank, VerbNet) and large-scale text corpora, often from social media, to perform deeper semantic understanding and coreference resolution. There was a strong emphasis on developing unsupervised or weakly-supervised methods to reduce reliance on expensive hand-annotated data, while several projects required substantial computational infrastructure for processing large datasets. The year also saw work on multilingual and cross-domain challenges, particularly in sentiment analysis and named entity recognition, as well as attempts to formalize and visualize online political polarization and opinion influence.",
-            "2013": "In 2013, theses heavily focused on sentiment analysis and opinion mining across diverse text types, particularly from social media (Twitter, Facebook) and web sources (news, blogs, Google data). Many projects aimed at developing multilingual and cross-media platforms capable of integrating sentiment with spatiotemporal and network analysis. Researchers commonly depended on large-scale text corpora, machine learning algorithms, and custom NLP tools, often requiring significant computational resources for data processing. There was also notable interest in leveraging Google Trends and search data for applications ranging from brand valuation to tracking hate speech and financial contagion. Additionally, linguistic annotation infrastructure and text classification methods were advanced to support these analyses.",
-            "2014": "In 2014, the research landscape is dominated by the analysis of large volumes of unstructured text data, particularly from social media and web sources, to extract sentiment, opinions, and public reactions. Many projects focus on developing and applying natural language processing (NLP) and machine learning techniques for tasks like sentiment analysis, text summarization, and topic modeling, often requiring scalable computational frameworks. A recurring theme is the use of social media data (e.g., Twitter) to study public reactions to events, consumer behavior, and cultural engagement, with significant investment in building automated analysis tools and prototypes. The research draws heavily on existing social media platforms, NLP methods, and distributed computing systems like Hadoop and MapReduce.",
-            "2015": "In 2015, research strongly focused on developing and applying sentiment analysis, opinion mining, and predictive analytics across diverse domains such as finance, social media, health, supply chains, and media. Many theses involved building large-scale systems that integrate and process unstructured data from multiple sources, including news articles, social media streams, and corporate disclosures. Common methodological dependencies included natural language processing (NLP), machine learning, deep learning, text summarization, and graph theory. A significant number of projects required substantial computational resources for big data processing and model training, as well as human effort for annotation, evaluation, and domain expertise. The year also saw a notable emphasis on multilingual and cross-lingual capabilities, with several projects translating and analyzing content in languages beyond English.",
-            "2016": "In 2016, research theses heavily focused on extracting and analyzing opinions, sentiments, and argumentation from text and social media, often to understand public attitudes, political dynamics, or consumer behavior. Many projects leveraged large-scale, often multilingual, datasets from online sources, social networks, or news archives, and applied methods like sentiment analysis, text mining, topic modeling, and deep learning to uncover patterns. There was a strong emphasis on handling unstructured data, integrating qualitative and quantitative approaches, and developing tools for real-time or scalable analysis, with dependencies on automated NLP techniques and machine learning for classification and prediction.",
-            "2017": "In 2017, research heavily focused on sentiment analysis applied to social media and financial text, often aiming to predict market movements or public opinion. Many theses combined natural language processing (NLP), social network analysis, and machine learning to process unstructured data from platforms like Twitter. A strong emphasis was placed on developing models that are robust to variations in time, geography, and demographics, and on creating resources for under-resourced languages. Several projects also explored the use of knowledge graphs, agent-based modeling, and complex event processing for real-time analysis and risk assessment. The work frequently required large-scale text corpora, annotation efforts, and computational resources for training deep learning models.",
-            "2018": "In 2018, research heavily focused on natural language processing (NLP) and sentiment analysis applied to social media and healthcare data. Many studies aimed to model, forecast, or detect patterns in human behavior, such as political polarization, financial market movements, and patient experience. There was a strong emphasis on developing and adapting machine learning methods, particularly deep neural networks and probabilistic topic models like Latent Dirichlet Allocation (LDA). The research frequently depended on large-scale text data from platforms like Twitter and online forums, requiring substantial computational resources for training complex models.",
-            "2019": "In 2019, research heavily focused on applying natural language processing (NLP) and machine learning (ML) techniques, particularly sentiment analysis, topic modeling, and deep learning, to analyze text and social media data across diverse domains. Common applications included understanding public discourse on economic reforms, migration, and politics; detecting cyberbullying, hate speech, and disinformation; and predicting financial risk, consumer behavior, and human mobility. Many projects depended on large-scale, unstructured data sources such as news articles, social media posts, and corporate communications, often requiring cross-lingual capabilities and advanced computational methods like sequence models and word embeddings. A significant number of theses also addressed the societal and ethical implications of these technologies, particularly around fairness, bias, and the impact on vulnerable groups.",
-            "2020": "In 2020, research heavily focused on applying Natural Language Processing (NLP) and sentiment analysis to social media and textual data for understanding public discourse, bias, customer satisfaction, and migration attitudes. Many projects also explored AI-driven solutions for healthcare, legal systems, and urban management, often leveraging deep learning and cloud technologies. A recurring theme was the use of computational methods to analyze and predict human behavior, with several theses addressing the impacts of the COVID-19 pandemic. The research landscape was characterized by interdisciplinary approaches combining computational linguistics with social sciences, and a strong emphasis on developing practical tools for industry and policy-making.",
-            "2021": "In 2021, research heavily applied natural language processing (NLP) and sentiment analysis across domains such as finance, mental health, social media, and news media. Many theses leveraged large-scale user-generated data from platforms like Twitter, TikTok, and counseling chats to analyze behavior, predict outcomes, or detect bias. A significant subset focused on adversarial robustness and bias mitigation in AI systems, while others integrated machine learning with domain expertise (e.g., clinical psychology, geology, classroom observation). Common methodological dependencies include deep learning, topic modeling, named entity recognition, and computer vision, often requiring substantial compute resources for model training.",
-            "2022": "In 2022, research heavily centered on sentiment analysis and natural language processing applied to diverse domains such as social media, mental health, finance, governance, and education. Many theses employed machine learning models ranging from traditional classifiers to deep learning architectures like LSTMs and Transformers, often requiring labeled datasets and computational resources for training. A significant focus was on cross-cultural and multilingual applications, including Portuguese, Norwegian, Arabic, and Chinese contexts. Other recurring themes included misinformation detection, affect recognition, and the integration of AI into workplace and clinical tools. Several projects also relied on human annotation, validation by domain experts, and mixed-method approaches combining computational analysis with qualitative interviews.",
-            "2023": "In 2023, the research landscape is heavily focused on applying natural language processing (NLP) and machine learning to analyze large-scale text and social media data, particularly for sentiment analysis, emotion detection, and understanding public opinion. A significant number of theses rely on social media platforms (e.g., Twitter, Instagram, TikTok) as a primary data source, using methods like topic modeling, sentiment analysis, and network analysis. There is also a strong emphasis on developing computationally efficient methods that require reduced supervision, moving away from resource-intensive large language models. Many projects aim to make these analytical tools more accessible and applicable to specific domains, including engineering education, healthcare, finance, and cultural heritage. A recurring theme is the use of these techniques to capture and analyze the experiences of specific communities, such as neurodivergent individuals or patients, to inform better practices and policies.",
-            "2024": "The 2024 theses reveal a strong focus on applying natural language processing (NLP) and sentiment analysis across diverse domains including finance, politics, social media, and health. Many projects leverage AI and machine learning to detect emotions, opinions, and disinformation, often from online text and voice data. There is a notable emphasis on making these technologies personalized, explainable, and efficient for broader accessibility. Several studies also integrate computational methods with traditional social science approaches, such as interviews and surveys, to analyze societal issues like migration, inequality, and democratic backsliding.",
-            "2025": "In 2025, research heavily focused on applying AI and natural language processing (NLP) to analyze public opinion, sentiment, and discourse across domains like politics, finance, health, and tourism. Many projects used large language models (LLMs) and BERT-based models for sentiment analysis, topic modeling, and text classification, often combined with social media or user-generated content. A recurring theme was the integration of AI with traditional social science methods (surveys, interviews, experiments) to study complex socio-technical systems, including bot influence, political discontent, and trust in institutions. Several theses also developed or applied novel econometric and statistical methods for handling AI-generated data, functional time series, and multi-perspective reasoning. Overall, the year was characterized by a strong emphasis on computational social science, with researchers leveraging advanced machine learning and large-scale text data to address societal challenges.",
-            "2026": "In 2026, research focused on applying advanced NLP, particularly large language models, to historical discourse analysis within an interdisciplinary framework combining computer science, history, economics, and management. One thesis leveraged LLMs and digitized press archives from Gallica to study narratives about corporate profit from 1907 to 1950, employing methods such as sentiment analysis, multimodal content analysis, and diachronic network mapping. It also integrated corporate accounting data from Equipex DFIH and annual reports to link discourse with firm-level behavior. Another major activity was the organization of the NLDB 2026 conference, which gathered researchers to discuss topics like large language models, bias, and transparency, though this is not a research project itself. Overall, the year’s research landscape is defined by the use of historical datasets and computationally intensive NLP methods to address societal questions."
+            "2003": "Research in 2003 focused on experimental condensed matter physics, particularly studying extreme states of matter through advanced imaging and high-pressure techniques. One thesis developed quantitative image-analysis algorithms to characterize superconductor properties, while another pursued ultrahigh-pressure experiments to induce phase transitions in hydrogen. Both projects relied on sophisticated experimental apparatus and measurement techniques to probe fundamental physics phenomena, with an emphasis on pushing technological boundaries to reach previously unattainable experimental conditions or data processing capabilities.",
+            "2004": "Research in 2004 focused on experimental condensed matter physics, specifically the study of mesoscopic metallic systems with submicron dimensions. The work explored quantum coherence effects and electrical transport properties in hybrid samples containing superconductors, ferromagnets, and normal metals. A key theme was testing theoretical predictions about superconducting correlations in ferromagnet-superconductor interfaces and understanding transport in highly disordered metals. The research emphasized hands-on graduate student training in nanofabrication and sample processing techniques derived from semiconductor industry practices.",
+            "2005": "This year's research focused on experimental condensed matter physics investigating quantum phase transitions in model systems. The work examined metal-insulator transitions in hydrogenated thin films and magnetic quantum critical points in elemental chromium. Research relied heavily on specialized experimental techniques and facilities to probe fundamental quantum phenomena at extreme conditions. The research program emphasized integration of research with educational training and outreach initiatives.",
+            "2007": "This year's research focused on nanoscale characterization and manipulation of individual dopants in semiconductor and superconductor materials using advanced scanning probe microscopy. The work aimed to understand how dopants transform insulating materials into conducting or magnetic systems through atomic-scale measurements and controlled manipulation. The research combined high-resolution spectroscopic techniques with nanoscale sample manipulation to probe single dopant electronic structure and dopant-dopant interactions. A key goal was understanding the mechanisms by which magnetic dopants induce ferromagnetism in semiconductors like GaAs, with potential applications in spintronics and room-temperature magnetic devices.",
+            "2008": "2008 research spanned three distinct experimental domains: ultrafast laser-based studies of organic superconductors under dynamic pressure, extreme high-pressure and high-temperature physics of hydrogen using pulsed laser heating, and nanofabrication techniques for single-electron devices and superconducting circuits. The theses collectively relied on specialized equipment and techniques for studying materials under extreme or transient conditions, including femtosecond lasers, high-pressure cells, and advanced planarization tools. A common thread was the investigation of superconducting and quantum phenomena in materials pushed beyond conventional equilibrium states.",
+            "2009": "2009 research centered on theoretical and experimental investigations of superconductivity and quantum phase transitions in novel materials and systems. Theses explored high-temperature cuprate superconductors, iron-based superconductors, strongly-correlated atomic gases, and superfluid helium transitions, seeking to understand unconventional pairing mechanisms and exotic quantum states. Research combined microscopic theoretical modeling with experimental probes including ARPES data analysis, Monte Carlo simulations, and novel low-temperature measurement techniques. The work aimed to develop fundamental understanding of correlated electron systems and quantum critical phenomena with potential applications to room-temperature superconductivity and energy efficiency.",
+            "2010": "Research in 2010 focused on understanding high-temperature superconductors and related quantum materials through experimental and computational approaches. Experimental work relied heavily on specialized instrumentation such as cryogenic nuclear magnetic resonance probes and infrared spectroscopy to characterize superconducting materials at low temperatures. Computational research employed first-principles electronic structure calculations, evolutionary algorithms for structure prediction, and theoretical methods like functional renormalization group approaches to model superconductivity mechanisms and predict novel materials. The research drew on ab initio calculations, experimental characterization of powder and single-crystal samples, and collaborative efforts between theory and experiment to elucidate the properties of iron-based oxypnictides, topological insulators, and hydrogen-rich materials under pressure.",
+            "2011": "2011 research focused on advancing superconductor science and engineering, spanning fundamental physics of metallic hydrogen and unconventional superconductors to applied engineering of superconducting machines. Research efforts required access to extreme experimental conditions including high-pressure equipment (up to 440 GPa), cryogenic temperatures (milliKelvin to tens of Kelvin range), and specialized magnetic measurement facilities. A significant portion of work involved characterizing material properties at cryogenic temperatures and optimizing magnetic circuit designs for practical superconducting device applications. The research depended heavily on advanced measurement techniques, theoretical predictions, and understanding of material behavior under extreme conditions.",
+            "2012": "Research in 2012 focused primarily on experimental and theoretical investigation of superconductivity, particularly heavy-fermion and iron-based superconductors, as well as unconventional quantum phase transitions. The work drew heavily on NMR and spectroscopic techniques, single-crystal growth and characterization methods, and computational simulations to understand carrier dynamics and material properties. A significant portion of research employed advanced magnetic field equipment, including superconducting magnets and field effect transistor geometries with ionic liquids. Theoretical work complemented experimental studies through computational modeling of quantum critical phenomena and disorder effects.",
+            "2013": "Research in 2013 focused on experimental condensed matter physics, specifically attempting to synthesize and characterize metallic hydrogen under extreme conditions. The work relied on high-pressure experimental techniques using diamond anvil cells combined with laser heating to reach pressures in the megabar range and temperatures of thousands of Kelvin. The research aimed to produce and verify phase transitions in hydrogen samples, with potential applications including room-temperature superconductivity and advanced propellant development. The project involved training of postdoctoral fellows, graduate students, and undergraduate students in experimental methods.",
+            "2014": "Research in 2014 focused on advancing cryogenic sensor systems and superconducting materials through novel hardware integration and material synthesis techniques. Both theses centered on pushing the boundaries of low-temperature physics applications, with one emphasizing system-level integration of superconducting sensors with ultra-low-power silicon electronics, and the other exploring interfacial superconductivity in thin films. The work required specialized equipment for materials growth and characterization, as well as expertise in cryogenic circuit design and superconducting device physics. Applications ranged from imaging systems to fundamental physics exploration, underscoring the practical importance of advancing cryogenic technology.",
+            "2015": "Research in 2015 focused on quantum technologies and hybrid quantum systems that bridge atomic and solid-state platforms. Both theses involved developing or studying quantum-enhanced devices and sensors that operate at ultra-low temperatures. The work drew heavily on cryogenic infrastructure, nanofabrication techniques, and coupling mechanisms between different quantum systems. Key applications included magnetic field sensing, quantum computing, and fundamental quantum physics experiments. The research depended on specialized cooling equipment, advanced material engineering, and theoretical modeling of quantum phenomena.",
+            "2016": "2016 research focused heavily on theoretical and experimental studies of unconventional superconductors, particularly cuprates, iron-based materials, and newly discovered chalcogenides. A significant portion of work involved materials discovery and characterization through advanced crystal growth techniques and spectroscopic probes. Research also explored topological states of matter and their potential connections to superconductivity. The year was marked by attempts to understand mechanisms underlying high-temperature superconductivity and to discover room-temperature superconductors through both theoretical modeling and materials engineering approaches.",
+            "2017": "2017 research focused on quantum materials and their exotic physical properties, with efforts divided between experimental synthesis and computational modeling. Experimental work centered on discovering and characterizing novel nitride-based compounds through materials synthesis and single crystal growth, while theoretical work applied advanced computational methods to understand driven quantum systems. Both research tracks aimed ultimately at room-temperature superconductivity and control of many-body quantum phenomena through external driving or material engineering.",
+            "2018": "Research in 2018 focused on advanced experimental and theoretical investigation of topological materials and novel magnetic phenomena for quantum information processing. One thesis pursued precision magneto-optic imaging and low-temperature characterization of chiral edge states in topological materials, while the other developed theoretical device concepts inspired by superfluidity in magnetic systems operating at room temperature. Both efforts aimed to enable robust, energy-efficient quantum computing and information processing by leveraging intrinsic physical properties of complex materials. The research combined cutting-edge experimental techniques with computational modeling and required sophisticated instrumentation and theoretical frameworks.",
+            "2020": "2020 research focused on experimental condensed matter physics, particularly quantum materials and their electronic properties. The work spanned superconductivity, topological insulators, and exotic quantum states in materials like graphene and bismuth. Research heavily relied on specialized instrumentation for low-temperature and high-pressure measurements, as well as advanced spectroscopic and imaging techniques. Theoretical predictions about topological protection, flat bands, and exotic pairing states guided experimental investigations into whether these phenomena could be observed and exploited.",
+            "2021": "2021 research focused heavily on superconductivity across multiple material systems and approaches, including theoretical modeling of strongly correlated electron systems, experimental synthesis of novel superconducting materials, and light-induced superconductivity. Studies ranged from understanding high-temperature superconductors through exactly solvable models and numerical calculations to developing new material platforms like ordered polyacetylene chains and metal-base transistors in III-N semiconductors. The research collectively aimed at either achieving room-temperature superconductivity or advancing fundamental understanding of superconducting mechanisms through pressure, doping, light excitation, and material engineering.",
+            "2022": "2022 research focused on exploring quantum phenomena and advanced materials, with particular emphasis on superconductivity across multiple contexts: metallic hydrogen under extreme conditions, exciton-mediated superconductivity in transition metal dichalcogenides, and macroscopic quantum systems like superfluids and superconductors. Research employed a mix of experimental techniques including ultra-high pressure diamond anvil cells, cryogenic systems, optical spectroscopy, and first-principles computational methods. A notable trend was the integration of machine learning with materials discovery and characterization. Studies spanned fundamental quantum mechanics (lattice operators, magnetic Laplacians) to applied device development, with room-temperature superconductivity as an implicit or explicit goal across multiple projects.",
+            "2023": "2023 research was dominated by investigations into room-temperature superconductivity, particularly following the summer 2023 reports of materials like LK-99 and lead-apatite based superconductors. Multiple theses employed solid-state synthesis, phase characterization via diffraction methods, and computational approaches to understand superconducting mechanisms and search for practical superconducting materials. Beyond superconductivity, research explored strongly correlated quantum materials, topological phases, and quantum computing platforms using both theoretical (field theory, density functional theory, Monte Carlo simulations) and experimental (spectroscopy, high-pressure techniques, cryogenic measurements) methods. The year reflects a broad effort to understand unconventional superconductivity, develop quantum technologies, and discover materials suitable for real-world applications.",
+            "2024": "The 2024 theses focused on understanding exotic quantum materials and their properties through complementary theoretical and experimental approaches. One thesis employed theoretical methods including holographic principles and random resistor network modeling to explain strange metal behavior in cuprate superconductors. The other thesis developed and applied advanced experimental techniques—specifically neutron diffraction at extreme pressures—to directly determine atomic structures in hydrogen-rich systems and superconductors. Both research directions aimed ultimately at discovering or understanding room-temperature superconductors with transformative technological applications."
         },
         "yearReqs": {
             "2003": [
                 {
-                    "name": "Spanish political protest and economic integration data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Text corpora for sentiment and document retrieval",
-                    "group": "Data"
-                },
-                {
-                    "name": "Graph-based algorithms for text processing",
+                    "name": "Ultrahigh-pressure diamond anvil cell techniques",
                     "group": "Methods"
                 },
                 {
-                    "name": "Statistical regression analysis",
+                    "name": "Optical reflectivity measurements",
                     "group": "Methods"
+                },
+                {
+                    "name": "Quantitative image-analysis algorithms",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Meissner effect measurements",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Training of post-doctoral associates in cutting-edge techniques",
+                    "group": "Human"
                 }
             ],
-            "2006": [
+            "2004": [
                 {
-                    "name": "Blogosphere data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Coalition discovery algorithms",
+                    "name": "Nanofabrication and submicron sample fabrication",
                     "group": "Methods"
                 },
                 {
-                    "name": "Large-scale data processing compute",
-                    "group": "Compute"
+                    "name": "Electrical transport measurement and characterization",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Graduate student training in experimental techniques",
+                    "group": "Human"
+                }
+            ],
+            "2005": [
+                {
+                    "name": "High-pressure diamond anvil cell",
+                    "group": "Tools"
+                },
+                {
+                    "name": "X-ray diffraction and scattering techniques",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Transport measurements",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Thin film samples (yttrium and lanthanum hydrides, chromium single crystals)",
+                    "group": "Data"
+                },
+                {
+                    "name": "Ph.D. student training across multiple experimental techniques and facilities",
+                    "group": "Human"
                 }
             ],
             "2007": [
                 {
-                    "name": "Archival and textual primary sources",
-                    "group": "Data"
-                },
-                {
-                    "name": "Internet and media text data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Qualitative research methods",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Statistical and computational analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Web scraping and NLP tools",
+                    "name": "Scanning Tunneling Microscope (STM)",
                     "group": "Tools"
                 },
                 {
-                    "name": "Data processing computational resources",
-                    "group": "Compute"
+                    "name": "STM Spectroscopic Techniques and Atom-by-Atom Substitution",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Nanoscale Electronic Structure and Magnetic Properties Data",
+                    "group": "Data"
+                },
+                {
+                    "name": "Training in Advanced Scanning Probe Microscopy",
+                    "group": "Human"
                 }
             ],
             "2008": [
                 {
-                    "name": "Subjectivity and sentiment lexicons",
-                    "group": "Data"
+                    "name": "Femtosecond laser systems",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Financial market data",
-                    "group": "Data"
+                    "name": "High-pressure apparatus and diamond anvil cells",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Online media and community data",
-                    "group": "Data"
+                    "name": "Chemical mechanical planarization (CMP) equipment",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Word sense disambiguation for subjectivity",
+                    "name": "Time-domain spectroscopy and ultrafast dynamics measurement",
                     "group": "Methods"
                 },
                 {
-                    "name": "Negation handling in opinion retrieval",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Temporal sentiment analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Parallel algorithms for correlation and clustering",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Machine learning for community and sentiment mining",
-                    "group": "Methods"
-                },
-                {
-                    "name": "High-performance computing clusters",
-                    "group": "Compute"
+                    "name": "Multidisciplinary team research",
+                    "group": "Human"
                 }
             ],
             "2009": [
                 {
-                    "name": "Online text corpora (blogs, news, reviews)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Subjectivity and sentiment lexicons",
-                    "group": "Data"
-                },
-                {
-                    "name": "Machine learning for sentiment classification",
+                    "name": "Monte Carlo calculations",
                     "group": "Methods"
                 },
                 {
-                    "name": "Statistical and symbolic NLP",
+                    "name": "ARPES data analysis and inversion",
                     "group": "Methods"
                 },
                 {
-                    "name": "Cloud computing infrastructure",
-                    "group": "Compute"
+                    "name": "Low-temperature experimental techniques",
+                    "group": "Methods"
                 },
                 {
-                    "name": "Manual annotation of linguistic data",
-                    "group": "Human"
+                    "name": "Nanomaterial fabrication and characterization",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Optical and laser techniques",
+                    "group": "Methods"
                 }
             ],
             "2010": [
                 {
-                    "name": "News and blog text corpora",
-                    "group": "Data"
+                    "name": "Ab initio electronic structure calculations",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Survey and census demographic data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Historical archival records",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis / opinion mining",
+                    "name": "Cryogenic nuclear magnetic resonance (NMR) spectroscopy",
                     "group": "Methods"
                 },
                 {
-                    "name": "Natural language and statistical analysis for trend detection",
+                    "name": "Infrared spectroscopy",
                     "group": "Methods"
                 },
                 {
-                    "name": "Cloud computing infrastructure",
+                    "name": "Evolutionary algorithm for structure prediction",
+                    "group": "Tools"
+                },
+                {
+                    "name": "High-field NMR instrumentation",
                     "group": "Compute"
                 },
                 {
-                    "name": "Corpus analysis software",
-                    "group": "Tools"
+                    "name": "Well-characterized single crystal and powder samples",
+                    "group": "Data"
+                },
+                {
+                    "name": "Theoretical many-body methods for strongly correlated systems",
+                    "group": "Methods"
                 }
             ],
             "2011": [
                 {
-                    "name": "Sentiment analysis and opinion mining",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Mixed methods research design",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Online text and social media content",
-                    "group": "Data"
-                },
-                {
-                    "name": "Semantic role labeling and text analysis tools",
+                    "name": "High-pressure compression equipment",
                     "group": "Tools"
                 },
                 {
-                    "name": "Manual content coding and survey administration",
-                    "group": "Human"
+                    "name": "Cryogenic measurement systems",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Statistical modeling and classification compute",
-                    "group": "Compute"
+                    "name": "Magnetic field measurement and generation equipment",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Transport property measurements",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Magnetic material properties at cryogenic temperatures",
+                    "group": "Data"
+                },
+                {
+                    "name": "High-pressure and strain application techniques",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Specialized research personnel training",
+                    "group": "Human"
                 }
             ],
             "2012": [
                 {
-                    "name": "Social media text datasets",
-                    "group": "Data"
+                    "name": "NMR spectroscopy",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Lexical resources (WordNet, FrameNet, PropBank, VerbNet)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Large-scale annotated corpora for NLP",
-                    "group": "Data"
-                },
-                {
-                    "name": "Multilingual text resources for sentiment and named entity recognition",
-                    "group": "Data"
-                },
-                {
-                    "name": "Unsupervised or weakly-supervised machine learning for grammar and semantics",
+                    "name": "Single crystal growth and characterization",
                     "group": "Methods"
                 },
                 {
-                    "name": "Sentiment analysis and opinion influence modeling",
+                    "name": "High magnetic field equipment",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Electrostatic doping via ionic liquid field effect transistors",
                     "group": "Methods"
                 },
                 {
-                    "name": "High-performance computing infrastructure for large-scale text processing",
+                    "name": "Computational simulation and analytical techniques",
                     "group": "Compute"
                 },
                 {
-                    "name": "Expert annotation and gold standard creation for semantic roles and frames",
-                    "group": "Human"
-                },
-                {
-                    "name": "API-based data collection and visualization tools for social media",
-                    "group": "Tools"
+                    "name": "X-ray scattering and transport measurements",
+                    "group": "Methods"
                 }
             ],
             "2013": [
                 {
-                    "name": "Social media and web text data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Google Trends and search data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis and opinion mining",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Machine learning and natural language processing",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Multilingual text analysis platforms and lexical resources",
+                    "name": "Diamond anvil cells",
                     "group": "Tools"
                 },
                 {
-                    "name": "Large-scale data processing infrastructure",
-                    "group": "Compute"
+                    "name": "Pulsed laser heating",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Optical measurement techniques",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Multi-level research team",
+                    "group": "Human"
                 }
             ],
             "2014": [
                 {
-                    "name": "Social media text data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Natural language processing (NLP) for sentiment analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Machine learning and statistical modeling tools",
+                    "name": "Molecular Beam Epitaxy (MBE) system",
                     "group": "Tools"
                 },
                 {
-                    "name": "Distributed computing (Hadoop and MapReduce)",
-                    "group": "Compute"
-                },
-                {
-                    "name": "User-generated content from web platforms",
-                    "group": "Data"
-                },
-                {
-                    "name": "Automated text summarization and topic modeling",
+                    "name": "Cryogenic circuit design and integration",
                     "group": "Methods"
+                },
+                {
+                    "name": "Low-noise superconducting device characterization",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Cryogenic sensor systems and focal plane arrays",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Specialized expertise in low-temperature physics and cryogenic electronics",
+                    "group": "Human"
                 }
             ],
             "2015": [
                 {
-                    "name": "News articles",
-                    "group": "Data"
-                },
-                {
-                    "name": "Social media data (Twitter, Facebook, StockTwits, blogs)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis / opinion mining",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Natural language processing (NLP)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Machine learning / deep learning",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Textual analysis / sentiment lexicon tools",
+                    "name": "Dilution refrigeration systems (cryogen-free)",
                     "group": "Tools"
                 },
                 {
-                    "name": "Large-scale data processing infrastructure",
-                    "group": "Compute"
+                    "name": "Nanofabrication and material engineering",
+                    "group": "Methods"
                 },
                 {
-                    "name": "Human annotation / evaluation (crowdsourcing, expert review)",
+                    "name": "Atom chip coupling and surface engineering",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Quantum state control and measurement",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Industrial-academic collaboration",
                     "group": "Human"
                 }
             ],
             "2016": [
                 {
-                    "name": "Large-scale text corpora from social media and news",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis and opinion mining",
+                    "name": "Thin film growth and synthesis",
                     "group": "Methods"
                 },
                 {
-                    "name": "Natural language processing (NLP) and text mining",
+                    "name": "Angle-resolved photoelectron spectroscopy (ARPES)",
                     "group": "Methods"
                 },
                 {
-                    "name": "Machine learning and deep learning",
+                    "name": "Theoretical modeling and many-body theory",
                     "group": "Methods"
                 },
                 {
-                    "name": "Statistical and econometric modeling",
+                    "name": "Light scattering and Raman spectroscopy",
                     "group": "Methods"
                 },
                 {
-                    "name": "Visualization and data presentation tools",
+                    "name": "Synchrotron-based experimental facilities",
                     "group": "Tools"
+                },
+                {
+                    "name": "Experimental collaboration and sample characterization",
+                    "group": "Human"
                 }
             ],
             "2017": [
                 {
-                    "name": "Social media text data (Twitter, Facebook, etc.)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Financial news and reports",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis",
+                    "name": "Materials synthesis and single crystal growth",
                     "group": "Methods"
                 },
                 {
-                    "name": "Natural language processing (NLP)",
+                    "name": "Physical properties measurement",
                     "group": "Methods"
                 },
                 {
-                    "name": "Machine learning (including deep learning)",
+                    "name": "Tensor network and variational Monte Carlo computation",
                     "group": "Methods"
                 },
                 {
-                    "name": "Social network analysis (SNA)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Bayesian modeling",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Agent-based modeling",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Pre-trained language models (e.g., BERT)",
+                    "name": "Software package for tensor network methods",
                     "group": "Tools"
                 },
                 {
-                    "name": "GPU compute for model training",
-                    "group": "Compute"
-                },
-                {
-                    "name": "Manual annotation of text data",
-                    "group": "Human"
+                    "name": "THz frequency spectroscopy and mode-selective driving",
+                    "group": "Methods"
                 }
             ],
             "2018": [
                 {
-                    "name": "Social media text data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Topic modeling (Latent Dirichlet Allocation)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Deep neural networks",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Python NLP libraries",
+                    "name": "Magneto-optic imaging apparatus (mK-Sagnac interferometer-microscope)",
                     "group": "Tools"
                 },
                 {
-                    "name": "GPU compute for deep learning",
-                    "group": "Compute"
-                },
-                {
-                    "name": "Manual annotation for sentiment and topics",
-                    "group": "Human"
-                }
-            ],
-            "2019": [
-                {
-                    "name": "Sentiment and Emotion Analysis",
+                    "name": "Low-temperature transport and magnetometry measurements",
                     "group": "Methods"
                 },
                 {
-                    "name": "Topic Modeling",
+                    "name": "Magnetic device modeling and simulation",
                     "group": "Methods"
-                },
-                {
-                    "name": "Deep Learning (including LSTM, Transformers, CNNs)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Social Media Data (Twitter, Facebook, etc.)",
-                    "group": "Data"
-                },
-                {
-                    "name": "News Article Corpora",
-                    "group": "Data"
-                },
-                {
-                    "name": "Python and NLP Libraries (e.g., NLTK, spaCy, scikit-learn)",
-                    "group": "Tools"
-                },
-                {
-                    "name": "GPU Computing for Deep Learning",
-                    "group": "Compute"
-                },
-                {
-                    "name": "Expert Annotation for Text Classification",
-                    "group": "Human"
                 }
             ],
             "2020": [
                 {
-                    "name": "Social media data (Twitter, Facebook, Reddit)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Textual corpora (archival descriptions, novels, legal cases, news)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Topic modeling",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Deep learning (neural networks, transformers)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Natural Language Processing (NLP) libraries and APIs",
+                    "name": "Dilution refrigerators and cryogenic measurement systems",
                     "group": "Tools"
                 },
                 {
-                    "name": "GPU compute for training deep learning models",
-                    "group": "Compute"
+                    "name": "High-pressure apparatus and diamond anvil cells",
+                    "group": "Tools"
                 },
                 {
-                    "name": "Manual annotation and labeling of text data",
+                    "name": "Spectroscopic and microscopic measurement techniques",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Superconducting circuits and proximity effect devices",
+                    "group": "Tools"
+                },
+                {
+                    "name": "2D material fabrication and characterization",
+                    "group": "Tools"
+                },
+                {
+                    "name": "X-ray diffraction and structural analysis",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Materials collaboration and synthesis",
                     "group": "Human"
                 }
             ],
             "2021": [
                 {
-                    "name": "Social media text data",
-                    "group": "Data"
-                },
-                {
-                    "name": "News article corpus",
-                    "group": "Data"
-                },
-                {
-                    "name": "Sentiment analysis",
+                    "name": "Theoretical modeling and exactly solvable models",
                     "group": "Methods"
                 },
                 {
-                    "name": "Deep learning for NLP and computer vision",
+                    "name": "Numerical simulations and phase diagram calculations",
                     "group": "Methods"
                 },
                 {
-                    "name": "GPU compute for deep learning training",
+                    "name": "Molecular beam epitaxy (MBE) synthesis",
+                    "group": "Methods"
+                },
+                {
+                    "name": "In-situ photochemical synthesis in host crystals",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Optical-pump terahertz-probe spectroscopy",
+                    "group": "Methods"
+                },
+                {
+                    "name": "High-resolution structural characterization",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Electrical transport and conductivity measurements",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Transmission electron microscopy (TEM)",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Computational materials modeling",
                     "group": "Compute"
                 },
                 {
-                    "name": "Qualitative interviews and surveys",
+                    "name": "Graduate student training and mentorship",
                     "group": "Human"
                 }
             ],
             "2022": [
                 {
-                    "name": "Sentiment Analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Machine Learning / Deep Learning Models",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Public and Proprietary Datasets",
-                    "group": "Data"
-                },
-                {
-                    "name": "GPU / High-Performance Computing",
-                    "group": "Compute"
-                },
-                {
-                    "name": "Human Annotation / Expert Validation",
-                    "group": "Human"
-                },
-                {
-                    "name": "NLP Libraries and Frameworks",
+                    "name": "Diamond anvil cell (DAC) equipment",
                     "group": "Tools"
+                },
+                {
+                    "name": "Synchrotron X-ray diffraction facilities",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Cryogenic measurement systems and optical cryostats",
+                    "group": "Tools"
+                },
+                {
+                    "name": "First-principles computational calculations",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Machine learning for materials discovery",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Materials databases (Materials Project)",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Optical spectroscopy and reflectance measurements",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Single NV center diamond magnetometry",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Transport and thermal measurements in confined geometries",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Thermochemical synthesis for nanoparticles",
+                    "group": "Methods"
                 }
             ],
             "2023": [
                 {
-                    "name": "Social Media Text Data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Natural Language Processing (NLP) Techniques",
+                    "name": "In situ and ex situ diffraction characterization",
                     "group": "Methods"
                 },
                 {
-                    "name": "Machine Learning for Efficiency and Reduced Supervision",
+                    "name": "High-pressure techniques",
                     "group": "Methods"
                 },
                 {
-                    "name": "Large Language Models (LLMs)",
-                    "group": "Data"
+                    "name": "Spectroscopic characterization",
+                    "group": "Methods"
                 },
                 {
-                    "name": "User-generated Content and Reviews",
-                    "group": "Data"
+                    "name": "Density Functional Theory (DFT) calculations",
+                    "group": "Compute"
+                },
+                {
+                    "name": "Numerical simulation methods for correlated systems",
+                    "group": "Compute"
+                },
+                {
+                    "name": "Physical Property Measurement System (PPMS)",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Solid-state synthesis and sample preparation",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Cryogenic measurement and characterization",
+                    "group": "Methods"
+                },
+                {
+                    "name": "Quantum field theory and analytical methods",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Crystal structure prediction methods",
+                    "group": "Tools"
+                },
+                {
+                    "name": "Ion irradiation and neutron damage studies",
+                    "group": "Methods"
                 }
             ],
             "2024": [
                 {
-                    "name": "Sentiment analysis / emotion detection",
+                    "name": "Holographic principles and quantum transport theory",
                     "group": "Methods"
                 },
                 {
-                    "name": "Large Language Models (LLMs) / transformer-based NLP",
+                    "name": "Random resistor network modeling",
                     "group": "Methods"
                 },
                 {
-                    "name": "Machine learning frameworks and libraries",
-                    "group": "Tools"
-                },
-                {
-                    "name": "Social media and online text data",
-                    "group": "Data"
-                },
-                {
-                    "name": "GPU compute for model training and inference",
-                    "group": "Compute"
-                },
-                {
-                    "name": "Text mining and NLP libraries (e.g., NLTK, spaCy, Gensim)",
-                    "group": "Tools"
-                },
-                {
-                    "name": "Qualitative methods (interviews, focus groups, discourse analysis)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Manual annotation / labeling of data",
-                    "group": "Human"
-                },
-                {
-                    "name": "Financial and economic datasets",
-                    "group": "Data"
-                },
-                {
-                    "name": "Statistical and econometric analysis",
-                    "group": "Methods"
-                }
-            ],
-            "2025": [
-                {
-                    "name": "Natural Language Processing (NLP) for sentiment analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Large Language Models (LLMs) for text generation and analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Topic modeling",
-                    "group": "Methods"
-                },
-                {
-                    "name": "BERT-based models (e.g., FinBERT, EconBERT)",
-                    "group": "Tools"
-                },
-                {
-                    "name": "Social media data (Twitter, Facebook, Instagram, Tripadvisor)",
-                    "group": "Data"
-                },
-                {
-                    "name": "Mixed-methods (qualitative and quantitative)",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Causal inference and quasi-experimental designs",
-                    "group": "Methods"
-                },
-                {
-                    "name": "GPU compute for training deep learning models",
-                    "group": "Compute"
-                },
-                {
-                    "name": "Machine learning for prediction and trend detection",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Financial and economic datasets (e.g., hedge fund letters, proxy voting records, options data)",
-                    "group": "Data"
-                }
-            ],
-            "2026": [
-                {
-                    "name": "Digitized historical press archives",
-                    "group": "Data"
-                },
-                {
-                    "name": "Corporate accounting and annual report data",
-                    "group": "Data"
-                },
-                {
-                    "name": "Large Language Model tailored for historical discourse",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Multimodal content analysis and diachronic network mapping",
-                    "group": "Methods"
-                },
-                {
-                    "name": "Sentiment analysis",
-                    "group": "Methods"
-                },
-                {
-                    "name": "User-friendly visualization tools",
+                    "name": "Neutron diffraction instrumentation at megabar pressures",
                     "group": "Tools"
                 }
             ]

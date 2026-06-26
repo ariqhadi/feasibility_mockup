@@ -498,26 +498,36 @@ class Component extends DCLogic {
     const sel=this.state.feasSel[slot];
 
     const pm=this.phdMsc(f);
+    // Real per-level first-appearance years straight from the corpus (build_field_data.py
+    // -> feas{grant,phd,ma}). No lag is modelled: a level with no match is simply omitted,
+    // and the dots fall wherever the data puts them \u2014 even out of grant->PhD->MSc order.
+    const clampYr=(yr)=>Math.max(Y0,Math.min(Y1,yr));
     const marks=f.lifelines.methods.map(l=>{
-      const g=Math.max(Y0,Math.min(Y1,Math.round(l.s)));
-      const lagP=Math.max(0,Math.min(3,Math.round((l.s-2003)/6)));
-      const p=Math.min(Y1,g+lagP);
-      const lagM=Math.max(1,Math.min(3,Math.round((l.s-2003)/8)+1));
-      const ms=Math.min(Y1,p+lagM);
-      const gx=v.x(g), gy=v.y(f.volume.grant[g-Y0]);
-      const px=v.x(p), py=v.y(pm.phd[p-Y0]);
-      const mx=v.x(ms), my=v.y(pm.msc[ms-Y0]);
-      const dot=(cx,cy,bg)=>({position:'absolute',left:(cx-5)+'px',top:(cy-5)+'px',width:'10px',height:'10px',borderRadius:'50%',background:bg,border:'2px solid #fff',boxShadow:'0 1px 2px rgba(0,0,0,.3)',pointerEvents:'none'});
-      return { label:l.label, color:l.color, grantYr:g, phdYr:p, mscYr:ms, lagP, lagM, gx, gy, px, py, mx, my,
-        gtitle:l.label+' \u2014 first funded \u2019'+String(g).slice(2),
-        ptitle:l.label+' \u2014 first PhD \u2019'+String(p).slice(2),
-        mtitle:l.label+' \u2014 first MSc \u2019'+String(ms).slice(2),
-        vline:{position:'absolute',left:gx+'px',top:v.mT+'px',height:v.plotH+'px',width:'0',borderLeft:'1.5px dashed '+l.color,opacity:.28,pointerEvents:'none'},
+      const fe=l.feas||{};
+      const g=(typeof fe.grant==='number')?clampYr(fe.grant):null;
+      const p=(typeof fe.phd==='number')?clampYr(fe.phd):null;
+      const ms=(typeof fe.ma==='number')?clampYr(fe.ma):null;
+      const gx=g!=null?v.x(g):null, gy=g!=null?v.y(f.volume.grant[g-Y0]):null;
+      const px=p!=null?v.x(p):null, py=p!=null?v.y(pm.phd[p-Y0]):null;
+      const mx=ms!=null?v.x(ms):null, my=ms!=null?v.y(pm.msc[ms-Y0]):null;
+      const dot=(cx,cy,bg)=> (cx==null) ? {display:'none'} : ({position:'absolute',left:(cx-5)+'px',top:(cy-5)+'px',width:'10px',height:'10px',borderRadius:'50%',background:bg,border:'2px solid #fff',boxShadow:'0 1px 2px rgba(0,0,0,.3)',pointerEvents:'none'});
+      const anchorX = gx!=null?gx:(px!=null?px:mx);
+      return { label:l.label, color:l.color, grantYr:g, phdYr:p, mscYr:ms, gx, gy, px, py, mx, my,
+        gtitle:g!=null?(l.label+' \u2014 first funded \u2019'+String(g).slice(2)):'',
+        ptitle:p!=null?(l.label+' \u2014 first PhD \u2019'+String(p).slice(2)):'',
+        mtitle:ms!=null?(l.label+' \u2014 first MSc \u2019'+String(ms).slice(2)):'',
+        vline:(anchorX==null)?{display:'none'}:{position:'absolute',left:anchorX+'px',top:v.mT+'px',height:v.plotH+'px',width:'0',borderLeft:'1.5px dashed '+l.color,opacity:.28,pointerEvents:'none'},
         grantDot:dot(gx,gy,'#cf6a3e'), phdDot:dot(px,py,'#3f6ea5'), mscDot:dot(mx,my,'#5b8a72')
       };
     });
     let cs='';
-    marks.forEach(m=>{ cs+='<path d="M '+m.gx.toFixed(1)+' '+m.gy.toFixed(1)+' L '+m.px.toFixed(1)+' '+m.py.toFixed(1)+' L '+m.mx.toFixed(1)+' '+m.my.toFixed(1)+'" fill="none" stroke="#b1a690" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.55"/>'; });
+    marks.forEach(m=>{
+      // connect only the dots that actually exist, in chronological order
+      const pts=[[m.gx,m.gy],[m.px,m.py],[m.mx,m.my]].filter(pt=>pt[0]!=null).sort((a,b)=>a[0]-b[0]);
+      if(pts.length<2) return;
+      const d='M '+pts.map(pt=>pt[0].toFixed(1)+' '+pt[1].toFixed(1)).join(' L ');
+      cs+='<path d="'+d+'" fill="none" stroke="#b1a690" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.55"/>';
+    });
     const connEl=React.createElement('div',{dangerouslySetInnerHTML:{__html:'<svg viewBox="0 0 '+v.W+' '+v.H+'" width="'+v.W+'" height="'+v.H+'" style="display:block;max-width:100%">'+cs+'</svg>'}});
     const connWrap={position:'absolute',left:'0',top:'0',width:v.W+'px',maxWidth:'100%',height:v.H+'px',pointerEvents:'none'};
 
@@ -528,22 +538,35 @@ class Component extends DCLogic {
     let selLine={display:'none'};
     if (sel) selLine={position:'absolute',left:v.x(sel)+'px',top:v.mT+'px',height:v.plotH+'px',width:'0',borderLeft:'1.5px solid #2a2622',opacity:.5,pointerEvents:'none'};
 
-    const sorted=[...marks].sort((a,b)=>a.grantYr-b.grantYr);
-    const two=(yr)=>"\u2019"+String(yr).slice(2);
+    const firstYr=(m)=>Math.min.apply(null,[m.grantYr,m.phdYr,m.mscYr].filter(y=>y!=null));
+    const sorted=[...marks].sort((a,b)=>firstYr(a)-firstYr(b));
+    const two=(yr)=>"’"+String(yr).slice(2);
     const bullets=sorted.map(m=>{
-      const text = (m.grantYr===m.phdYr && m.phdYr===m.mscYr)
-        ? ('a settled tool — funded and attempted at PhD and MSc level together around '+two(m.grantYr)+'.')
-        : ('funded in grants from '+two(m.grantYr)+', reached PhD theses by '+two(m.phdYr)+', and MSc theses by '+two(m.mscYr)+' — the frontier descending into routine.');
+      // describe only the levels that actually have a first appearance in the corpus,
+      // in the order the data puts them — no assumed grant->PhD->MSc descent.
+      const parts=[];
+      if(m.grantYr!=null) parts.push({k:'funded in grants',y:m.grantYr});
+      if(m.phdYr!=null)   parts.push({k:'PhD theses',y:m.phdYr});
+      if(m.mscYr!=null)   parts.push({k:'MSc theses',y:m.mscYr});
+      parts.sort((a,b)=>a.y-b.y);
+      let text;
+      if(parts.length===0){
+        text='no dated appearance in the corpus.';
+      } else if(parts.length===1){
+        text='only seen in '+parts[0].k+', from '+two(parts[0].y)+'.';
+      } else {
+        text='first '+parts.map(p=>p.k+' '+two(p.y)).join(', then ')+'.';
+      }
       return { label:m.label, text, dot:{width:'10px',height:'10px',borderRadius:'50%',background:m.color,display:'inline-block',flex:'none',marginTop:'4px'} };
     });
-    const summary='A method is usually funded first, attempted in PhD theses next, and only later in MSc theses — the field\u2019s frontier of \u201chard\u201d descending into routine coursework.';
+    const summary='Each line marks the first year a method actually appears in the corpus at grant, PhD and MSc level — measured from the documents themselves, not modelled. Order varies by method.';
     let hasSel=false, selNote='';
     if (sel) {
       hasSel=true;
-      const nf=marks.filter(m=>m.grantYr<=sel).length;
-      const np=marks.filter(m=>m.phdYr<=sel).length;
-      const nm=marks.filter(m=>m.mscYr<=sel).length;
-      selNote='By '+sel+': '+nf+' funded \u00b7 '+np+' in PhD theses \u00b7 '+nm+' in MSc theses.';
+      const nf=marks.filter(m=>m.grantYr!=null && m.grantYr<=sel).length;
+      const np=marks.filter(m=>m.phdYr!=null && m.phdYr<=sel).length;
+      const nm=marks.filter(m=>m.mscYr!=null && m.mscYr<=sel).length;
+      selNote='By '+sel+': '+nf+' funded · '+np+' in PhD theses · '+nm+' in MSc theses.';
     }
 
     return { label:f.label, volEl:v.el, connEl, connWrap, chartWrap, colsWrap, cells, marks, selLine, summary, bullets, hasSel, selNote };
