@@ -126,7 +126,7 @@ KEYWORD_METHODS = [
     ("TF-IDF", "tf-idf"),
 ]
 
-_MAX_METHODS = 7
+_MAX_METHODS = 10
 
 
 def keyword_extract(text: str) -> List[str]:
@@ -152,7 +152,7 @@ def llm_extract(text: str) -> List[str]:
     llm = get_model()
     if llm is None:
         raise RuntimeError("get_model() returned None (check reusable_parts/config.json)")
-    resp = llm.invoke(EXTRACT_PROMPT.format(abstract=text[:2000]))
+    resp = llm.invoke(EXTRACT_PROMPT.format(abstract=text))
     content = getattr(resp, "content", resp)
     match = re.search(r"\[[\s\S]*\]", content)
     if not match:
@@ -166,12 +166,12 @@ def llm_extract(text: str) -> List[str]:
 
 def extract_methods(text: str, use_llm: bool = True) -> tuple[List[str], str]:
     """Return (methods, how) where how is 'llm' or 'keyword'."""
-    if use_llm:
-        try:
-            return llm_extract(text), "llm"
-        except Exception as exc:  # noqa: BLE001 - any failure -> graceful fallback
-            sys.stderr.write(f"[feasibility] LLM extraction unavailable ({exc}); using keywords.\n")
-    return keyword_extract(text), "keyword"
+    # if use_llm:
+    #     try:
+    return llm_extract(text), "llm"
+    #     except Exception as exc:  # noqa: BLE001 - any failure -> graceful fallback
+    #         sys.stderr.write(f"[feasibility] LLM extraction unavailable ({exc}); using keywords.\n")
+    # return keyword_extract(text), "keyword"
 
 
 # --------------------------------------------------------------------------- #

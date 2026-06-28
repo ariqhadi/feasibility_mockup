@@ -1,5 +1,7 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_openai import ChatOpenAI
+from langchain_openrouter import ChatOpenRouter
+
 from langchain_core.tools import Tool 
 import os, json
 
@@ -13,19 +15,25 @@ load_dotenv()
 def get_model():
     # Load LLM model based on configuration file
     
-    config = get_config()
-    model_name = config.get("model")
-    temperature = config.get("temperature", 0)
+    return ChatOpenRouter(
+    model = os.getenv("OPENROUTER_MODEL_NAME", "anthropic/claude-haiku-4.5"),
+    temperature = 0.8,
+    openrouter_api_key=os.getenv("OPENROUTER_API_KEY")
+    )
     
-    if "gemini" in model_name:
-        return ChatGoogleGenerativeAI(model=model_name,
-                                      google_api_key=os.getenv("GOOGLE_API_KEY"))
-    elif "gpt" in model_name:
-        return ChatOpenAI(
-            temperature=temperature,  # Set the temperature for the model's responses
-            model_name=model_name,  # Specify the model name
-            openai_api_key=os.getenv("OPENAI_API_KEY")
-        )
+    # config = get_config()
+    # model_name = config.get("model")
+    # temperature = config.get("temperature", 0)
+    
+    # if "gemini" in model_name:
+    #     return ChatGoogleGenerativeAI(model=model_name,
+    #                                   google_api_key=os.getenv("GOOGLE_API_KEY"))
+    # elif "gpt" in model_name:
+    #     return ChatOpenAI(
+    #         temperature=temperature,  # Set the temperature for the model's responses
+    #         model_name=model_name,  # Specify the model name
+    #         openai_api_key=os.getenv("OPENAI_API_KEY")
+    #     )
 
 def get_config():
     # Read configuration file
