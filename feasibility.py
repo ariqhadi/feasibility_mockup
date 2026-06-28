@@ -166,12 +166,12 @@ def llm_extract(text: str) -> List[str]:
 
 def extract_methods(text: str, use_llm: bool = True) -> tuple[List[str], str]:
     """Return (methods, how) where how is 'llm' or 'keyword'."""
-    # if use_llm:
-    #     try:
-    return llm_extract(text), "llm"
-    #     except Exception as exc:  # noqa: BLE001 - any failure -> graceful fallback
-    #         sys.stderr.write(f"[feasibility] LLM extraction unavailable ({exc}); using keywords.\n")
-    # return keyword_extract(text), "keyword"
+    if use_llm:
+        try:
+            return llm_extract(text), "llm"
+        except Exception as exc:  # noqa: BLE001 - any failure -> graceful fallback
+            sys.stderr.write(f"[feasibility] LLM extraction unavailable ({exc}); using keywords.\n")
+    return keyword_extract(text), "keyword"
 
 
 # --------------------------------------------------------------------------- #

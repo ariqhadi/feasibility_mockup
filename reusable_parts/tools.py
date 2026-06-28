@@ -1,12 +1,13 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_openai import ChatOpenAI
-from langchain_openrouter import ChatOpenRouter
-
-from langchain_core.tools import Tool 
 import os, json
 
+from langchain_core.tools import Tool
 from dotenv import load_dotenv
 load_dotenv()
+
+# Heavy LLM provider SDKs are imported lazily inside the functions that use them.
+# Top-level imports here would pull langchain_google_genai + langchain_openai
+# into every cold start (and toward Vercel's 250 MB function limit), even though
+# the live feasibility path only ever instantiates ChatOpenRouter.
 
 ###############################
 ## CONFIGURATION FUNCTIONS
@@ -14,7 +15,8 @@ load_dotenv()
 
 def get_model():
     # Load LLM model based on configuration file
-    
+    from langchain_openrouter import ChatOpenRouter
+
     return ChatOpenRouter(
     model = os.getenv("OPENROUTER_MODEL_NAME", "anthropic/claude-haiku-4.5"),
     temperature = 0.8,

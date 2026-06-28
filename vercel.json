@@ -3,5 +3,15 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "framework": null,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "server.py": {
+      "runtime": "python3.11",
+      "includeFiles": "reusable_parts/**",
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    { "src": "/analyze", "dest": "server.py" }
+  ]
 }
