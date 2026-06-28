@@ -1,8 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "functions": {
-    "server.py": {
-      "maxDuration": 60
+    "api/index.py": {
+      "maxDuration": 60,
+      "includeFiles": "{feasibility.py,reusable_parts/**}"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/analyze", "destination": "/api/index" }
+  ]
 }
