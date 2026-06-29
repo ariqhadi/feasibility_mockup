@@ -241,7 +241,7 @@
             </sc-if>
 
             <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ true }}">
-              <div style="margin-top:20px;border:1.5px dashed #d8d0c0;border-radius:8px;padding:38px;text-align:center;color:#9a8f80;font:400 14px/1.5 'Source Serif 4',serif">Paste an abstract, pick a year and subfield, then test feasibility. The methods are pulled out and each one's origin year looked up — if anything postdates your year, the abstract is anachronistic.</div>
+              <div style="margin-top:20px;border:1.5px dashed #d8d0c0;border-radius:8px;padding:38px;text-align:center;color:#9a8f80;font:400 14px/1.5 'Source Serif 4',serif">Paste an abstract, pick a year and subfield, then test feasibility. The work's dependencies are pulled out and each one's availability window checked against your year — if anything was not yet invented, or had already closed, the abstract is infeasible.</div>
             </sc-if>
 
             <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ false }}">
@@ -252,7 +252,7 @@
                 </div>
 
                 <div style="font:600 16px/1.2 'Source Serif 4',serif;color:#2a2622;margin-top:20px">{{ chartHeading }}</div>
-                <div style="font:400 12.5px/1.45 'Source Serif 4',serif;color:#6b645b;margin-top:4px">Bands mark each detected method's origin year against {{ mFieldLabel }}'s adoption curves. The ★ is your abstract ({{ inYear }}). Hover the plot for yearly counts.</div>
+                <div style="font:400 12.5px/1.45 'Source Serif 4',serif;color:#6b645b;margin-top:4px">Bands mark each detected dependency's availability window against {{ mFieldLabel }}'s adoption curves. A band that starts after the ★ was not yet invented; one that ends before it had already closed. The ★ is your abstract ({{ inYear }}). Hover the plot for yearly counts.</div>
                 <div style="display:flex;gap:16px;margin-top:8px;font:500 11px/1 'IBM Plex Mono',monospace;color:#6b645b">
                   <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:3px;background:#3f6ea5;display:inline-block;border-radius:2px"></span>PhD theses</span>
                   <span style="display:flex;align-items:center;gap:6px"><span style="width:16px;height:3px;background:#5b8a72;display:inline-block;border-radius:2px"></span>MSc theses</span>
@@ -263,6 +263,7 @@
                   <div>{{ modalChartEl }}</div>
                   <sc-for list="{{ originItems }}" as="o" hint-placeholder-count="5">
                     <div style="{{ o.bandStyle }}"></div>
+                    <div style="{{ o.closeBandStyle }}"></div>
                     <div style="{{ o.flagStyle }}"><span style="{{ o.flagDot }}"></span>{{ o.short }} · {{ o.yearLabel }}</div>
                   </sc-for>
                   <div style="{{ inputStarStyle }}">★<div style="font:600 10px/1.2 'IBM Plex Mono',monospace;margin-top:2px">Input {{ inYear }}</div></div>
@@ -273,19 +274,35 @@
                 </div>
 
                 <div style="margin-top:18px;padding-top:18px;border-top:1px solid #eee7da">
-                  <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;margin-bottom:12px">Detected methods · {{ methodCount }}</div>
+                  <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#7a7165;margin-bottom:12px">Detected dependencies · {{ methodCount }}</div>
                   <div style="display:flex;flex-direction:column;gap:9px">
                     <sc-for list="{{ methodList }}" as="m" hint-placeholder-count="5">
-                      <div style="display:flex;align-items:center;gap:12px;background:#f8f5ee;border-radius:6px;padding:11px 14px;flex-wrap:wrap">
-                        <span style="{{ m.dot }}"></span>
-                        <span style="font:600 14px/1.2 'Space Grotesk',sans-serif;color:#2a2622">{{ m.name }}</span>
-                        <span style="font:500 12px/1 'IBM Plex Mono',monospace;color:#8a8276">origin {{ m.yearLabel }}</span>
-                        <span style="font:400 11px/1 'IBM Plex Mono',monospace;color:#b0a899">{{ m.source }}</span>
-                        
+                      <div style="{{ m.rowStyle }}">
+                        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:100%">
+                          <span style="{{ m.dot }}"></span>
+                          <span style="font:600 14px/1.3 'Space Grotesk',sans-serif;color:#2a2622">{{ m.name }}</span>
+                          <span style="font:500 12px/1 'IBM Plex Mono',monospace;color:#8a8276">{{ m.windowLabel }}</span>
+                          <a href="{{ m.source }}" target="_blank" rel="noopener" style="font:400 11px/1 'IBM Plex Mono',monospace;color:#b0a899;text-decoration:none">{{ m.sourceShort }}</a>
+                          <span style="{{ m.badgeStyle }}">{{ m.badge }}</span>
+                        </div>
+                        <sc-if value="{{ m.hasReason }}" hint-placeholder-val="{{ false }}">
+                          <div style="font:400 12px/1.45 'Source Serif 4',serif;color:#9c4326;margin-top:6px;width:100%;text-wrap:pretty">{{ m.reason }}</div>
+                        </sc-if>
                       </div>
                     </sc-for>
                   </div>
                 </div>
+
+                <sc-if value="{{ hasUndated }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:16px;padding-top:14px;border-top:1px dashed #e3ddd1">
+                    <div style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#a99f8e;margin-bottom:9px">Could not date · {{ undatedCount }}</div>
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                      <sc-for list="{{ undatedList }}" as="u" hint-placeholder-count="3">
+                        <div style="font:400 12px/1.5 'Source Serif 4',serif;color:#8a8276;text-wrap:pretty"><b style="font-family:'Space Grotesk',sans-serif;color:#6b645b">{{ u.name }}</b> — {{ u.reason }}</div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
               </div>
             </sc-if>
           </div>
@@ -305,7 +322,10 @@ class Component extends DCLogic {
     feasSel: { a: null, b: null },
     showModal: false, modalFull: false,
     abstract: '', inYear: 2018, mField: null,
-    status: 'idle', methods: [], err: '', modalHover: null
+    status: 'idle', methods: [], err: '', modalHover: null,
+    // Backend-owned verdict fields (feasibility.py). The render layer reads
+    // these instead of recomputing feasibility from origin years.
+    serverInfeasible: false, serverVerdict: '', extraction: '', undated: []
   };
 
   componentDidMount() {
@@ -620,14 +640,21 @@ class Component extends DCLogic {
   }
 
   // ---------- analyze (delegates to the Python backend) ----------
-  // Method extraction + origin-year lookup + verdict now live in feasibility.py,
-  // served by server.py at POST /analyze. Edit the logic there, not here.
+  // Dependency extraction + availability-window lookup + verdict all live in
+  // feasibility.py, served by server.py at POST /analyze. The frontend no
+  // longer recomputes the verdict — it renders what the backend returns.
+  // Each method is shaped:
+  //   { name, origin, source, infeasible, available_until, closure_type,
+  //     dependency_type, reason }
+  // and the top level carries { infeasible, verdict, extraction }. Methods the
+  // backend could not date are dropped from `methods` and noted in `verdict`;
+  // we parse those out into a separate "could not date" list below.
   // Run:  python server.py   then open http://localhost:8000/
   async runAnalyze() {
     if (this.state.status==='loading') return;
     const text=(this.state.abstract||'').trim();
     if (text.length<20) { this.setState({status:'idle',err:'Paste an abstract (at least a sentence or two) first.'}); return; }
-    this.setState({status:'loading',err:'',methods:[]});
+    this.setState({status:'loading',err:'',methods:[],serverInfeasible:false,serverVerdict:'',extraction:'',undated:[]});
     try {
       const res=await fetch('/analyze',{
         method:'POST',
@@ -636,13 +663,43 @@ class Component extends DCLogic {
       });
       const j=await res.json();
       if(!res.ok){ this.setState({status:'idle',err:j.error||('Analysis failed ('+res.status+').')}); return; }
-      // backend returns methods already sorted by origin, shaped {name,origin,source}
-      this.setState({status:'done',methods:j.methods||[],err:''});
+      this.setState({
+        status:'done',
+        methods:Array.isArray(j.methods)?j.methods:[],
+        serverInfeasible:!!j.infeasible,
+        serverVerdict:j.verdict||'',
+        extraction:j.extraction||'',
+        undated:this.parseUndated(j.verdict||''),
+        err:''
+      });
     } catch(e){
       this.setState({status:'idle',err:'Could not reach the feasibility backend. Start it with \u201cpython server.py\u201d, then open the page at http://localhost:8000/.'});
     }
   }
-  setExample(ab, yr) { this.setState({abstract:ab, inYear:yr, status:'idle', methods:[], err:''}); }
+
+  // The backend folds undated dependencies into the verdict string as a
+  // trailing "(Could not date N: Name (reason); Name (reason); ...)" clause.
+  // Pull them out so they can be listed instead of silently dropped.
+  parseUndated(verdict) {
+    const m=verdict && verdict.match(/Could not date\s+\d+:\s*(.+?)\)\s*$/);
+    if(!m) return [];
+    const body=m[1].trim();
+    // split on "); " — each item is "Name (reason"
+    const parts=body.split(/\);\s*/);
+    return parts.map(p=>{
+      const mm=p.match(/^(.*?)\s*\((.*)$/);
+      if(mm) return { name:mm[1].trim(), reason:mm[2].replace(/\)\s*$/,'').trim() };
+      return { name:p.trim(), reason:'' };
+    }).filter(u=>u.name);
+  }
+
+  setExample(ab, yr) { this.setState({abstract:ab, inYear:yr, status:'idle', methods:[], err:'', serverInfeasible:false, serverVerdict:'', extraction:'', undated:[]}); }
+
+  sourceHost(url) {
+    if(!url) return '';
+    const m=String(url).match(/^https?:\/\/([^\/]+)/i);
+    return m ? m[1].replace(/^www\./,'') : String(url).slice(0,28);
+  }
 
   // ---------- render ----------
   renderVals() {
@@ -704,7 +761,7 @@ class Component extends DCLogic {
     out.mField=st.mField || st.fa;
     out.mFieldLabel=(st.fields && out.mField && st.fields[out.mField]) ? st.fields[out.mField].label : '';
     out.fieldOptions=(st.order && st.fields) ? st.order.map(k=>({value:k,label:st.fields[k].label})) : [];
-    out.onMField=(e)=>this.setState({mField:e.target.value, status:'idle', methods:[], modalHover:null});
+    out.onMField=(e)=>this.setState({mField:e.target.value, status:'idle', methods:[], modalHover:null, serverInfeasible:false, serverVerdict:'', undated:[]});
 
     out.abstract=st.abstract; out.inYear=st.inYear;
     out.onAbstract=(e)=>this.setState({abstract:e.target.value});
@@ -720,9 +777,14 @@ class Component extends DCLogic {
 
     out.hasError=!!st.err; out.errorMsg=st.err;
     out.isLoading=st.status==='loading';
-    out.loadingMsg='Extracting methods, then looking up each origin year via Semantic Scholar\u2026';
+    out.loadingMsg='Extracting dependencies, then checking each availability window via Semantic Scholar\u2026';
     out.isIdle=st.status==='idle' && !st.err && st.methods.length===0;
     out.hasResults=st.status==='done' && st.methods.length>0;
+
+    // undated list (shown whether or not dated methods exist, as long as we have a result)
+    out.hasUndated=(st.status==='done') && Array.isArray(st.undated) && st.undated.length>0;
+    out.undatedCount=out.hasUndated?st.undated.length:0;
+    out.undatedList=out.hasUndated?st.undated.map(u=>({name:u.name,reason:u.reason||'no availability window found.'})):[];
 
     if (out.hasResults) {
       const palette=['#c0563b','#3f6ea5','#5b8a72','#8a5fb0','#c9a14a','#3f8a9a','#7a5aa0'];
@@ -730,18 +792,32 @@ class Component extends DCLogic {
       const methods=st.methods;
       const mc=this.buildModalChart(out.mField);
       out.modalChartEl=mc.el;
-      out.chartHeading=mc.f ? (mc.f.label+' — distribution & method adoption') : 'Method adoption timeline';
+      out.chartHeading=mc.f ? (mc.f.label+' — distribution & dependency windows') : 'Dependency availability timeline';
       out.modalChartWrap={position:'relative',width:mc.W+'px',maxWidth:'100%',height:mc.H+'px',margin:'12px auto 0'};
       const clamp=(yr)=>Math.max(mc.Y0,Math.min(mc.Y1,yr));
+
       out.originItems=methods.map((m,i)=>{
         const col=palette[i%palette.length];
         const lx=mc.x(clamp(m.origin)); const row=i%4;
+        // Origin band: when the dependency became available.
+        const band={position:'absolute',left:(lx-3)+'px',top:mc.mT+'px',width:'6px',height:mc.plotH+'px',background:col,opacity:.32,borderRadius:'2px'};
+        // Closure band: if it has an availability_until year inside the plot,
+        // draw a second hatched marker so a window that closed reads visually.
+        let closeBand={display:'none'};
+        if(typeof m.available_until==='number'){
+          const ux=mc.x(clamp(m.available_until));
+          closeBand={position:'absolute',left:(ux-3)+'px',top:mc.mT+'px',width:'6px',height:mc.plotH+'px',background:'repeating-linear-gradient(135deg,'+col+' 0 3px,rgba(255,255,255,0) 3px 6px)',opacity:.6,borderRadius:'2px'};
+        }
+        const yearLabel = (typeof m.available_until==='number')
+          ? ((m.origin<mc.Y0?('\u2039'+m.origin):String(m.origin))+'\u2013'+m.available_until)
+          : (m.origin<mc.Y0?('\u2039'+m.origin):String(m.origin));
         return {
           short:(m.name.length>16?m.name.slice(0,15)+'\u2026':m.name),
-          yearLabel:(m.origin<mc.Y0?('\u2039'+m.origin):String(m.origin)),
-          bandStyle:{position:'absolute',left:(lx-3)+'px',top:mc.mT+'px',width:'6px',height:mc.plotH+'px',background:col,opacity:.32,borderRadius:'2px'},
-          flagStyle:{position:'absolute',left:(lx+6)+'px',top:(mc.mT+8+row*17)+'px',display:'flex',alignItems:'center',gap:'5px',font:"600 10px/1 'IBM Plex Mono',monospace",color:col,background:'rgba(255,255,255,.88)',padding:'2px 5px',borderRadius:'3px',whiteSpace:'nowrap',pointerEvents:'none'},
-          flagDot:{width:'7px',height:'7px',borderRadius:'50%',background:col,display:'inline-block'}
+          yearLabel,
+          bandStyle:band,
+          closeBandStyle:closeBand,
+          flagStyle:{position:'absolute',left:(lx+6)+'px',top:(mc.mT+8+row*17)+'px',display:'flex',alignItems:'center',gap:'5px',font:"600 10px/1 'IBM Plex Mono',monospace",color:m.infeasible?'#9c4326':col,background:'rgba(255,255,255,.88)',padding:'2px 5px',borderRadius:'3px',whiteSpace:'nowrap',pointerEvents:'none'},
+          flagDot:{width:'7px',height:'7px',borderRadius:'50%',background:m.infeasible?'#9c4326':col,display:'inline-block'}
         };
       });
       out.inputStarStyle={position:'absolute',left:mc.x(clamp(inY))+'px',top:(mc.mT+mc.plotH-2)+'px',transform:'translateX(-50%)',textAlign:'center',color:'#2a2622',font:"700 22px/1 'Space Grotesk',sans-serif",pointerEvents:'none'};
@@ -759,21 +835,55 @@ class Component extends DCLogic {
         out.modalTipStyle={display:'none'}; out.modalTipText='';
       }
 
-      // verdict
-      const future=methods.filter(m=>m.origin>inY);
-      const feasible=future.length===0;
-      out.verdictTitle=feasible?('Plausible for '+inY):('Anachronistic for '+inY);
+      // verdict — owned by the backend; do not recompute from origin years.
+      // The backend appends trailing parentheticals — "(Merged N facet(s)…)"
+      // and "(Could not date N: …)" — to the verdict string. Those are surfaced
+      // separately (undated list below), so strip every trailing "(...)" clause
+      // and keep only the headline sentence.
+      const feasible=!st.serverInfeasible;
+      out.verdictTitle=feasible?('Feasible for '+inY):('Infeasible for '+inY);
       out.verdictStyle=feasible
         ? {background:'#edf5ef',border:'1px solid #cfe5d6',borderRadius:'8px',padding:'14px 16px',color:'#2f6b46'}
         : {background:'#faf0ec',border:'1px solid #f0d8cf',borderRadius:'8px',padding:'14px 16px',color:'#9c4326'};
-      out.verdictText=feasible
-        ? ('Every method detected already existed by '+inY+'. The work could plausibly have been carried out that year — its requirements were all available.')
-        : ('These methods did not exist yet in '+inY+': '+future.map(m=>m.name+' ('+m.origin+')').join(', ')+'. As written, the abstract could not have been produced that year.');
+      const headline=(st.serverVerdict||'').replace(/\s*\([^]*$/,'').trim();
+      out.verdictText=headline || (feasible
+        ? ('Every dependency detected was available in '+inY+'. The work could plausibly have been carried out that year.')
+        : ('At least one dependency was unavailable in '+inY+' — either not yet invented, or already closed off.'));
 
       out.methodList=methods.map((m,i)=>{
         const col=palette[i%palette.length]; const age=inY-m.origin;
-        let badge,bg; if(m.origin>inY){badge='not yet invented';bg='#9c4326';} else if(m.origin>=inY-3){badge='emerging';bg='#b8553a';} else if(age>=20){badge='foundational';bg='#5b6470';} else if(age>=8){badge='established';bg='#4f7a6b';} else {badge='maturing';bg='#3f6ea5';}
-        return {name:m.name,yearLabel:(m.origin<mc.Y0?('pre-2003 ('+m.origin+')'):String(m.origin)),source:m.source,dot:{width:'12px',height:'12px',borderRadius:'50%',background:col,display:'inline-block',flex:'none'},badge:badge,badgeStyle:{marginLeft:'auto',font:"600 10px/1 'IBM Plex Mono',monospace",color:'#fff',background:bg,padding:'4px 8px',borderRadius:'3px'}};
+        // Badge keyed off the backend's feasibility flags, not origin alone.
+        let badge,bg;
+        if(m.infeasible){
+          badge=m.closure_type?String(m.closure_type).replace(/_/g,' '):'unavailable';
+          bg='#9c4326';
+        } else if(m.origin>inY){
+          badge='not yet invented'; bg='#9c4326';
+        } else if(m.origin>=inY-3){
+          badge='emerging'; bg='#b8553a';
+        } else if(age>=20){
+          badge='foundational'; bg='#5b6470';
+        } else if(age>=8){
+          badge='established'; bg='#4f7a6b';
+        } else {
+          badge='maturing'; bg='#3f6ea5';
+        }
+        const originLabel=(m.origin<mc.Y0?('pre-2003 ('+m.origin+')'):String(m.origin));
+        const windowLabel=(typeof m.available_until==='number')
+          ? ('available '+originLabel+'\u2013'+m.available_until)
+          : ('origin '+originLabel);
+        return {
+          name:m.name,
+          windowLabel,
+          source:m.source||'#',
+          sourceShort:this.sourceHost(m.source),
+          dot:{width:'12px',height:'12px',borderRadius:'50%',background:m.infeasible?'#9c4326':col,display:'inline-block',flex:'none'},
+          badge:badge,
+          badgeStyle:{marginLeft:'auto',font:"600 10px/1 'IBM Plex Mono',monospace",color:'#fff',background:bg,padding:'4px 8px',borderRadius:'3px',whiteSpace:'nowrap'},
+          hasReason:!!m.reason,
+          reason:m.reason||'',
+          rowStyle:{display:'flex',flexDirection:'column',background:m.infeasible?'#faf2ee':'#f8f5ee',border:m.infeasible?'1px solid #f0d8cf':'1px solid transparent',borderRadius:'6px',padding:'11px 14px'}
+        };
       });
       out.methodCount=methods.length;
     } else {

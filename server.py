@@ -45,11 +45,11 @@ def analyze():
 
     # Defaults match the CLI: try LLM + live API, fall back gracefully. The page
     # can override per request (e.g. {"use_api": false} for instant offline runs).
-    use_llm = bool(body.get("use_llm", True))
-    use_api = bool(body.get("use_api", True))
+    # use_llm = bool(body.get("use_llm", True))
+    # use_api = bool(body.get("use_api", True))
 
     try:
-        result = feasibility.analyze(abstract, year, use_llm=use_llm, use_api=use_api)
+        result = feasibility.analyze(abstract, year)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400
     except Exception as exc:  # noqa: BLE001 - never 500 silently; surface to the UI
